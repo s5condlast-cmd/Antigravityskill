@@ -1,5 +1,5 @@
 ---
-name: Antigravityskill
+name: antigravityskill
 description: "Simple, step-by-step engineering framework for /debug (root-cause bug fixes and clean code) and /push (safe Git commits and sync). Built with strict anti-hallucination checklists."
 ---
 
