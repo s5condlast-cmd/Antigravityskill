@@ -19,7 +19,7 @@ Follow these step-by-step rules whenever a slash command or intent is triggered:
   * **Step 3**: Write a clear conventional commit message (`feat(...)`, `fix(...)`).
   * **Step 4**: Push to the active remote branch and share the sync link.
 
-* **`/install` (or UI Design Toolchain Setup)**:
-  * **Step 1**: Inform the user that UI design is powered by dedicated design extensions.
-  * **Step 2**: Trigger/run the installation of `npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, and `npm install agentation`.
+* **`/install` (or UI Design Toolchain Setup - 1-Time Setup)**:
+  * **Step 1**: Check if design extensions are already present. If so, skip setup.
+  * **Step 2**: Inform the user and trigger 1-time installation of `npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, and `npm install agentation`.
   * **Step 3**: Follow installed design skills to generate elegant UI components.

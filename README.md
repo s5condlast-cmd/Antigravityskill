@@ -70,9 +70,9 @@ This automatically sets up the skill in your current project (`.gemini/skills/an
 * **Push feature branches safely**:
   > *"/push push this new auth module to origin"*
 
-### 3. The `/install` Command (Dedicated UI Toolchain Setup)
+### 3. The `/install` Command (One-Time UI Toolchain Setup)
 
-* When you enter `/install` or ask to install the UI design toolchain, Antigravity triggers the installation of the specialized external design suite:
+* When you enter `/install` or ask to install the UI design toolchain (this is a **1-time setup** per project), Antigravity triggers the installation of the specialized external design suite:
 
   ```bash
   npx impeccable install
@@ -80,7 +80,7 @@ This automatically sets up the skill in your current project (`.gemini/skills/an
   npm install agentation
   ```
 
-* Once installed, Antigravity leverages taste-driven components and modern design tokens for your frontend.
+* Once installed, Antigravity leverages taste-driven components and modern design tokens for your frontend without requiring reinstallations.
 
 ---
 
@@ -168,9 +168,9 @@ To ensure Antigravity remembers this invariant and avoids this issue in future s
 
 ---
 
-### 🎨 Install External UI / Design Suite (`/install`)
+### 🎨 Install External UI / Design Suite (`/install`) [1-Time Setup]
 
-> 💡 **Tip**: Run `/install` (or allow Antigravity to run it automatically) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
+> 💡 **Tip**: If you haven't yet, run `/install` (one-time setup) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
 ```
 
 ### ⚡ The "Rule of Three" Circuit Breaker & `/debug` Reminder

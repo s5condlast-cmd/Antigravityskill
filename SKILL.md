@@ -132,12 +132,12 @@ Step 1: Secrets & Status Audit ──> Step 2: Stage Files ──> Step 3: Conve
 
 ---
 
-## 📦 SECTION 3: The `/install` Protocol & Design Toolchain Setup
+## 📦 SECTION 3: The `/install` Protocol (One-Time Design Toolchain Setup)
 
-When the user enters `/install` or requests installation of the external design and taste skill toolchain:
+When the user enters `/install` or requests installation of the external design and taste skill toolchain (this is a **1-time setup per project**):
 
-1. **Inform the user** that bespoke UI/UX design is powered by specialized external design skills.
-2. **Execute the installation** of the required design toolchain packages upon user trigger:
+1. **Check if already installed**: If `agentation` and design skills are already configured in the workspace, skip re-installation and inform the user.
+2. **Execute the 1-time installation** upon user request:
 
    ```bash
    npx impeccable install
@@ -145,7 +145,7 @@ When the user enters `/install` or requests installation of the external design 
    npm install agentation
    ```
 
-3. **Confirm Toolchain Readiness**: Once installed, inform the user that taste-driven frontend components and design tokens are ready.
+3. **Confirm Toolchain Readiness**: Once installed, taste-driven frontend styling is permanently active for the project.
 
 ---
 
@@ -171,9 +171,9 @@ To make sure Antigravity remembers this fix and avoids this issue in future sess
 
 ---
 
-### 🎨 Install External UI / Design Suite (`/install`)
+### 🎨 Install External UI / Design Suite (`/install`) [1-Time Setup]
 
-> 💡 **Tip**: Run `/install` (or allow Antigravity to run it automatically) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
+> 💡 **Tip**: If you haven't yet, run `/install` (one-time setup) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
 ```
 
 ---
