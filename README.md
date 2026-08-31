@@ -103,8 +103,9 @@ All reference manuals are organized inside the `references/` folder:
 | :--- | :--- |
 | **[references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md)** | Fast & safe Git delivery: pre-flight secrets audit, conventional commit standard, and atomic push commands. |
 | **[references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)** | Type-safe `Result<T, E>` types, type guards, boundary parsers, and anti-hallucination helpers. |
-| **[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)** | Catalog of top 10 recurring AI anti-patterns and surgical fixes. |
+| **[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)** | Catalog of recurring AI anti-patterns, frontend secrets protection, and surgical fixes. |
 | **[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md)** | Fast terminal cheat sheet for `tsc`, `mypy`, `pytest`, `go vet`, `cargo check`, `phpstan`, and `pest`/`phpunit`. |
+| **[references/UI_TOOLCHAIN.md](references/UI_TOOLCHAIN.md)** | Integration guide and code recipes for `<Agentation />`, taste-skill tokens, and impeccable design systems. |
 
 ---
 
@@ -127,7 +128,8 @@ Antigravityskill/
 │   ├── PUSH_PROTOCOL.md                   # Fast & safe Git delivery protocol
 │   ├── DEBUG_UTILITIES.md                 # Type guards & Result types
 │   ├── COMMON_BUG_PATTERNS.md             # Common AI bug patterns & fixes
-│   └── CLI_CHEAT_SHEET.md                 # Diagnostic CLI cheat sheet
+│   ├── CLI_CHEAT_SHEET.md                 # Diagnostic CLI cheat sheet
+│   └── UI_TOOLCHAIN.md                    # Agentation, taste-skill & impeccable recipes
 ├── SKILL.md                               # Master skill definition & trigger matrix
 ├── GEMINI.md                              # Always-on Antigravity workspace rules bridge
 ├── AGENTS.md                              # Multi-agent standard instructions bridge

@@ -150,12 +150,13 @@ When the user enters `/install` or requests installation of the external design 
 2. **Execute the 1-time installation** upon user request:
 
    ```bash
-   npx impeccable install
-   npx skills add Leonxlnx/taste-skill
+   npx -y impeccable install
+   npx -y skills add Leonxlnx/taste-skill
    npm install agentation
    ```
 
-3. **Confirm Toolchain Readiness**: Once installed, taste-driven frontend styling is permanently active for the project.
+3. **Provide Integration Code**: Reference [references/UI_TOOLCHAIN.md](references/UI_TOOLCHAIN.md) for `<Agentation />` layout mounting in Next.js/React and high-taste component recipes (`<Button variant="glass" />`, `<Card />`).
+4. **Confirm Toolchain Readiness**: Once installed, taste-driven frontend styling and visual DOM inspection are permanently active for the project.
 
 ---
 
