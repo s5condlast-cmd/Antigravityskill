@@ -37,20 +37,23 @@ function installUniversal() {
   const items = ['SKILL.md', 'README.md', 'GEMINI.md', 'AGENTS.md', 'LICENSE', 'commands', 'project-profile', 'references'];
 
   try {
-    // 1. Install to current workspace
-    const workspaceSkillDir = path.join(process.cwd(), '.gemini', 'skills', 'antigravityskill');
-    const workspaceCommandsDir = path.join(process.cwd(), '.gemini', 'commands');
-    
-    if (!fs.existsSync(workspaceSkillDir)) fs.mkdirSync(workspaceSkillDir, { recursive: true });
-    items.forEach((item) => {
-      const src = path.join(ROOT_DIR, item);
-      if (fs.existsSync(src)) copyRecursive(src, path.join(workspaceSkillDir, item));
-    });
-    const srcCommandsDir = path.join(ROOT_DIR, 'commands');
-    if (fs.existsSync(srcCommandsDir)) {
-      copyRecursive(srcCommandsDir, workspaceCommandsDir);
+    // 1. Install to current workspace (if not running inside the source repo itself)
+    const isSourceRepo = path.resolve(process.cwd()) === ROOT_DIR;
+    if (!isSourceRepo) {
+      const workspaceSkillDir = path.join(process.cwd(), '.gemini', 'skills', 'antigravityskill');
+      const workspaceCommandsDir = path.join(process.cwd(), '.gemini', 'commands');
+      
+      if (!fs.existsSync(workspaceSkillDir)) fs.mkdirSync(workspaceSkillDir, { recursive: true });
+      items.forEach((item) => {
+        const src = path.join(ROOT_DIR, item);
+        if (fs.existsSync(src)) copyRecursive(src, path.join(workspaceSkillDir, item));
+      });
+      const srcCommandsDir = path.join(ROOT_DIR, 'commands');
+      if (fs.existsSync(srcCommandsDir)) {
+        copyRecursive(srcCommandsDir, workspaceCommandsDir);
+      }
+      console.log('\x1b[32m✔ Installed to workspace: .gemini/skills/antigravityskill\x1b[0m');
     }
-    console.log('\x1b[32m✔ Installed to workspace: .gemini/skills/antigravityskill\x1b[0m');
 
     // 2. Install globally
     const globalSkillDir = path.join(os.homedir(), '.gemini', 'antigravity', 'skills', 'antigravityskill');
