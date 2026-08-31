@@ -57,6 +57,8 @@ jobs:
             const requiredFiles = [
               "README.md",
               "SKILL.md",
+              "GEMINI.md",
+              "AGENTS.md",
               "project-profile/PROJECT_PROFILE.md",
               "references/PUSH_PROTOCOL.md",
               "references/TYPOGRAPHY_AND_FONTS_GUIDE.md",

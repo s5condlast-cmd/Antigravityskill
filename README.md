@@ -137,6 +137,8 @@ Antigravityskill/
 │   ├── COMMON_BUG_PATTERNS.md             # Common AI bug patterns & fixes
 │   └── CLI_CHEAT_SHEET.md                 # Diagnostic CLI cheat sheet
 ├── SKILL.md                               # Master /debug, /design & /push skill definition
+├── GEMINI.md                              # Always-on Antigravity workspace rules bridge
+├── AGENTS.md                              # Multi-agent standard instructions bridge
 ├── README.md                              # Comprehensive documentation
 ├── LICENSE                                # MIT License
 └── .gitignore                             # Ignored files (.env, node_modules)
