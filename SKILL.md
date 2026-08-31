@@ -89,6 +89,12 @@ When designing user interfaces, creating component libraries, or styling landing
 * **Intelligent Enhancement**: Audit existing colors for WCAG AA compliance ($\ge 4.5:1$ contrast) and dark mode pairs. If contrast is low or dark mode is missing, recommend and inject harmonious accessible companion tokens.
 * **Universal Drop-In Migration**: Ensure components use standard CSS variables and non-destructive `cn(...)` class merging so they drop into any web framework (Next.js, Vite, Astro, Remix, Vue, Svelte, or plain HTML) with **0 breaking changes**.
 
+### 🚫 The Anti-AI-Slop Design Invariant
+
+* **NO Generic Tacky Gradients**: Ban giant purple/cyan radial blur blobs and rainbow borders. Use crisp neutral darks (`#09090b`) with intentional single-hue accents.
+* **NO Marketing Buzzword Fluff**: Ban fake stock testimonials ("Alex R., Staff Architect") and empty buzzwords. Build **real functional product UI** (Spotlight `⌘K` bars, live deployment tables, macOS code previews).
+* **High Data Density**: Use authentic monospace IDs (`dep_994a`), tabular numerals, pulsing operational status dots, and hairline borders (`border-white/[0.08]`).
+
 *(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)**, **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)**, and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
 
 ---

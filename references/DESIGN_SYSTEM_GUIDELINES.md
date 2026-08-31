@@ -1,6 +1,27 @@
 # 🎨 Design System & UI/UX Engineering Guidelines
 
-This manual defines the design system tokens, component architecture, responsive grid rules, and accessibility standards for the **`/design`** slash skill.
+This manual defines the design system tokens, component architecture, responsive grid rules, and elite craftsmanship standards for the **`/design`** slash skill.
+
+---
+
+## 🚫 0. The Anti-AI-Slop Design Manifesto
+
+Most AI-generated UI looks like generic "AI slop": tacky neon radial blur circles, buzzword marketing copy, fake testimonials with stock headshots, and low-density floating cards. 
+
+**`/design` strictly prohibits AI tropes.** All generated interfaces must meet the standard of world-class design engineering (Linear, Stripe, Apple, Vercel, Raycast).
+
+```text
+┌──────────────────────────────────────────────┬──────────────────────────────────────────────┐
+│       ❌ REJECTED (GENERIC AI SLOP)          │         ✅ ENFORCED (ELITE CRAFTSMANSHIP)    │
+├──────────────────────────────────────────────┼──────────────────────────────────────────────┤
+│ • Giant purple/cyan radial blur backgrounds  │ • Crisp neutral darks (#09090b) with 1 accent│
+│ • Empty buzzwords ("Unleash Next-Gen AI")    │ • Realistic product copy and dense metadata  │
+│ • Fake stock photo testimonials ("Alex R.")  │ • Real interactive widgets & product preview │
+│ • Low-density cards floating in empty voids  │ • High data density (tabular-nums, mono IDs) │
+│ • Tacky neon drop shadows & rainbow borders  │ • Hairline borders (border-white/[0.08])     │
+│ • Static dummy mockups that don't do anything│ • Real keyboard navigation (⌘K, Escape, Tab) │
+└──────────────────────────────────────────────┴──────────────────────────────────────────────┘
+```
 
 ---
 

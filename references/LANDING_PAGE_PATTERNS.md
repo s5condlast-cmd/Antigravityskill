@@ -1,703 +1,509 @@
-# 🎨 Pre-Existing Landing Page & UI Component Patterns
+# 🎨 Elite SaaS & Product Interface Patterns
 
-Production-ready, accessible, mobile-first component patterns and pre-existing code snippets that can be dropped into **any landing page or frontend application**.
-
----
-
-## 1. 🌟 High-Conversion Hero Section
-
-A responsive hero section with a social proof badge, dual CTA buttons, and responsive typography.
-
-```tsx
-import React from "react";
-
-interface HeroProps {
-  badgeText?: string;
-  headline: string;
-  subheadline: string;
-  primaryCtaText: string;
-  primaryCtaLink: string;
-  secondaryCtaText?: string;
-  secondaryCtaLink?: string;
-}
-
-export function HeroSection({
-  badgeText = "✨ Now Live: Version 2.0 with Zero-Defect AI",
-  headline,
-  subheadline,
-  primaryCtaText,
-  primaryCtaLink,
-  secondaryCtaText,
-  secondaryCtaLink,
-}: HeroProps) {
-  return (
-    <section className="relative overflow-hidden py-20 md:py-32 px-4 sm:px-6 lg:px-8 text-center bg-gradient-to-b from-slate-900 via-slate-950 to-black text-white">
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
-        {/* Social Proof / Release Badge */}
-        {badgeText && (
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-slate-800/80 border border-slate-700 text-cyan-400 mb-8 backdrop-blur-sm shadow-inner hover:border-cyan-500/50 transition-colors">
-            <span>{badgeText}</span>
-          </div>
-        )}
-
-        {/* Headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
-          {headline}
-        </h1>
-
-        {/* Subheadline */}
-        <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed">
-          {subheadline}
-        </p>
-
-        {/* Dual CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center">
-          <a
-            href={primaryCtaLink}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-white bg-cyan-500 hover:bg-cyan-400 active:scale-[0.98] shadow-lg shadow-cyan-500/25 transition-all duration-200"
-          >
-            {primaryCtaText}
-          </a>
-          {secondaryCtaText && secondaryCtaLink && (
-            <a
-              href={secondaryCtaLink}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-slate-300 bg-slate-800/60 hover:bg-slate-800 hover:text-white border border-slate-700 active:scale-[0.98] transition-all duration-200"
-            >
-              {secondaryCtaText}
-            </a>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-```
+Production-ready, accessible, high-density React + Tailwind component patterns. Built to the standards of **Linear, Stripe, Apple, Vercel, and Raycast**—with **zero AI slop, zero generic marketing fluff, and zero fake stock testimonials**.
 
 ---
 
-## 2. 🧭 Glassmorphic Responsive Navbar with Mobile Drawer
+## 📑 Pattern Catalog
+
+1. [Spotlight Command Palette (`⌘K`)](#1-spotlight-command-palette-k)
+2. [High-Density Deployment & Activity Table](#2-high-density-deployment--activity-table)
+3. [Interactive Code Terminal & Diff Preview](#3-interactive-code-terminal--diff-preview)
+4. [Craft-Grade Hero with Live Product Preview](#4-craft-grade-hero-with-live-product-preview)
+5. [High-Taste Modular Bento Grid](#5-high-taste-modular-bento-grid)
+6. [Interactive Pricing Comparison Matrix](#6-interactive-pricing-comparison-matrix)
+7. [Subdued Minimalist Footer](#7-subdued-minimalist-footer)
+
+---
+
+## 1. 🔍 Spotlight Command Palette (`⌘K`)
+
+A functional, keyboard-accessible command bar (Raycast / Linear style) with group filtering, recent items, and shortcut hints.
 
 ```tsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import { Search, Terminal, GitBranch, Bug, Sparkles, ArrowRight, CornerDownLeft } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-interface NavLink {
-  label: string;
-  href: string;
+interface CommandItem {
+  id: string;
+  title: string;
+  category: 'Commands' | 'Navigation' | 'Actions';
+  shortcut?: string;
+  icon: React.ReactNode;
 }
 
-const NAV_LINKS: NavLink[] = [
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Docs", href: "#docs" },
+const COMMANDS: CommandItem[] = [
+  { id: '1', title: '/debug: Run 5-Phase Diagnostic Scan', category: 'Commands', shortcut: '⌘D', icon: <Bug className="h-4 w-4 text-emerald-400" /> },
+  { id: '2', title: '/design: Ingest Brand Tokens', category: 'Commands', shortcut: '⌘G', icon: <Sparkles className="h-4 w-4 text-sky-400" /> },
+  { id: '3', title: '/push: Stage & Atomic Sync', category: 'Commands', shortcut: '⌘P', icon: <GitBranch className="h-4 w-4 text-amber-400" /> },
+  { id: '4', title: 'Open Diagnostics Console', category: 'Navigation', shortcut: 'G D', icon: <Terminal className="h-4 w-4 text-zinc-400" /> },
 ];
 
-export function ResponsiveNavbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+export function CommandPalette({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const [query, setQuery] = useState('');
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const filtered = COMMANDS.filter((cmd) => cmd.title.toLowerCase().includes(query.toLowerCase()));
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    function handleKeyDown(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        // toggle logic handled by parent
+      }
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setSelectedIndex((prev) => (prev + 1) % (filtered.length || 1));
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setSelectedIndex((prev) => (prev - 1 + filtered.length) % (filtered.length || 1));
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [filtered.length, onClose]);
+
+  if (!isOpen) return null;
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-slate-950/80 backdrop-blur-md border-b border-slate-800 shadow-md py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-2 text-xl font-bold text-white tracking-tight">
-          <span className="w-8 h-8 rounded-lg bg-cyan-500 flex items-center justify-center text-slate-950 font-black">
-            ⚡
-          </span>
-          <span>Antigravity</span>
-        </a>
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4">
+      <div onClick={onClose} className="fixed inset-0 bg-black/70 backdrop-blur-sm animate-in fade-in duration-150" />
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Right CTA */}
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="#get-started"
-            className="px-5 py-2 rounded-lg text-sm font-semibold text-white bg-cyan-500 hover:bg-cyan-400 transition-colors shadow-sm"
-          >
-            Get Started
-          </a>
+      <div className="relative w-full max-w-xl rounded-2xl border border-zinc-800 bg-zinc-950 text-zinc-100 shadow-2xl shadow-black/80 overflow-hidden animate-in fade-in zoom-in-95 duration-150 z-10">
+        {/* Search Bar Input */}
+        <div className="flex items-center px-4 border-b border-zinc-800/80">
+          <Search className="h-4 w-4 text-zinc-500 shrink-0" />
+          <input
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setSelectedIndex(0);
+            }}
+            placeholder="Type a command or search actions..."
+            className="w-full bg-transparent px-3 py-3.5 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none"
+            autoFocus
+          />
+          <kbd className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-zinc-400">ESC</kbd>
         </div>
 
-        {/* Mobile Hamburger Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={isOpen}
-          className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500"
-        >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            {isOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Drawer Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-slate-950 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3 animate-fadeIn">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-900"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#get-started"
-            onClick={() => setIsOpen(false)}
-            className="block w-full text-center px-4 py-2.5 rounded-lg font-semibold text-white bg-cyan-500 hover:bg-cyan-400 mt-4"
-          >
-            Get Started
-          </a>
-        </div>
-      )}
-    </header>
-  );
-## 3. 💳 Interactive Pricing Matrix with Billing Toggle
-
-```tsx
-import React, { useState } from "react";
-import { Check } from "lucide-react";
-
-interface Plan {
-  name: string;
-  monthlyPrice: number;
-  annualPrice: number;
-  description: string;
-  features: string[];
-  isPopular?: boolean;
-  ctaText: string;
-}
-
-const PLANS: Plan[] = [
-  {
-    name: "Starter",
-    monthlyPrice: 0,
-    annualPrice: 0,
-    description: "Ideal for individual developers exploring zero-defect AI skills.",
-    features: ["Standard /debug engine", "Accessible /design tokens", "Community support"],
-    ctaText: "Start Free",
-  },
-  {
-    name: "Pro",
-    monthlyPrice: 29,
-    annualPrice: 24,
-    description: "For professional engineers and high-velocity product teams.",
-    features: [
-      "Deep 5-phase /debug diagnostics",
-      "Full /design UI component system",
-      "Automated /learn memory synthesis",
-      "Zero-Red-Line CI Quality Gate",
-    ],
-    isPopular: true,
-    ctaText: "Upgrade to Pro",
-  },
-  {
-    name: "Enterprise",
-    monthlyPrice: 99,
-    annualPrice: 79,
-    description: "Custom compliance, SLA, and dedicated engineering support.",
-    features: [
-      "Custom organization design rules",
-      "Dedicated MCP tool connectors",
-      "Self-hosted quality runners",
-      "24/7 Priority engineering support",
-    ],
-    ctaText: "Contact Sales",
-  },
-];
-
-export function PricingSection() {
-  const [isAnnual, setIsAnnual] = useState(true);
-
-  return (
-    <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-background text-foreground">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-5xl font-extrabold mb-4 tracking-tight">Simple, Transparent Pricing</h2>
-        <p className="text-muted-foreground max-w-xl mx-auto mb-10 text-base sm:text-lg">
-          Choose the plan that best fits your development velocity.
-        </p>
-
-        {/* Monthly / Annual Billing Toggle */}
-        <div className="flex items-center justify-center gap-3 mb-16">
-          <span className={`text-sm ${!isAnnual ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
-            Monthly
-          </span>
-          <button
-            onClick={() => setIsAnnual(!isAnnual)}
-            aria-label="Toggle annual billing"
-            className="w-14 h-8 flex items-center bg-muted border border-border rounded-full p-1 cursor-pointer transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
-          >
-            <div
-              className={`bg-primary w-6 h-6 rounded-full shadow-md transform transition-transform duration-200 ${
-                isAnnual ? "translate-x-6" : "translate-x-0"
-              }`}
-            />
-          </button>
-          <span className={`text-sm flex items-center gap-1.5 ${isAnnual ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
-            Annual <span className="text-xs px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-bold">Save 20%</span>
-          </span>
-        </div>
-
-        {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {PLANS.map((plan, idx) => {
-            const price = isAnnual ? plan.annualPrice : plan.monthlyPrice;
-            return (
+        {/* Results List */}
+        <div className="max-h-80 overflow-y-auto p-2 space-y-1">
+          {filtered.length === 0 ? (
+            <div className="py-8 text-center text-xs text-zinc-500">No matching commands found.</div>
+          ) : (
+            filtered.map((item, index) => (
               <div
-                key={plan.name}
-                style={{ animationDelay: `${idx * 100}ms` }}
-                className={`relative rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 ${
-                  plan.isPopular
-                    ? "bg-card border-2 border-primary shadow-xl shadow-primary/10 scale-105 z-10"
-                    : "bg-card/60 border border-border hover:border-primary/40 hover:shadow-md"
-                }`}
-              >
-                {plan.isPopular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                    Most Popular
-                  </span>
+                key={item.id}
+                onClick={() => onClose()}
+                className={cn(
+                  "flex items-center justify-between px-3 py-2.5 rounded-xl text-xs cursor-pointer transition-colors",
+                  selectedIndex === index ? "bg-zinc-800 text-white font-medium" : "text-zinc-300 hover:bg-zinc-900"
                 )}
-                <div>
-                  <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-6 min-h-[40px] leading-relaxed">{plan.description}</p>
-                  <div className="flex items-baseline justify-center gap-1 mb-8">
-                    <span className="text-5xl font-black tracking-tight">${price}</span>
-                    <span className="text-muted-foreground text-sm">/month</span>
-                  </div>
-                  <ul className="space-y-3.5 text-left text-sm text-muted-foreground mb-8">
-                    {plan.features.map((feat) => (
-                      <li key={feat} className="flex items-center gap-2.5">
-                        <span className="p-0.5 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                          <Check className="h-3.5 w-3.5 stroke-[3]" />
-                        </span>
-                        <span className="text-foreground">{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
+              >
+                <div className="flex items-center gap-2.5">
+                  {item.icon}
+                  <span>{item.title}</span>
                 </div>
-                <button
-                  className={`w-full h-11 rounded-xl font-semibold transition-all duration-200 active:scale-[0.98] ${
-                    plan.isPopular
-                      ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-md"
-                      : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border border-border"
-                  }`}
-                >
-                  {plan.ctaText}
-                </button>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
----
-
-## 4. ❓ Accessible FAQ Accordion
-
-```tsx
-import React, { useState } from "react";
-import { Plus, Minus } from "lucide-react";
-
-interface FaqItem {
-  question: string;
-  answer: string;
-}
-
-const FAQS: FaqItem[] = [
-  {
-    question: "Will this skill interfere with Antigravity or any AI model?",
-    answer:
-      "No. It uses progressive disclosure and only activates on demand during /debug or /design invocations, guaranteeing zero token waste and zero system interference.",
-  },
-  {
-    question: "How does /design ensure accessible, high-taste UI?",
-    answer:
-      "The /design skill strictly follows WCAG 2.1 AA accessibility (≥ 4.5:1 contrast, visible focus rings, aria labels), an 8-point spatial grid, smooth spring motion delays, and semantic HSL/OKLCH design tokens.",
-  },
-  {
-    question: "Can I use these skills on Python, Go, or Rust codebases?",
-    answer:
-      "Yes! All engineering standards, type guards, and CI quality gates are 100% polyglot and support TypeScript, Python, Go, and Rust out of the box.",
-  },
-];
-
-export function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  return (
-    <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/40 text-foreground">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-12 tracking-tight">
-          Frequently Asked Questions
-        </h2>
-        <div className="space-y-4">
-          {FAQS.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div
-                key={faq.question}
-                className="border border-border rounded-xl bg-card overflow-hidden transition-colors shadow-sm"
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  aria-expanded={isOpen}
-                  className="w-full text-left p-5 flex items-center justify-between font-semibold text-lg text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                >
-                  <span>{faq.question}</span>
-                  <span className="p-1 rounded-lg bg-muted text-muted-foreground ml-4 flex items-center justify-center">
-                    {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-                  </span>
-                </button>
-                {isOpen && (
-                  <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-3 animate-in fade-in duration-200">
-                    {faq.answer}
-                  </div>
+                {item.shortcut && (
+                  <kbd className="text-[10px] font-mono text-zinc-400 bg-zinc-900/80 px-2 py-0.5 rounded border border-zinc-800/60">
+                    {item.shortcut}
+                  </kbd>
                 )}
               </div>
-            );
-          })}
+            ))
+          )}
+        </div>
+
+        {/* Footer info */}
+        <div className="flex items-center justify-between px-4 py-2 bg-zinc-900/40 border-t border-zinc-800/60 text-[11px] text-zinc-500">
+          <span className="flex items-center gap-1.5">
+            <CornerDownLeft className="h-3 w-3" /> Select
+          </span>
+          <span className="font-mono">v2.4.0-stable</span>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 ```
 
 ---
 
-## 5. 🍱 Asymmetric Bento Grid Feature Showcase
+## 2. 📊 High-Density Deployment & Activity Table
 
-Modern 3-column asymmetric bento grid with gradient glow, staggered animations, and live interactive feature previews.
+A compact, information-dense table with live status badges, commit hashes, latency metrics, and avatar initials (Vercel / GitHub style).
 
 ```tsx
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Sparkles, ShieldCheck, Zap, Layers, Cpu, ArrowUpRight } from 'lucide-react';
+import { GitCommit, Clock, CheckCircle2, AlertCircle, RefreshCw } from 'lucide-react';
 
-interface FeatureCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  tag?: string;
-  className?: string;
-  children?: React.ReactNode;
+interface Deployment {
+  id: string;
+  branch: string;
+  commitHash: string;
+  commitMsg: string;
+  status: 'healthy' | 'building' | 'failed';
+  duration: string;
+  timestamp: string;
+  author: string;
 }
 
-function BentoCard({ icon, title, description, tag, className, children }: FeatureCardProps) {
+const DEPLOYMENTS: Deployment[] = [
+  { id: 'dep_994a', branch: 'main', commitHash: '09c803c', commitMsg: 'feat(design): implement bento grid showcase', status: 'healthy', duration: '142ms', timestamp: '2m ago', author: 'JD' },
+  { id: 'dep_882b', branch: 'feat/tokens', commitHash: '7822cbc', commitMsg: 'fix(a11y): adjust contrast tokens to 5.2:1', status: 'healthy', duration: '118ms', timestamp: '14m ago', author: 'AL' },
+  { id: 'dep_771c', branch: 'main', commitHash: '688542a', commitMsg: 'refactor: isolate boundary parsing in auth', status: 'building', duration: 'Running...', timestamp: 'Just now', author: 'JD' },
+];
+
+export function ActivityTable() {
   return (
-    <div
-      className={cn(
-        "group relative overflow-hidden rounded-3xl border border-border/80 bg-card/60 p-8 backdrop-blur-sm shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 flex flex-col justify-between",
-        className
-      )}
-    >
-      {/* Top subtle ambient light */}
-      <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-primary/10 blur-3xl group-hover:bg-primary/20 transition-all duration-500" />
-
-      <div>
-        <div className="flex items-center justify-between mb-6">
-          <div className="p-3 rounded-2xl bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-200">
-            {icon}
-          </div>
-          {tag && (
-            <span className="text-xs font-semibold px-3 py-1 rounded-full bg-secondary text-secondary-foreground border border-border">
-              {tag}
-            </span>
-          )}
+    <div className="w-full rounded-2xl border border-zinc-800 bg-zinc-950 overflow-hidden shadow-xl text-left">
+      {/* Table Header */}
+      <div className="px-6 py-4 border-b border-zinc-800/80 flex items-center justify-between">
+        <div>
+          <h3 className="text-sm font-semibold text-zinc-100">Production Deployments</h3>
+          <p className="text-xs text-zinc-500 mt-0.5 font-mono">Active Environment: prod-us-east-1</p>
         </div>
-
-        <h3 className="text-xl font-bold tracking-tight text-foreground mb-2 group-hover:text-primary transition-colors">
-          {title}
-        </h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          {description}
-        </p>
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          Systems Operational
+        </span>
       </div>
 
-      {children && <div className="mt-6 pt-4 border-t border-border/40">{children}</div>}
+      {/* Rows */}
+      <div className="divide-y divide-zinc-800/60">
+        {DEPLOYMENTS.map((row) => (
+          <div key={row.id} className="px-6 py-3.5 flex items-center justify-between hover:bg-zinc-900/40 transition-colors text-xs">
+            {/* Commit & Branch */}
+            <div className="flex items-center gap-3 min-w-[280px]">
+              <span className="h-7 w-7 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center font-mono text-[10px] text-zinc-300 font-semibold">
+                {row.author}
+              </span>
+              <div>
+                <p className="font-medium text-zinc-200 tracking-tight">{row.commitMsg}</p>
+                <div className="flex items-center gap-2 mt-0.5 font-mono text-[11px] text-zinc-500">
+                  <span className="text-zinc-400">{row.branch}</span>
+                  <span>•</span>
+                  <span className="text-zinc-400 flex items-center gap-0.5"><GitCommit className="h-3 w-3" /> {row.commitHash}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Status */}
+            <div className="flex items-center gap-1.5 min-w-[100px]">
+              {row.status === 'healthy' && (
+                <span className="inline-flex items-center gap-1 text-emerald-400 font-medium font-mono text-[11px]">
+                  <CheckCircle2 className="h-3.5 w-3.5" /> 200 OK
+                </span>
+              )}
+              {row.status === 'building' && (
+                <span className="inline-flex items-center gap-1 text-amber-400 font-medium font-mono text-[11px]">
+                  <RefreshCw className="h-3.5 w-3.5 animate-spin" /> Building
+                </span>
+              )}
+            </div>
+
+            {/* Performance Metrics */}
+            <div className="hidden sm:flex items-center gap-6 text-zinc-400 font-mono text-[11px]">
+              <span className="tabular-nums">{row.duration}</span>
+              <span className="flex items-center gap-1 text-zinc-500"><Clock className="h-3 w-3" /> {row.timestamp}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
+```
 
-export function BentoGridSection() {
+---
+
+## 3. 💻 Interactive Code Terminal & Diff Preview
+
+A macOS-styled window frame showing live syntax-highlighted code with copy feedback and tabs.
+
+```tsx
+import React, { useState } from 'react';
+import { Copy, Check, Terminal } from 'lucide-react';
+
+export function CodeTerminalPreview() {
+  const [copied, setCopied] = useState(false);
+
+  const codeString = `// Zero-defect boundary parsing & discriminated union
+export type ApiResponse<T> = 
+  | { success: true; data: T; latencyMs: number }
+  | { success: false; error: { code: string; message: string } };
+
+export async function fetchMetrics(): Promise<ApiResponse<Metrics>> {
+  const res = await client.get('/v1/telemetry');
+  return { success: true, data: res.data, latencyMs: 42 };
+}`;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(codeString);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background text-foreground">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-wider text-primary px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
-            Engineered for Precision
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mt-4 mb-4">
-            Everything you need for zero-defect velocity
-          </h2>
-          <p className="text-muted-foreground text-base sm:text-lg">
-            High-performance tools, design systems, and diagnostic guardrails built right in.
-          </p>
+    <div className="rounded-2xl border border-zinc-800 bg-zinc-950 overflow-hidden shadow-2xl text-left max-w-2xl mx-auto">
+      {/* Window Controls Header */}
+      <div className="px-4 py-3 bg-zinc-900/60 border-b border-zinc-800/80 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="h-3 w-3 rounded-full bg-rose-500/80 inline-block" />
+          <span className="h-3 w-3 rounded-full bg-amber-500/80 inline-block" />
+          <span className="h-3 w-3 rounded-full bg-emerald-500/80 inline-block" />
+          <span className="ml-2 text-xs font-mono text-zinc-400">telemetry.ts</span>
+        </div>
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-mono bg-zinc-800/60 hover:bg-zinc-800 text-zinc-300 transition-colors"
+        >
+          {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
+          <span>{copied ? 'Copied' : 'Copy'}</span>
+        </button>
+      </div>
+
+      {/* Code Body */}
+      <pre className="p-5 font-mono text-xs text-zinc-300 overflow-x-auto leading-relaxed">
+        <code>
+          <span className="text-zinc-500">// Zero-defect boundary parsing & discriminated union</span>{'\n'}
+          <span className="text-sky-400">export type</span> <span className="text-amber-300">ApiResponse</span>&lt;<span className="text-emerald-300">T</span>&gt; = {'\n'}
+          {'  '}| {'{'}{' '}<span className="text-violet-300">success</span>: <span className="text-emerald-400">true</span>; <span className="text-violet-300">data</span>: <span className="text-emerald-300">T</span>; <span className="text-violet-300">latencyMs</span>: <span className="text-orange-300">number</span>{' '}{'}'}{'\n'}
+          {'  '}| {'{'}{' '}<span className="text-violet-300">success</span>: <span className="text-rose-400">false</span>; <span className="text-violet-300">error</span>: {'{'}{' '}<span className="text-violet-300">code</span>: <span className="text-orange-300">string</span>; <span className="text-violet-300">message</span>: <span className="text-orange-300">string</span>{' '}{'}'}{' '}{'}'};
+        </code>
+      </pre>
+    </div>
+  );
+}
+```
+
+---
+
+## 4. ⚡ Craft-Grade Hero with Live Product Preview
+
+A typography-led Hero section with real product copy, command trigger pills, and an embedded interactive component.
+
+```tsx
+import React from 'react';
+import { ActivityTable } from './ActivityTable';
+import { ArrowRight, Terminal, Sparkles } from 'lucide-react';
+
+export function CraftHeroSection() {
+  return (
+    <section className="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white text-center">
+      {/* Subtle top edge line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent" />
+
+      <div className="max-w-4xl mx-auto flex flex-col items-center">
+        {/* Release Pill Tag */}
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-300 mb-8 hover:border-zinc-700 transition-colors">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          <span>v2.4 Engine: /debug, /design & /push</span>
         </div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1: Large Featured (Spans 2 columns) */}
-          <BentoCard
-            icon={<Cpu className="h-6 w-6" />}
-            title="5-Phase Systematic Root-Cause Diagnostics"
-            description="Isolate defects at the boundary layer without trial-and-error edits or symptom-masking hacks."
-            tag="Core Engine"
-            className="md:col-span-2 min-h-[320px]"
+        {/* Primary Headline */}
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] mb-6 text-zinc-100">
+          Precision engineering for <br className="hidden sm:inline" />
+          modern digital products.
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-base sm:text-lg text-zinc-400 max-w-2xl mb-10 leading-relaxed font-normal">
+          An opinionated AI pair-programming skill that enforces zero-red-line type safety, mathematical design tokens, and atomic Git delivery.
+        </p>
+
+        {/* Action Controls */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 mb-16">
+          <a
+            href="#quickstart"
+            className="w-full sm:w-auto h-11 px-6 rounded-xl font-medium text-xs bg-zinc-100 text-zinc-950 hover:bg-white active:scale-[0.98] transition-all flex items-center justify-center gap-2"
           >
-            <div className="rounded-xl bg-muted/60 p-4 border border-border flex items-center justify-between text-xs font-mono">
-              <span className="text-muted-foreground">$ diagnose --strict</span>
-              <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                ✔ 0 red lines (100% healthy)
-              </span>
-            </div>
-          </BentoCard>
+            <span>Get Started</span>
+            <ArrowRight className="h-3.5 w-3.5" />
+          </a>
+          <div className="h-11 px-4 rounded-xl font-mono text-xs bg-zinc-900/90 border border-zinc-800 text-zinc-400 flex items-center gap-2 select-all">
+            <span className="text-zinc-500">$</span>
+            <span>git clone Antigravityskill</span>
+          </div>
+        </div>
 
-          {/* Card 2: Regular */}
-          <BentoCard
-            icon={<Zap className="h-6 w-6" />}
-            title="Buttery Smooth Micro-Interactions"
-            description="Spring curves and cascading delays deliver fluid 60fps tactile response."
-            tag="Motion"
-          />
-
-          {/* Card 3: Regular */}
-          <BentoCard
-            icon={<ShieldCheck className="h-6 w-6" />}
-            title="Strict WCAG 2.1 AA Accessibility"
-            description="Guaranteed 4.5:1 contrast, visible focus rings, and screen-reader ARIA roles."
-            tag="A11y"
-          />
-
-          {/* Card 4: Large (Spans 2 columns) */}
-          <BentoCard
-            icon={<Layers className="h-6 w-6" />}
-            title="Semantic Token System (Light & Dark Mode)"
-            description="Themeable HSL/OKLCH color scales ensure instant, seamless dark mode transitions."
-            tag="Design System"
-            className="md:col-span-2 min-h-[320px]"
-          >
-            <div className="flex flex-wrap gap-2">
-              {['Primary', 'Secondary', 'Muted', 'Card', 'Popover', 'Destructive'].map((token) => (
-                <span key={token} className="text-xs px-2.5 py-1 rounded-lg bg-background border border-border text-foreground">
-                  var(--{token.toLowerCase()})
-                </span>
-              ))}
-            </div>
-          </BentoCard>
+        {/* Embedded Live Product Preview (Not a fake screenshot) */}
+        <div className="w-full max-w-3xl">
+          <ActivityTable />
         </div>
       </div>
     </section>
   );
 }
+```
 
 ---
 
-## 6. ⭐ Testimonial & Social Proof Cards Grid
+## 5. 🍱 High-Taste Modular Bento Grid
+
+High data density layout with real metrics, interactive toggle states, and zero generic marketing blobs.
 
 ```tsx
-import React from 'react';
-import { Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { Bug, Sparkles, GitBranch, Cpu, ShieldCheck, Check } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-interface Testimonial {
-  name: string;
-  role: string;
-  company: string;
-  avatar: string;
-  content: string;
-  rating?: number;
-}
+export function HighTasteBentoGrid() {
+  const [toggleActive, setToggleActive] = useState(true);
 
-const TESTIMONIALS: Testimonial[] = [
-  {
-    name: "Alex Rivera",
-    role: "Staff Frontend Architect",
-    company: "Vercel Ecosystem",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-    content: "The /design skill cut our component scaffolding time by 75%. Every card and modal comes out with flawless WCAG contrast and perfect 8-point spatial rhythm.",
-    rating: 5,
-  },
-  {
-    name: "Sarah Chen",
-    role: "Lead Systems Engineer",
-    company: "Supabase Cloud",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
-    content: "Zero red lines isn't just a marketing slogan—the /debug workflow systematically identifies compiler mismatches before code ever touches Git.",
-    rating: 5,
-  },
-  {
-    name: "Elena Rostova",
-    role: "Head of Product Design",
-    company: "Linear Workspaces",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
-    content: "Finally, an AI design tool that understands restrained minimalism, spring physics, and semantic tokens instead of generating cluttered, generic templates.",
-    rating: 5,
-  },
-];
-
-export function TestimonialsSection() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/30 text-foreground">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
-            Loved by engineering leaders
-          </h2>
-          <p className="text-muted-foreground text-base sm:text-lg">
-            See how teams ship higher-quality products with /debug and /design.
-          </p>
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-12 text-left">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">System Architecture</h2>
+          <p className="text-xs text-zinc-400 font-mono mt-1">Autonomous workflows operating within deterministic boundaries</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((t, idx) => (
-            <div
-              key={t.name}
-              style={{ animationDelay: `${idx * 100}ms` }}
-              className="rounded-3xl border border-border bg-card p-8 shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-primary/30"
-            >
-              <div>
-                <div className="flex items-center gap-1 text-amber-500 mb-6">
-                  {[...Array(t.rating || 5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-amber-500 text-amber-500" />
-                  ))}
-                </div>
-                <p className="text-sm text-foreground/90 leading-relaxed mb-6 italic">
-                  "{t.content}"
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Card 1: 5-Phase Debugger */}
+          <div className="md:col-span-2 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+            <div>
+              <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 mb-3">
+                <Bug className="h-4 w-4" />
+                <span>/debug Diagnostic Engine</span>
               </div>
+              <h3 className="text-lg font-semibold text-zinc-100 mb-2">5-Phase Root Cause Isolation</h3>
+              <p className="text-xs text-zinc-400 leading-relaxed max-w-lg">
+                Executes compiler scans (`tsc`, `mypy`, `cargo check`), isolates boundary mismatches, and applies minimal surgical fixes with 0 red lines.
+              </p>
+            </div>
+            <div className="mt-6 p-3 rounded-xl bg-zinc-950 border border-zinc-800 font-mono text-[11px] text-zinc-400 flex items-center justify-between">
+              <span className="text-zinc-500">$ check --strict-null-checks</span>
+              <span className="text-emerald-400">0 errors across 48 files</span>
+            </div>
+          </div>
 
-              <div className="flex items-center gap-3 pt-4 border-t border-border/60">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="h-10 w-10 rounded-full object-cover border border-border"
-                />
-                <div>
-                  <h4 className="text-sm font-semibold text-foreground">{t.name}</h4>
-                  <p className="text-xs text-muted-foreground">{t.role} · {t.company}</p>
-                </div>
+          {/* Card 2: Adaptive Brand Ingestion */}
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+            <div>
+              <div className="flex items-center gap-2 text-xs font-mono text-sky-400 mb-3">
+                <Sparkles className="h-4 w-4" />
+                <span>/design Token Ingest</span>
               </div>
+              <h3 className="text-lg font-semibold text-zinc-100 mb-2">Brand Adaptation</h3>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Extracts existing SVGs, brand colors, and typography to generate accessible dark mode companion tokens.
+              </p>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
----
-
-## 7. ⚓ High-Converting Footer
-
-```tsx
-import React from 'react';
-import { ArrowRight, Github, Twitter, Disc as Discord } from 'lucide-react';
-
-export function FooterSection() {
-  return (
-    <footer className="border-t border-border bg-card/60 text-foreground py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-12">
-          {/* Brand & Newsletter (Spans 2 cols) */}
-          <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-2 text-xl font-bold tracking-tight">
-              <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-black">
-                ⚡
-              </span>
-              <span>Antigravity Skill</span>
-            </div>
-            <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
-              Universal staff-engineer framework for /debug, /design, and zero-defect code generation.
-            </p>
-            <div className="flex items-center gap-2 pt-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="h-10 px-3.5 rounded-xl border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary w-full max-w-xs"
-              />
-              <button className="h-10 px-4 rounded-xl bg-primary text-primary-foreground font-semibold text-xs hover:bg-primary/90 transition-all flex items-center gap-1 shrink-0">
-                <span>Join</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+            <div className="mt-6 flex items-center justify-between">
+              <span className="text-xs text-zinc-400 font-mono">WCAG AA Mode</span>
+              <button
+                onClick={() => setToggleActive(!toggleActive)}
+                className={cn("w-10 h-6 rounded-full p-1 transition-colors", toggleActive ? "bg-sky-500" : "bg-zinc-800")}
+              >
+                <div className={cn("h-4 w-4 rounded-full bg-white transition-transform", toggleActive ? "translate-x-4" : "translate-x-0")} />
               </button>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+```
 
-          {/* Navigation Links Column 1 */}
-          <div className="space-y-3">
-            <h5 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Framework</h5>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">/debug Protocol</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">/design System</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">CI Quality Gate</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">/learn Memory</a></li>
-            </ul>
-          </div>
+---
 
-          {/* Navigation Links Column 2 */}
-          <div className="space-y-3">
-            <h5 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">References</h5>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Component Library</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">UX Heuristics</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">WCAG 2.1 AA Guide</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Common Bug Patterns</a></li>
-            </ul>
-          </div>
+## 6. 💳 Interactive Pricing Comparison Matrix
 
-          {/* Navigation Links Column 3 */}
-          <div className="space-y-3">
-            <h5 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Community</h5>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">GitHub Repository</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Discord Server</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">MIT License</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Release Notes</a></li>
-            </ul>
-          </div>
+```tsx
+import React, { useState } from 'react';
+import { Check } from 'lucide-react';
+
+export function CraftPricingMatrix() {
+  const [isAnnual, setIsAnnual] = useState(true);
+
+  return (
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl font-bold tracking-tight mb-3">Transparent, Predictable Tiers</h2>
+        <p className="text-xs text-zinc-400 font-mono mb-8">No hidden usage surcharges or synthetic token limits</p>
+
+        {/* Toggle */}
+        <div className="inline-flex items-center gap-3 p-1 rounded-xl bg-zinc-900 border border-zinc-800 text-xs font-medium mb-12">
+          <button onClick={() => setIsAnnual(false)} className={`px-3 py-1.5 rounded-lg transition-colors ${!isAnnual ? "bg-zinc-800 text-white" : "text-zinc-400"}`}>
+            Monthly Billing
+          </button>
+          <button onClick={() => setIsAnnual(true)} className={`px-3 py-1.5 rounded-lg transition-colors ${isAnnual ? "bg-zinc-800 text-white" : "text-zinc-400"}`}>
+            Annual (Save 20%)
+          </button>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>© 2026 Antigravity Engineering Framework. Open source under MIT License.</p>
-          <div className="flex items-center gap-4">
-            <a href="https://github.com/s5condlast-cmd/Antigravityskill" className="hover:text-foreground transition-colors"><Github className="h-4 w-4" /></a>
-            <a href="#" className="hover:text-foreground transition-colors"><Twitter className="h-4 w-4" /></a>
-            <a href="#" className="hover:text-foreground transition-colors"><Discord className="h-4 w-4" /></a>
+        {/* Pricing Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+          {/* Free / Community */}
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 flex flex-col justify-between">
+            <div>
+              <h3 className="text-lg font-semibold mb-1">Open Source</h3>
+              <p className="text-xs text-zinc-400 mb-6">For individual engineers and community developers.</p>
+              <div className="text-3xl font-bold font-mono mb-6">$0 <span className="text-xs text-zinc-500 font-normal">/forever</span></div>
+              <ul className="space-y-3 text-xs text-zinc-300 mb-8">
+                {['Full /debug, /design & /push suites', 'Polyglot TypeScript, Python, Go, Rust', 'MIT License'].map((f) => (
+                  <li key={f} className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-emerald-400" /> {f}</li>
+                ))}
+              </ul>
+            </div>
+            <button className="w-full h-10 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-medium transition-colors">
+              Clone Repository
+            </button>
           </div>
+
+          {/* Pro / Organization */}
+          <div className="rounded-2xl border border-zinc-700 bg-zinc-900/80 p-8 flex flex-col justify-between relative shadow-xl">
+            <span className="absolute top-4 right-4 text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-950 font-bold uppercase">
+              Recommended
+            </span>
+            <div>
+              <h3 className="text-lg font-semibold mb-1">Enterprise Team</h3>
+              <p className="text-xs text-zinc-400 mb-6">Custom organization rules and dedicated MCP runners.</p>
+              <div className="text-3xl font-bold font-mono mb-6">${isAnnual ? 79 : 99} <span className="text-xs text-zinc-500 font-normal">/seat/mo</span></div>
+              <ul className="space-y-3 text-xs text-zinc-300 mb-8">
+                {['Custom organization guardrails', 'Dedicated MCP tool connectors', 'Automated CI/CD Quality Gates', '24/7 Priority SLA'].map((f) => (
+                  <li key={f} className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-emerald-400" /> {f}</li>
+                ))}
+              </ul>
+            </div>
+            <button className="w-full h-10 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 text-xs font-semibold transition-colors">
+              Contact Organization Sales
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+---
+
+## 7. ⚓ Subdued Minimalist Footer
+
+```tsx
+import React from 'react';
+import { Github } from 'lucide-react';
+
+export function MinimalFooter() {
+  return (
+    <footer className="border-t border-zinc-800/80 bg-zinc-950 text-zinc-400 py-12 px-4 sm:px-6 lg:px-8 text-xs font-mono">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2 text-zinc-200 font-sans font-semibold text-sm">
+          <span>⚡ Antigravity Skill</span>
+        </div>
+        <p className="text-zinc-500">© 2026 MIT License. Built for deterministic agentic pair programming.</p>
+        <div className="flex items-center gap-4">
+          <a href="https://github.com/s5condlast-cmd/Antigravityskill" className="hover:text-zinc-200 transition-colors flex items-center gap-1.5">
+            <Github className="h-4 w-4" />
+            <span>GitHub</span>
+          </a>
         </div>
       </div>
     </footer>
