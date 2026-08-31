@@ -71,7 +71,7 @@ function installUniversal() {
   }
 }
 
-function runDesign() {
+function runInstallToolchain() {
   printBanner();
   console.log('\x1b[35m🎨 Installing Dedicated UI / UX Design Suite (/install)...\x1b[0m\n');
   const cmds = [
@@ -114,9 +114,8 @@ switch (rawCommand) {
     installUniversal();
     break;
   case 'install':
-  case 'design':
   case 'ui':
-    runDesign();
+    runInstallToolchain();
     break;
   case 'help':
   case '--help':
