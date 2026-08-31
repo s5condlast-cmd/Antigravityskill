@@ -1,36 +1,33 @@
-﻿---
+---
 name: antigravity-engineering-framework
-description: "Universal Staff-Engineer framework for /debug (zero-defect code generation, systematic root-cause diagnostics, landing page UI templates) and /push (branch-protected git delivery, pre-flight gatekeeper, conventional commits)."
+description: "Universal Staff-Engineer framework for /debug: zero-defect pristine code generation, 5-phase systematic root-cause diagnostics, accessible landing page UI patterns, and anti-hallucination guardrails."
 ---
 
-# Universal Staff-Engineering Protocols: `/debug` & `/push`
+# Universal Staff-Engineering Protocols: `/debug` & Code Generation
 
 ## 🧭 Master Command Routing & Intent Trigger Matrix
 
 | User Trigger / Intent | Active Pillar | Primary Protocol & Workflow | Reference Manual |
 | :--- | :--- | :--- | :--- |
-| `/debug`, compiler red lines, type errors, bug reports, feature implementation, UI component creation | **Pillar 1: `/debug`** | 5-Phase Diagnostic Workflow, 4 Laws of Pristine Code Generation, Landing Page UI Patterns | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md) |
-| `/push`, git commit, branch creation, pull request delivery, pre-flight check, release delivery | **Pillar 2: `/push`** | 5-Step Delivery Workflow, Branch Protection Check, Atomic Conventional Commits | [references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md)<br>[references/BRANCH_AND_COMMIT_CONVENTIONS.md](references/BRANCH_AND_COMMIT_CONVENTIONS.md)<br>[.github/pull_request_template.md](.github/pull_request_template.md) |
+| `/debug`, compiler red lines, type errors, bug reports, feature implementation, UI component creation, refactoring | **`/debug`** | 5-Phase Diagnostic Workflow, 4 Laws of Pristine Code Generation, Landing Page UI Patterns | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
 
 ---
 
-## 🚦 Traffic Light Safety Restrictions (Unified Framework)
+## 🚦 Traffic Light Safety Restrictions
 
-To protect codebases from accidental damage and prevent broken code from reaching remote branches:
+To protect codebases from accidental damage and prevent compiler errors:
 
 | Status | Action | Agent Behavior |
 | :--- | :--- | :--- |
-| 🔴 **STRICTLY PROHIBITED** | Pushing directly to `main`, `master`, or `develop` | **Hard Blocked**: Automatically creates a `feat/*`, `fix/*`, or `ui/*` branch following the branch taxonomy. |
-| 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets, tokens, credentials, or private keys | **Hard Blocked**: Stops immediately, audits `.gitignore`, and cleans staged files. |
+| 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets, tokens, credentials, or private keys | **Hard Blocked**: Stops immediately, audits `.gitignore`, and keeps secrets uncommitted. |
 | 🔴 **STRICTLY PROHIBITED** | Force pushing (`git push --force`) or destructive resets (`git reset --hard`) | **Hard Blocked**: Never overwrites remote branch history or discards unstaged user work. |
 | 🔴 **STRICTLY PROHIBITED** | Suppressing compiler red lines or type errors with `@ts-ignore`, `any`, empty catches, or dummy delays | **Hard Blocked**: Must identify and resolve root-cause type mismatches and runtime exceptions. |
-| 🔴 **STRICTLY PROHIBITED** | Bypassing pre-flight health scan before commit or pull request delivery | **Hard Blocked**: Must execute `node scripts/diagnose.js --strict` (or Python equivalent) with 0 errors. |
 | 🟡 **REQUIRES CONFIRMATION** | Refactoring code outside requested task scope | **Asks User First**: *"I noticed X could be cleaned up. Would you like me to do that?"* |
 | 🟡 **REQUIRES CONFIRMATION** | Installing brand-new third-party packages or modifying package manifests | **Asks User First**: Verifies if an existing dependency or zero-dependency utility already solves it. |
 | 🟡 **REQUIRES CONFIRMATION** | Modifying database schemas, running destructive migrations, or deleting files | **Asks User First**: Confirms data safety and backup state before destructive operations. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Running diagnostic health checks (`node scripts/diagnose.js`, `python scripts/diagnose.py`) | **Runs Automatically**: Scans for red lines, broken imports, missing dependencies, and environment health. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Creating safe feature/fix/ui branches following the standard taxonomy | **Runs Automatically**: Enforces standardized naming (`feat/landing-hero`, `fix/navbar-types`). |
-| 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries upon successful bug resolution or push delivery | **Runs Automatically**: Persists lessons learned into Antigravity project memory. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Running diagnostic compiler & test commands (`tsc`, `mypy`, `npm test`, `cargo check`) | **Runs Automatically**: Scans for red lines, broken imports, and type discrepancies. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing page components | **Runs Automatically**: Applies pre-tested patterns from `references/LANDING_PAGE_PATTERNS.md`. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries upon successful bug resolution | **Runs Automatically**: Persists lessons learned into Antigravity project memory. |
 
 ---
 
@@ -46,12 +43,12 @@ When conflicting constraints or instructions arise, resolve them using this stri
 
 ---
 
-# 🛠️ SECTION 1: The `/debug` & Code Generation Protocol
+# 🛠️ The `/debug` & Pristine Code Generation Protocol
 
 ### 🏗️ The 4 Laws of Pristine Code Generation
 
-1. **Context Ingestion Before Generation**: Inspect existing project imports, path aliases, shared utilities, and data models before writing code.
-2. **"Parse, Don't Validate" (Boundary Hardening)**: Parse external inputs into validated domain types at boundaries.
+1. **Context Ingestion Before Generation**: Inspect existing project imports, path aliases (`@/*`), shared utilities, and data models before writing code.
+2. **"Parse, Don't Validate" (Boundary Hardening)**: Parse external inputs into validated domain types at system boundaries.
 3. **Make Illegal States Unrepresentable**: Use Discriminated Unions / Tagged Variants instead of loose boolean/nullable bags.
 4. **No Placeholders or TODO Stubs**: Implement complete, functional, type-safe logic from the start.
 
@@ -76,31 +73,11 @@ When building landing pages or web interfaces, use the accessible, mobile-first 
 
 ---
 
-# 🚀 SECTION 2: The `/push` & Branching Protocol
-
-When the user or agent is ready to commit and deliver changes to GitHub (see full runbook in **[references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md)**):
-
-### 🛑 The 3 Golden Rules of `/push`
-
-1. **NO PUSH ON BROKEN CODE**: Run `node scripts/diagnose.js --strict` (or `python scripts/diagnose.py --strict`) before staging.
-2. **NO DIRECT PUSH TO MAIN**: If on `main`/`master`/`develop`, automatically switch to a branch using the **[Branch Naming Taxonomy](references/BRANCH_AND_COMMIT_CONVENTIONS.md)** (`feat/landing-hero`, `ui/landing-navbar`, `fix/navbar-types`).
-3. **ATOMIC CONVENTIONAL COMMITS**: Commit with standard prefixes (`feat:`, `ui:`, `fix:`, `refactor:`, `chore:`).
-
-### 📋 5-Step Delivery Workflow
-
-1. **Pre-Flight Health Scan**: Execute health scanner (`node scripts/diagnose.js --strict --check-git` or `python scripts/diagnose.py --strict --check-git`) $\rightarrow$ Confirm **100% HEALTHY (0 errors)**.
-2. **Secrets & Ignore Audit**: Check `git status` to ensure `.env`, tokens, credentials, and scratch files are ignored by `.gitignore`.
-3. **Branch Protection Check**: If on `main`/`master`/`develop`, create a dedicated branch: `git checkout -b <category>/<domain>-<short-description>`.
-4. **Conventional Commit**: Stage files and commit: `git commit -m "type(scope): message"`.
-5. **Safe Remote Push**: Push branch: `git push -u origin <branch-name>` and format the PR body using **[.github/pull_request_template.md](.github/pull_request_template.md)**.
-
----
-
 ## 💡 The Mandatory `/learn` Trigger Rule
 
 > [!IMPORTANT]
 > **RULE FOR THE AGENT:**
-> Every time you resolve a bug, establish an architectural pattern, or complete a `/push` delivery, you **MUST** end your response with an actionable recommendation prompting the user to execute `/learn`.
+> Every time you resolve a bug, establish an architectural pattern, or complete a feature implementation, you **MUST** end your response with an actionable recommendation prompting the user to execute `/learn`.
 
 ### Required Output Format:
 
@@ -112,7 +89,7 @@ When the user or agent is ready to commit and deliver changes to GitHub (see ful
 To make sure Antigravity remembers this fix and never makes this mistake again in future sessions, run:
 
 > **/learn**
-> *Lesson*: [1-2 sentences summarizing the specific rule, pattern, or gotcha discovered, e.g., "Always use `cn()` from `@/lib/utils` when combining Tailwind classes, and follow the standard branch taxonomy `feat/landing-*`."]
+> *Lesson*: [1-2 sentences summarizing the specific rule, pattern, or gotcha discovered, e.g., "Always use `cn()` from `@/lib/utils` when combining Tailwind classes."]
 ```
 
 ---

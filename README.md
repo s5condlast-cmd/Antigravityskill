@@ -1,4 +1,4 @@
-# 🛠️ Universal AI Agent Engineering Suite (`/debug` & `/push`)
+# 🛠️ Antigravity AI Engineering Skill (`/debug`)
 
 [![CI Quality Gate](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml)
 [![Node.js](https://img.shields.io/badge/node-20%2B-blue.svg)](https://nodejs.org/)
@@ -8,127 +8,71 @@
 [![Rust](https://img.shields.io/badge/rust-2021%20edition-orange.svg)](https://www.rust-lang.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-A specialized, battle-tested **Antigravity Slash Skill Suite** delivering zero-defect code generation, safe branch-protected git delivery, polyglot diagnostic scanning, accessible UI component patterns, and deterministic pre-flight quality checks.
+A specialized, battle-tested **Antigravity Slash Skill** delivering zero-defect code generation, systematic root-cause debugging across polyglot stacks, accessible UI component patterns, and anti-hallucination guardrails.
 
 ---
 
-## 🌟 The Core Skill Pillars
+## 🌟 Architecture & Workflow
 
 ```text
                                ┌─────────────────────────────────────────┐
                                │       User Prompt / Slash Command       │
+                               │        (/debug, bug report, UI)         │
                                └────────────────────┬────────────────────┘
                                                     │
                                                     ▼
                                ┌─────────────────────────────────────────┐
                                │       Unified SKILL.md Framework        │
                                │   (Traffic Light Guardrails & Router)   │
-                               └──────────────┬───────────┬──────────────┘
-                                              │           │
-                               ┌──────────────┘           └──────────────┐
-                               ▼                                         ▼
-               ┌───────────────────────────┐             ┌───────────────────────────┐
-               │     Pillar 1: /debug      │             │      Pillar 2: /push      │
-               │  - 5-Phase Diagnostics    │             │  - 5-Step Delivery Runbook│
-               │  - 4 Laws of Pristine Code│             │  - Pre-flight Gatekeeper  │
-               │  - Landing Page UI Toolkit│             │  - Branch Protection      │
-               │  - Anti-Hallucination     │             │  - Atomic Commits & PRs   │
-               └───────────────┬───────────┘             └──────────────┬────────────┘
-                               │                                        │
-                               ▼                                        ▼
-               ┌───────────────────────────┐             ┌───────────────────────────┐
-               │ references/DEBUG_UTILS    │             │ references/PUSH_PROTOCOL  │
-               │ references/COMMON_BUGS    │             │ references/BRANCH_COMMITS │
-               │ references/LANDING_PAGE   │             │ scripts/diagnose.js / .py │
-               └───────────────────────────┘             └───────────────────────────┘
+                               └────────────────────┬────────────────────┘
                                                     │
                                                     ▼
                                ┌─────────────────────────────────────────┐
-                               │ Universal CI/CD Quality Gate (6 Jobs)   │
+                               │          The /debug Brain               │
+                               │  - 5-Phase Systematic Root-Cause Debug  │
+                               │  - The 4 Laws of Pristine Code          │
+                               │  - Pre-Built Accessible UI Templates    │
+                               │  - Polyglot Type Safety & Anti-Patterns │
+                               └───────────┬────────┬───────────┬────────┘
+                                           │        │           │
+                       ┌───────────────────┘        │           └───────────────────┐
+                       ▼                            ▼                               ▼
+       ┌───────────────────────────┐ ┌───────────────────────────┐ ┌───────────────────────────┐
+       │ references/DEBUG_UTILS    │ │ references/COMMON_BUGS    │ │ references/LANDING_PAGE   │
+       │ Polyglot Result types &   │ │ Catalog of Top 10 common  │ │ Accessible Hero, Navbar,  │
+       │ type narrowing guards     │ │ AI bugs & surgical fixes  │ │ Pricing & FAQ components  │
+       └───────────────────────────┘ └───────────────────────────┘ └───────────────────────────┘
+                                                    │
+                                                    ▼
+                               ┌─────────────────────────────────────────┐
+                               │ Polyglot CI Quality Gate (Node/Py/Go/Rs)│
                                │  (.github/workflows/quality-gate.yml)   │
                                └─────────────────────────────────────────┘
 ```
 
 ---
 
-### 🔬 Pillar 1: `/debug` (The Engineering Brain & Pristine Code Generator)
+## 🔬 Core Capabilities
 
-Transforms problem statements into mathematically sound, zero-defect code while eradicating compiler red lines:
+### 1. Pristine Code Generation (The 4 Laws)
+1. **Context Ingestion Before Generation**: Inspect project models, path aliases (`@/*`), and utilities before writing code.
+2. **"Parse, Don't Validate"**: Parse external data into validated domain types at system boundaries.
+3. **Make Illegal States Unrepresentable**: Use Discriminated Unions / Tagged Variants instead of loose nullable flags.
+4. **No Placeholders or TODO Stubs**: Always write complete, functional, type-safe logic.
 
-* **Eliminates Compiler Red Lines**: Clears diagnostics across TypeScript (`tsc`), Python (`mypy`), Go (`go vet`), and Rust (`cargo check`).
-* **The 4 Laws of Pristine Code Generation**:
-  1. *Context Ingestion Before Generation*: Inspect project models, path aliases (`@/*`), and utilities before writing code.
-  2. *"Parse, Don't Validate"*: Parse external data into validated domain types at system boundaries.
-  3. *Make Illegal States Unrepresentable*: Use Discriminated Unions / Tagged Variants instead of loose nullable flags.
-  4. *No Placeholders or TODO Stubs*: Always write complete, functional, type-safe logic.
-* **Pre-Built Landing Page & UI Patterns**: Accessible, mobile-first component patterns in `references/LANDING_PAGE_PATTERNS.md` (**Hero Sections, Glassmorphic Navbars, Pricing Matrices, and FAQ Accordions**).
-* **5-Phase Systematic Root-Cause Debugging**:
-  ```text
-  [1. Diagnose & Scan] ──> [2. Delta Isolation] ──> [3. Minimal Surgical Fix] ──> [4. Zero-Red-Line Gate] ──> [5. /learn Post-Mortem]
-  ```
-* **References**: [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md), [references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md), [references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md).
-
----
-
-### 🚀 Pillar 2: `/push` (The Safe Delivery Gatekeeper & Branch Protection Engine)
-
-Automates safe git delivery, protects production branches, and enforces conventional commits:
-
-* **The 3 Golden Rules of `/push`**:
-  1. *NO PUSH ON BROKEN CODE*: Pre-flight diagnostic scanner must pass with 0 errors.
-  2. *NO DIRECT PUSH TO MAIN*: Strictly blocks pushes to `main`/`master`/`develop`; automatically routes to feature branches.
-  3. *ATOMIC CONVENTIONAL COMMITS*: Standardized commit taxonomy (`feat:`, `ui:`, `fix:`, `refactor:`, `chore:`, `perf:`).
-* **5-Step Delivery Runbook**:
-  ```text
-  [1. Pre-Flight Health Scan] ──> [2. Secrets Audit] ──> [3. Branch Check] ──> [4. Conventional Commit] ──> [5. Safe Remote Push]
-  ```
-* **Standard Branch Naming Taxonomy**: Categorized branches (`feat/<domain>-<desc>`, `ui/<component>`, `fix/<issue>`, `perf/<scope>`).
-* **Automated PR Body Generation**: Generates comprehensive pull request descriptions conforming to `.github/pull_request_template.md`.
-* **References**: [references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md), [references/BRANCH_AND_COMMIT_CONVENTIONS.md](references/BRANCH_AND_COMMIT_CONVENTIONS.md).
-
----
-
-## 🏗️ Git Delivery & Branch Protection Flow
-
+### 2. 5-Phase Systematic Root-Cause Debugging
 ```text
- ┌───────────────────────────┐
- │ Local Code Modifications  │
- └─────────────┬─────────────┘
-               │
-               ▼
- ┌───────────────────────────┐      Fail      ┌───────────────────────────┐
- │ Pre-Flight Health Scanner │ ─────────────> │ Run Pillar 1: /debug      │
- │ node scripts/diagnose.js  │                │ Root-cause fix & typecheck│
- └─────────────┬─────────────┘                └───────────────────────────┘
-               │ Pass (0 errors)
-               ▼
- ┌───────────────────────────┐      main      ┌───────────────────────────┐
- │ Branch Protection Audit   │ ─────────────> │ Auto-switch to feat/*     │
- │ --check-git               │                │ Standard Branch Taxonomy  │
- └─────────────┬─────────────┘                └─────────────┬─────────────┘
-               │ Safe Branch                                │
-               ▼ <──────────────────────────────────────────┘
- ┌───────────────────────────┐
- │ Atomic Conventional Commit│
- │ feat(scope): message      │
- └─────────────┬─────────────┘
-               │
-               ▼
- ┌───────────────────────────┐
- │ Remote Push & PR Creation │ ───> Uses .github/pull_request_template.md
- └─────────────┬─────────────┘
-               │
-               ▼
- ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
- │                       GitHub Actions: Universal Zero-Red-Line Quality Gate                      │
- │                                                                                                 │
- │ ┌────────────────┐ ┌────────────────┐ ┌────────────────┐ ┌────────────────┐ ┌────────────────┐ │
- │ │   meta-gate    │ │diagnostic-gate │ │   node-gate    │ │  python-gate   │ │    go-gate     │ │
- │ │ SKILL frontmat │ │ JS/Py Scanners │ │ tsc --noEmit   │ │ mypy, pytest   │ │ go vet, test   │ │
- │ │ Reference links│ │ Test Harnesses │ │ lint, test     │ │ ruff, flake8   │ │ go build       │ │
- │ └────────────────┘ └────────────────┘ └────────────────┘ └────────────────┘ └────────────────┘ │
- └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+[1. Diagnose & Scan] ──> [2. Delta Isolation] ──> [3. Minimal Surgical Fix] ──> [4. Zero-Red-Line Gate] ──> [5. /learn Post-Mortem]
 ```
+* **Eliminates Compiler Red Lines**: Clears diagnostics across TypeScript (`tsc`), Python (`mypy`), Go (`go vet`), and Rust (`cargo check`).
+* **The Iron Law of Debugging**: Never apply speculative fixes or symptom-masking (`@ts-ignore`, `any`, empty `try/catch`, dummy `setTimeout`).
+
+### 3. Pre-Built Landing Page & UI Patterns
+Accessible, mobile-first component patterns in `references/LANDING_PAGE_PATTERNS.md`:
+* 🌟 **Hero Sections**: Gradient typography, CTA groups, responsive pill badges.
+* 🧭 **Glassmorphic Navbars**: Mobile slide-out sheets, keyboard accessibility, blur backdrop.
+* 💳 **Pricing Matrices**: Monthly/annual toggle, featured tier highlighting, feature checklists.
+* ❓ **FAQ Accordions**: Accessible disclosure widgets, animated transitions, semantic markup.
 
 ---
 
@@ -138,119 +82,64 @@ Automates safe git delivery, protects production branches, and enforces conventi
 Antigravityskill/
 ├── .github/
 │   ├── workflows/
-│   │   └── quality-gate.yml               # 🚦 Polyglot CI Quality Gate (Node, Python, Go, Rust, Meta, Scripts)
-│   └── pull_request_template.md           # 📝 Standardized PR template with pre-flight check list
+│   │   └── quality-gate.yml               # 🚦 Polyglot CI Quality Gate (Node, Python, Go, Rust, Meta)
+│   └── pull_request_template.md           # 📝 Standardized PR template with quality check list
 ├── .gitignore                             # 🛡️ Comprehensive ignore file (.env, node_modules, .venv, credentials)
 ├── LICENSE                                # 📄 MIT Open Source License
 ├── project-profile/
 │   └── PROJECT_PROFILE.md                 # 🎯 Universal facts schema, coding standards & invariants
 ├── references/
-│   ├── PUSH_PROTOCOL.md                   # 🚀 5-Step safe branch push, commit & PR runbook
-│   ├── BRANCH_AND_COMMIT_CONVENTIONS.md   # 🌿 Branch taxonomy (feat/*, ui/*, fix/*) & Conventional Commits
 │   ├── LANDING_PAGE_PATTERNS.md           # 🎨 Accessible UI component patterns (Hero, Navbar, Pricing, FAQ)
 │   ├── DEBUG_UTILITIES.md                 # 🧰 Polyglot Result types, type guards & anti-hallucination helpers
 │   ├── COMMON_BUG_PATTERNS.md             # 🐛 Catalog of Top 10 common AI bug patterns & surgical fixes
 │   └── CLI_CHEAT_SHEET.md                 # ⌨️ Cross-platform terminal diagnostic commands
-├── scripts/
-│   ├── diagnose.js                        # ⚡ Polyglot Node.js scanner (--strict, --json, --check-git, --help)
-│   ├── diagnose.py                        # 🐍 Zero-dependency Python standard library scanner
-│   ├── test-diagnose.js                   # 🧪 Node.js automated test harness for diagnostic scanners
-│   └── test_diagnose.py                   # 🧪 Python automated test harness for diagnostic scanners
-├── SKILL.md                               # 🧭 Master 2-pillar skill definition & routing framework
-└── README.md                              # 📖 Comprehensive engineering manual, diagrams & install guides
+├── SKILL.md                               # 🧭 Master /debug skill definition & routing framework
+└── README.md                              # 📖 Comprehensive engineering manual & install guides
 ```
 
 ---
 
-## ⚡ Polyglot Diagnostic Scanner & Test Harness
+## 📚 References & Guides Matrix
 
-The repository includes dual standalone diagnostic health scanners (`diagnose.js` and `diagnose.py`) requiring **zero external dependencies**:
-
-### CLI Flags Reference
-
-| CLI Flag | Short Flag | Description |
-| :--- | :--- | :--- |
-| `--strict` | `-s` | Escalates warnings to hard failure exit code `1`. |
-| `--json` | `-j` | Emits structured, machine-readable JSON output. |
-| `--check-git` | *(none)* | Audits active branch against `main`/`master` and scans for uncommitted secrets. |
-| `--dir <path>` | `--cwd` | Specifies custom target directory to scan (defaults to current working directory). |
-| `--help` | `-h` | Displays usage manual and exits cleanly with code `0`. |
-
-### Deterministic Exit Codes
-
-* **`0`**: Clean / Pass (100% healthy, zero errors).
-* **`1`**: Diagnostic Issues Found (compiler red lines, missing dependencies, uncommitted secrets, strict violations).
-* **`2`**: CLI Usage Error (invalid arguments or flags).
-
-### Execution Commands
-
-```bash
-# Standard interactive scan
-node scripts/diagnose.js
-python scripts/diagnose.py
-
-# Strict pre-flight check with git branch safety audit
-node scripts/diagnose.js --strict --check-git
-python scripts/diagnose.py --strict --check-git
-
-# Structured JSON output for CI pipelines
-node scripts/diagnose.js --json
-python scripts/diagnose.py --json
-
-# Execute automated diagnostic test harnesses
-node scripts/test-diagnose.js
-python scripts/test_diagnose.py
-```
+| Reference Document | Purpose & Contents |
+| :--- | :--- |
+| **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** | Pre-built, accessible React + Tailwind UI components: Hero sections, Glassmorphic Navbars, Pricing matrices, and FAQ accordions. |
+| **[references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)** | Polyglot `Result<T, E>` types, type narrowing guards, safe boundary parsers, and anti-hallucination helpers. |
+| **[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)** | Catalog of top 10 recurring AI anti-patterns (floating promises, stale closures, missing keys) and surgical fixes. |
+| **[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md)** | Cross-platform commands for TypeScript (`tsc`), Python (`mypy`, `pytest`), Go (`go vet`), and Rust (`cargo check`). |
 
 ---
 
-## 🚀 Installation & Setup Workflows
+## 🚀 Installation & Setup
 
 ### Option 1: Project-Level Installation (Recommended for Teams)
 
-Install the skill suite directly into your repository so all team members and agents share the exact same protocols:
+Install the skill suite directly into your repository:
 
 ```bash
-# 1. Clone or copy Antigravityskill into your project's .agents directory
-mkdir -p .agents/skills
-cp -r /path/to/Antigravityskill .agents/skills/antigravityskill
+# 1. Clone or copy Antigravityskill into your project's .gemini/skills directory
+mkdir -p .gemini/skills
+cp -r /path/to/Antigravityskill .gemini/skills/antigravityskill
 
 # 2. Copy and configure the project profile
 mkdir -p project-profile
-cp .agents/skills/antigravityskill/project-profile/PROJECT_PROFILE.md project-profile/
-
-# 3. Verify installation health
-node .agents/skills/antigravityskill/scripts/diagnose.js --strict
+cp .gemini/skills/antigravityskill/project-profile/PROJECT_PROFILE.md project-profile/
 ```
 
 ### Option 2: Global Installation (Workstation-Wide)
 
-Install globally so that Antigravity loads the 2-pillar skill suite across all local repositories:
+Install globally so that Antigravity loads the skill suite across all local repositories:
 
-* **Windows**:
+* **Windows (PowerShell)**:
   ```powershell
-  # Copy to Antigravity global skills directory
   New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.gemini\antigravity\skills"
   Copy-Item -Recurse -Force "Antigravityskill" "$env:USERPROFILE\.gemini\antigravity\skills\antigravityskill"
   ```
 * **macOS / Linux**:
   ```bash
-  # Copy to Antigravity global skills directory
   mkdir -p ~/.gemini/antigravity/skills
   cp -r Antigravityskill ~/.gemini/antigravity/skills/antigravityskill
   ```
-
-### Verification Steps After Installation
-
-```bash
-# Verify JS scanner & test harness
-node scripts/diagnose.js --help
-node scripts/test-diagnose.js
-
-# Verify Python scanner & test harness
-python scripts/diagnose.py --help
-python scripts/test_diagnose.py
-```
 
 ---
 
@@ -258,16 +147,14 @@ python scripts/test_diagnose.py
 
 | Category | Action | System Enforcement |
 | :--- | :--- | :--- |
-| 🔴 **STRICTLY PROHIBITED** | Direct commit/push to `main`, `master`, `develop` | Hard blocked; routes to `feat/*`, `fix/*`, `ui/*` branch. |
 | 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets or API credentials | Hard blocked; flags unignored secrets and halts staging. |
 | 🔴 **STRICTLY PROHIBITED** | Force pushing (`git push --force`) or destructive reset | Hard blocked; remote history and unstaged work protected. |
 | 🔴 **STRICTLY PROHIBITED** | Suppressing errors with `@ts-ignore`, `any`, empty catch | Hard blocked; root-cause resolution required. |
-| 🔴 **STRICTLY PROHIBITED** | Bypassing pre-flight health scan before commit | Hard blocked; pre-flight check must pass cleanly. |
 | 🟡 **REQUIRES CONFIRMATION** | Out-of-scope code refactoring | Prompts user with proposal before modifying code. |
 | 🟡 **REQUIRES CONFIRMATION** | Installing new third-party packages | Prompts user to confirm if native utilities suffice. |
 | 🟡 **REQUIRES CONFIRMATION** | Destructive database migrations or schema drops | Prompts user to confirm data safety and backup status. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Running diagnostic health checks (`diagnose.js`/`py`) | Runs automatically across all supported language stacks. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Creating safe branches following standard taxonomy | Runs automatically (`feat/landing-hero`, `fix/navbar-types`). |
+| 🟢 **AUTOMATICALLY ALLOWED** | Running compiler & test commands (`tsc`, `mypy`, `npm test`) | Runs automatically across all supported language stacks. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing page components | Runs automatically using pre-tested patterns. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries on successful fixes | Persists architectural lessons into Antigravity long-term memory. |
 
 ---

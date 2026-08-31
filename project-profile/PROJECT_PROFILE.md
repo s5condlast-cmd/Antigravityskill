@@ -1,4 +1,4 @@
-﻿# 🎯 Universal Project Profile (Codebase Facts, Standards & Invariants)
+# 🎯 Universal Project Profile (Codebase Facts, Standards & Invariants)
 
 > 💡 **Purpose**: This document is the authoritative single source of truth for repository facts, tool permissions, coding standards, and verification invariants that generic skill instructions intentionally leave open. All AI agents operating within this repository must adhere to the rules defined herein.
 
@@ -41,17 +41,15 @@ All agents operate within strict traffic-light safety boundaries to protect code
 
 | Category | Action / Tool Command | Enforcement Behavior |
 | :--- | :--- | :--- |
-| 🔴 **STRICTLY PROHIBITED** | Pushing directly to `main`, `master`, or `develop` | **Hard Blocked**: Automatically creates a `feat/*`, `fix/*`, or `ui/*` branch. |
-| 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets, tokens, credentials, or private keys | **Hard Blocked**: Scans files, enforces `.gitignore`, halts staging immediately. |
+| 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets, tokens, credentials, or private keys | **Hard Blocked**: Enforces `.gitignore`, keeps secrets uncommitted. |
 | 🔴 **STRICTLY PROHIBITED** | Force pushing (`git push --force`) or destructive resets (`git reset --hard`) | **Hard Blocked**: Never destroys remote history or discards unstaged user work. |
 | 🔴 **STRICTLY PROHIBITED** | Suppressing compiler red lines with `@ts-ignore`, `any`, empty catches, or dummy delays | **Hard Blocked**: Must identify and resolve root-cause type and runtime defects. |
-| 🔴 **STRICTLY PROHIBITED** | Bypassing pre-flight health scan before commit or PR delivery | **Hard Blocked**: Must execute `node scripts/diagnose.js --strict` with 0 errors. |
 | 🟡 **REQUIRES CONFIRMATION** | Refactoring code outside requested task scope | **Asks User First**: *"I noticed X could be cleaned up. Would you like me to do that?"* |
 | 🟡 **REQUIRES CONFIRMATION** | Installing brand-new third-party packages or changing package manifests | **Asks User First**: Verifies if standard library or existing package can solve it. |
 | 🟡 **REQUIRES CONFIRMATION** | Modifying database schemas, running destructive migrations, deleting files | **Asks User First**: Confirms data safety and backup state before execution. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Running diagnostic health checks (`node scripts/diagnose.js`, `python scripts/diagnose.py`) | **Runs Automatically**: Polyglot static checks, stack detection, branch audits. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Creating safe branches following standard taxonomy (`feat/*`, `fix/*`, `ui/*`) | **Runs Automatically**: Enforces standardized naming (`feat/landing-hero`, `fix/navbar-types`). |
-| 🟢 **AUTOMATICALLY ALLOWED** | Triggering `/learn` summaries on successful fixes or push operations | **Runs Automatically**: Persists architectural lessons into Antigravity long-term memory. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Running compiler & test commands (`npx tsc`, `pytest`, `npm test`) | **Runs Automatically**: Scans for red lines, broken imports, type discrepancies. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Applying accessible landing page UI patterns | **Runs Automatically**: Leverages pre-tested patterns from `references/LANDING_PAGE_PATTERNS.md`. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Triggering `/learn` summaries on successful fixes | **Runs Automatically**: Persists architectural lessons into Antigravity long-term memory. |
 
 ---
 

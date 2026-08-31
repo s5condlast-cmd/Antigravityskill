@@ -41,13 +41,13 @@ jobs:
             if (!content.includes("name:") || !content.includes("description:")) {
               throw new Error("SKILL.md frontmatter must contain name and description fields");
             }
-            const requiredPillars = ["/debug", "/push"];
+            const requiredPillars = ["/debug"];
             for (const pillar of requiredPillars) {
               if (!content.includes(pillar)) {
                 throw new Error("SKILL.md missing required pillar protocol: " + pillar);
               }
             }
-            console.log("✔ SKILL.md frontmatter and 2-pillar protocol definitions successfully validated.");
+            console.log("✔ SKILL.md frontmatter and /debug protocol definitions successfully validated.");
           '
 
       - name: 🔗 Validate Reference Documents & Project Profile
@@ -58,8 +58,6 @@ jobs:
               "README.md",
               "SKILL.md",
               "project-profile/PROJECT_PROFILE.md",
-              "references/PUSH_PROTOCOL.md",
-              "references/BRANCH_AND_COMMIT_CONVENTIONS.md",
               "references/LANDING_PAGE_PATTERNS.md",
               "references/DEBUG_UTILITIES.md",
               "references/COMMON_BUG_PATTERNS.md",
@@ -74,45 +72,6 @@ jobs:
             }
             console.log("✔ All " + requiredFiles.length + " core documentation assets verified present.");
           '
-
-  # -------------------------------------------------------------
-  # 2. Diagnostic Scanner & Test Harness Gate
-  # -------------------------------------------------------------
-  diagnostic-scripts-gate:
-    name: ⚡ Diagnostic Scanner & Test Harness Gate
-    runs-on: ubuntu-latest
-    steps:
-      - name: 📥 Checkout Code
-        uses: actions/checkout@v4
-
-      - name: ⚙️ Setup Node.js & Python
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: ⚙️ Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: 🧪 Test Node.js Diagnostic Scanner CLI Flags
-        run: |
-          node scripts/diagnose.js --help
-          node scripts/diagnose.js --json
-          node scripts/diagnose.js --check-git
-
-      - name: 🧪 Test Python Diagnostic Scanner CLI Flags
-        run: |
-          python scripts/diagnose.py --help
-          python scripts/diagnose.py --json
-          python scripts/diagnose.py --check-git
-
-      - name: 🔬 Execute Node.js Diagnostic Test Harness (test-diagnose.js)
-        run: |
-          node scripts/test-diagnose.js
-
-      - name: 🔬 Execute Python Diagnostic Test Harness (test_diagnose.py)
-        run: |
-          python scripts/test_diagnose.py
 
   # -------------------------------------------------------------
   # 3. Node.js / TypeScript Workspace Gate
