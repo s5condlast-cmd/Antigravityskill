@@ -1,4 +1,4 @@
-# 🛠️ Antigravity AI Engineering Skill (`/debug`)
+# 🛠️ Antigravity Engineering Skill (`/debug`)
 
 [![CI Quality Gate](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml)
 [![Node.js](https://img.shields.io/badge/node-20%2B-blue.svg)](https://nodejs.org/)
@@ -8,127 +8,25 @@
 [![Rust](https://img.shields.io/badge/rust-2021%20edition-orange.svg)](https://www.rust-lang.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-A specialized, battle-tested **Antigravity Slash Skill** delivering zero-defect code generation, systematic root-cause debugging across polyglot stacks, accessible UI component patterns, and anti-hallucination guardrails.
+A lightweight, production-grade **Antigravity Slash Skill** that equips AI agents with strict type-safety rules, systematic root-cause debugging workflows, accessible UI component templates, and anti-hallucination guardrails.
 
 ---
 
-## 🌟 Architecture & Workflow
+## ✨ Features at a Glance
 
-```text
-                               ┌─────────────────────────────────────────┐
-                               │       User Prompt / Slash Command       │
-                               │        (/debug, bug report, UI)         │
-                               └────────────────────┬────────────────────┘
-                                                    │
-                                                    ▼
-                               ┌─────────────────────────────────────────┐
-                               │       Unified SKILL.md Framework        │
-                               │   (Traffic Light Guardrails & Router)   │
-                               └────────────────────┬────────────────────┘
-                                                    │
-                                                    ▼
-                               ┌─────────────────────────────────────────┐
-                               │          The /debug Brain               │
-                               │  - 5-Phase Systematic Root-Cause Debug  │
-                               │  - The 4 Laws of Pristine Code          │
-                               │  - Pre-Built Accessible UI Templates    │
-                               │  - Polyglot Type Safety & Anti-Patterns │
-                               └───────────┬────────┬───────────┬────────┘
-                                           │        │           │
-                       ┌───────────────────┘        │           └───────────────────┐
-                       ▼                            ▼                               ▼
-       ┌───────────────────────────┐ ┌───────────────────────────┐ ┌───────────────────────────┐
-       │ references/DEBUG_UTILS    │ │ references/COMMON_BUGS    │ │ references/LANDING_PAGE   │
-       │ Polyglot Result types &   │ │ Catalog of Top 10 common  │ │ Accessible Hero, Navbar,  │
-       │ type narrowing guards     │ │ AI bugs & surgical fixes  │ │ Pricing & FAQ components  │
-       └───────────────────────────┘ └───────────────────────────┘ └───────────────────────────┘
-                                                    │
-                                                    ▼
-                               ┌─────────────────────────────────────────┐
-                               │ Polyglot CI Quality Gate (Node/Py/Go/Rs)│
-                               │  (.github/workflows/quality-gate.yml)   │
-                               └─────────────────────────────────────────┘
-```
-
----
-
-## 🔬 Core Capabilities
-
-### 1. Pristine Code Generation (The 4 Laws)
-1. **Context Ingestion Before Generation**: Inspect project models, path aliases (`@/*`), and utilities before writing code.
-2. **"Parse, Don't Validate"**: Parse external data into validated domain types at system boundaries.
-3. **Make Illegal States Unrepresentable**: Use Discriminated Unions / Tagged Variants instead of loose nullable flags.
-4. **No Placeholders or TODO Stubs**: Always write complete, functional, type-safe logic.
-
-### 2. 5-Phase Systematic Root-Cause Debugging
-```text
-[1. Diagnose & Scan] ──> [2. Delta Isolation] ──> [3. Minimal Surgical Fix] ──> [4. Zero-Red-Line Gate] ──> [5. /learn Post-Mortem]
-```
-* **Eliminates Compiler Red Lines**: Clears diagnostics across TypeScript (`tsc`), Python (`mypy`), Go (`go vet`), and Rust (`cargo check`).
-* **The Iron Law of Debugging**: Never apply speculative fixes or symptom-masking (`@ts-ignore`, `any`, empty `try/catch`, dummy `setTimeout`).
-
-### 3. Pre-Built Landing Page & UI Patterns
-Accessible, mobile-first component patterns in `references/LANDING_PAGE_PATTERNS.md`:
-* 🌟 **Hero Sections**: Gradient typography, CTA groups, responsive pill badges.
-* 🧭 **Glassmorphic Navbars**: Mobile slide-out sheets, keyboard accessibility, blur backdrop.
-* 💳 **Pricing Matrices**: Monthly/annual toggle, featured tier highlighting, feature checklists.
-* ❓ **FAQ Accordions**: Accessible disclosure widgets, animated transitions, semantic markup.
-
----
-
-## 📂 Repository Structure
-
-```text
-Antigravityskill/
-├── .github/
-│   ├── workflows/
-│   │   └── quality-gate.yml               # 🚦 Polyglot CI Quality Gate (Node, Python, Go, Rust, Meta)
-│   └── pull_request_template.md           # 📝 Standardized PR template with quality check list
-├── .gitignore                             # 🛡️ Comprehensive ignore file (.env, node_modules, .venv, credentials)
-├── LICENSE                                # 📄 MIT Open Source License
-├── project-profile/
-│   └── PROJECT_PROFILE.md                 # 🎯 Universal facts schema, coding standards & invariants
-├── references/
-│   ├── LANDING_PAGE_PATTERNS.md           # 🎨 Accessible UI component patterns (Hero, Navbar, Pricing, FAQ)
-│   ├── DEBUG_UTILITIES.md                 # 🧰 Polyglot Result types, type guards & anti-hallucination helpers
-│   ├── COMMON_BUG_PATTERNS.md             # 🐛 Catalog of Top 10 common AI bug patterns & surgical fixes
-│   └── CLI_CHEAT_SHEET.md                 # ⌨️ Cross-platform terminal diagnostic commands
-├── SKILL.md                               # 🧭 Master /debug skill definition & routing framework
-└── README.md                              # 📖 Comprehensive engineering manual & install guides
-```
-
----
-
-## 📚 References & Guides Matrix
-
-| Reference Document | Purpose & Contents |
+| Feature | Description |
 | :--- | :--- |
-| **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** | Pre-built, accessible React + Tailwind UI components: Hero sections, Glassmorphic Navbars, Pricing matrices, and FAQ accordions. |
-| **[references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)** | Polyglot `Result<T, E>` types, type narrowing guards, safe boundary parsers, and anti-hallucination helpers. |
-| **[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)** | Catalog of top 10 recurring AI anti-patterns (floating promises, stale closures, missing keys) and surgical fixes. |
-| **[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md)** | Cross-platform commands for TypeScript (`tsc`), Python (`mypy`, `pytest`), Go (`go vet`), and Rust (`cargo check`). |
+| 🎯 **Pristine Code Generation** | Enforces the 4 Laws: context ingestion first, boundary parsing, unrepresentable illegal states, and zero placeholder TODOs. |
+| 🔬 **5-Phase Systematic Debugging** | Diagnoses and isolates root causes instead of applying symptom-masking hacks (`@ts-ignore`, empty `catch`, dummy `setTimeout`). |
+| 🎨 **Accessible Landing Page UI** | Battle-tested React + Tailwind component patterns for Hero sections, Glassmorphic Navbars, Pricing matrices, and FAQ accordions. |
+| 🧠 **Continuous Learning (`/learn`)** | Automatically prompts you to persist architectural conventions and bug fixes into Antigravity project memory. |
+| 🚦 **Safety Guardrails** | Strict traffic-light boundaries preventing accidental secrets leaks, destructive resets, or out-of-scope edits. |
 
 ---
 
-## 🚀 Installation & Setup
+## 🚀 Quick Start & Installation
 
-### Option 1: Project-Level Installation (Recommended for Teams)
-
-Install the skill suite directly into your repository:
-
-```bash
-# 1. Clone or copy Antigravityskill into your project's .gemini/skills directory
-mkdir -p .gemini/skills
-cp -r /path/to/Antigravityskill .gemini/skills/antigravityskill
-
-# 2. Copy and configure the project profile
-mkdir -p project-profile
-cp .gemini/skills/antigravityskill/project-profile/PROJECT_PROFILE.md project-profile/
-```
-
-### Option 2: Global Installation (Workstation-Wide)
-
-Install globally so that Antigravity loads the skill suite across all local repositories:
+### Option 1: Global Install (Works in All Projects)
 
 * **Windows (PowerShell)**:
   ```powershell
@@ -141,21 +39,88 @@ Install globally so that Antigravity loads the skill suite across all local repo
   cp -r Antigravityskill ~/.gemini/antigravity/skills/antigravityskill
   ```
 
+### Option 2: Project-Level Install (For Team Repositories)
+
+```bash
+# Copy skill into your workspace
+mkdir -p .gemini/skills
+cp -r /path/to/Antigravityskill .gemini/skills/antigravityskill
+
+# Copy project facts profile
+mkdir -p project-profile
+cp .gemini/skills/antigravityskill/project-profile/PROJECT_PROFILE.md project-profile/
+```
+
 ---
 
-## 🚦 Traffic Light Safety Boundaries & Rules
+## 💡 How to Use
 
-| Category | Action | System Enforcement |
+Simply invoke `/debug` or ask Antigravity to build, debug, or refactor code:
+
+* **Fix compiler errors**:
+  > *"/debug fix the TypeScript red lines in `src/components/Navbar.tsx`"*
+* **Build accessible landing page UI**:
+  > *"/debug build a modern Hero section with gradient text and CTA buttons"*
+* **Investigate a tricky bug**:
+  > *"/debug investigate why user session tokens expire prematurely"*
+
+---
+
+## 🔬 The 4 Laws of Pristine Code
+
+1. **Context Ingestion First**: Check existing types, schemas, and utils before writing code.
+2. **"Parse, Don't Validate"**: Convert external input into validated domain types at boundaries.
+3. **Make Illegal States Unrepresentable**: Use Discriminated Unions / Tagged Variants instead of loose nullable flags.
+4. **No Placeholders or TODOs**: Always generate complete, fully implemented, type-checked logic.
+
+---
+
+## 📚 Included Reference Guides
+
+All reference guides are organized inside the `references/` folder:
+
+| Document | What's Inside |
+| :--- | :--- |
+| **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** | Production-ready React + Tailwind templates for Hero, Navbar, Pricing, and FAQs. |
+| **[references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)** | Type-safe `Result<T, E>` types, type guards, boundary parsers, and anti-hallucination helpers. |
+| **[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)** | Catalog of top 10 recurring AI anti-patterns and surgical fixes. |
+| **[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md)** | Fast terminal cheat sheet for `tsc`, `mypy`, `pytest`, `go vet`, and `cargo check`. |
+
+---
+
+## 📂 Repository Layout
+
+```text
+Antigravityskill/
+├── .github/
+│   ├── workflows/quality-gate.yml         # Polyglot CI workflow (Node, Python, Go, Rust, Meta)
+│   └── pull_request_template.md           # Pull request quality template
+├── project-profile/
+│   └── PROJECT_PROFILE.md                 # Project facts, standards, and invariants
+├── references/
+│   ├── LANDING_PAGE_PATTERNS.md           # Accessible UI patterns
+│   ├── DEBUG_UTILITIES.md                 # Type guards & Result types
+│   ├── COMMON_BUG_PATTERNS.md             # Common AI bug patterns & fixes
+│   └── CLI_CHEAT_SHEET.md                 # Diagnostic CLI cheat sheet
+├── SKILL.md                               # Master /debug skill definition
+├── README.md                              # This documentation
+├── LICENSE                                # MIT License
+└── .gitignore                             # Ignored files (.env, node_modules)
+```
+
+---
+
+## 🚦 Safety Guardrails
+
+| Status | Action | Behavior |
 | :--- | :--- | :--- |
-| 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets or API credentials | Hard blocked; flags unignored secrets and halts staging. |
-| 🔴 **STRICTLY PROHIBITED** | Force pushing (`git push --force`) or destructive reset | Hard blocked; remote history and unstaged work protected. |
-| 🔴 **STRICTLY PROHIBITED** | Suppressing errors with `@ts-ignore`, `any`, empty catch | Hard blocked; root-cause resolution required. |
-| 🟡 **REQUIRES CONFIRMATION** | Out-of-scope code refactoring | Prompts user with proposal before modifying code. |
-| 🟡 **REQUIRES CONFIRMATION** | Installing new third-party packages | Prompts user to confirm if native utilities suffice. |
-| 🟡 **REQUIRES CONFIRMATION** | Destructive database migrations or schema drops | Prompts user to confirm data safety and backup status. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Running compiler & test commands (`tsc`, `mypy`, `npm test`) | Runs automatically across all supported language stacks. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing page components | Runs automatically using pre-tested patterns. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries on successful fixes | Persists architectural lessons into Antigravity long-term memory. |
+| 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets or API credentials | Hard blocked; keeps secrets uncommitted. |
+| 🔴 **STRICTLY PROHIBITED** | Force pushing (`git push --force`) or destructive reset | Hard blocked; protects user history. |
+| 🔴 **STRICTLY PROHIBITED** | Suppressing errors (`@ts-ignore`, `any`, empty catch) | Hard blocked; root-cause fix required. |
+| 🟡 **ASK FIRST** | Refactoring outside requested task scope | Pauses and asks for user confirmation. |
+| 🟡 **ASK FIRST** | Installing new third-party packages | Checks if standard library / existing tools suffice. |
+| 🟢 **AUTOMATIC** | Running compiler & test commands (`tsc`, `npm test`) | Runs static checks automatically. |
+| 🟢 **AUTOMATIC** | Using accessible landing page UI patterns | Implements clean, responsive UI automatically. |
 
 ---
 
