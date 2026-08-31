@@ -41,13 +41,13 @@ jobs:
             if (!content.includes("name:") || !content.includes("description:")) {
               throw new Error("SKILL.md frontmatter must contain name and description fields");
             }
-            const requiredPillars = ["/debug", "/design"];
+            const requiredPillars = ["/debug", "/design", "/push"];
             for (const pillar of requiredPillars) {
               if (!content.includes(pillar)) {
                 throw new Error("SKILL.md missing required pillar protocol: " + pillar);
               }
             }
-            console.log("✔ SKILL.md frontmatter and /debug & /design protocol definitions successfully validated.");
+            console.log("✔ SKILL.md frontmatter and /debug, /design & /push protocol definitions successfully validated.");
           '
 
       - name: 🔗 Validate Reference Documents & Project Profile
@@ -58,6 +58,7 @@ jobs:
               "README.md",
               "SKILL.md",
               "project-profile/PROJECT_PROFILE.md",
+              "references/PUSH_PROTOCOL.md",
               "references/DESIGN_SYSTEM_GUIDELINES.md",
               "references/COMPONENT_LIBRARY.md",
               "references/LANDING_PAGE_PATTERNS.md",

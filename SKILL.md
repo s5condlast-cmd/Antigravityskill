@@ -1,9 +1,9 @@
 ---
 name: antigravity-engineering-framework
-description: "Universal Staff-Engineer framework for /debug (zero-defect pristine code generation, 5-phase systematic root-cause diagnostics) and /design (UI/UX design systems, accessible Tailwind/React component architecture, responsive layouts)."
+description: "Universal Staff-Engineer framework for /debug (zero-defect pristine code generation, 5-phase systematic root-cause diagnostics), /design (UI/UX design systems, accessible Tailwind/React component architecture), and /push (fast, safe Git staging, conventional commits, and remote syncing)."
 ---
 
-# Universal Staff-Engineering Protocols: `/debug` & `/design`
+# Universal Staff-Engineering Protocols: `/debug`, `/design` & `/push`
 
 ## 🧭 Master Command Routing & Intent Trigger Matrix
 
@@ -11,6 +11,7 @@ description: "Universal Staff-Engineer framework for /debug (zero-defect pristin
 | :--- | :--- | :--- | :--- |
 | `/debug`, compiler red lines, type errors, bug reports, logic defects, memory leaks, performance bottlenecks | **`/debug`** | 5-Phase Diagnostic Workflow, 4 Laws of Pristine Code Generation, Surgical Root-Cause Isolation | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
 | `/design`, UI components, landing pages, design systems, color palettes, responsive layouts, dark mode | **`/design`** | 5 Pillars of Impeccable Design, Semantic Tokens, WCAG 2.1 AA Accessibility, Staggered Motion | [references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)<br>[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)<br>[references/UX_PSYCHOLOGY_AND_HEURISTICS.md](references/UX_PSYCHOLOGY_AND_HEURISTICS.md)<br>[references/ACCESSIBILITY_WCAG_GUIDE.md](references/ACCESSIBILITY_WCAG_GUIDE.md) |
+| `/push`, git commit, git push, sync to github, publish changes, deploy code | **`/push`** | 3-Step Pre-Flight Audit, Conventional Commits Formatting, Safe Atomic Remote Sync | [references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md) |
 
 ---
 
@@ -89,6 +90,20 @@ When designing user interfaces, creating component libraries, or styling landing
 * **Universal Drop-In Migration**: Ensure components use standard CSS variables and non-destructive `cn(...)` class merging so they drop into any web framework (Next.js, Vite, Astro, Remix, Vue, Svelte, or plain HTML) with **0 breaking changes**.
 
 *(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)**, **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)**, and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
+
+---
+
+# 🚀 SECTION 3: The `/push` Protocol
+
+When committing, staging, or syncing changes to remote repositories:
+
+### 🛡️ The 3 Steps of Safe Git Delivery
+
+1. **Pre-Flight Status & Secret Audit**: Run `git status`, verify clean working tree, and ensure `.env`, tokens, and credentials are never staged.
+2. **Conventional Commit Crafting**: Generate meaningful, scoped conventional commit messages (`feat(scope): ...`, `fix(scope): ...`).
+3. **Atomic Remote Sync**: Push cleanly to the active branch (`git push origin <branch>`) and report the remote sync link to the user.
+
+*(Detailed commit conventions and procedures live in **[references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md)**).*
 
 ---
 

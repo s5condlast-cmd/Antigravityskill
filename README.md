@@ -1,4 +1,4 @@
-# 🛠️ Antigravity AI Engineering & Design Skill (`/debug` & `/design`)
+# 🛠️ Antigravity AI Engineering & Design Skill (`/debug`, `/design` & `/push`)
 
 [![CI Quality Gate](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml)
 [![Node.js](https://img.shields.io/badge/node-20%2B-blue.svg)](https://nodejs.org/)
@@ -8,7 +8,7 @@
 [![Rust](https://img.shields.io/badge/rust-2021%20edition-orange.svg)](https://www.rust-lang.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI agents with strict type-safety rules, systematic root-cause debugging workflows (`/debug`), modern UI/UX design systems, accessible component templates (`/design`), and anti-hallucination guardrails.
+A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI agents with strict type-safety rules, systematic root-cause debugging workflows (`/debug`), modern UI/UX design systems (`/design`), fast and safe Git delivery (`/push`), and anti-hallucination guardrails.
 
 ---
 
@@ -21,6 +21,7 @@ A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI
 | 🎨 **Design System & Tokens** | `/design` | Semantic color token architecture (light/dark mode with HSL/OKLCH), fluid typography hierarchy, and spacing tokens. |
 | 🔄 **Adaptive Brand Ingestion** | `/design` | Ingests and respects existing logos, brand colors, custom SVGs, and fonts; enhances missing contrast and dark mode with 0 breaking changes. |
 | 🧩 **Accessible Component Library**| `/design` | Production-ready React + Tailwind components (Hero banners, Navbars, Pricing matrices, Metric cards, FAQs) meeting **WCAG 2.1 AA** standards. |
+| 🚀 **Safe Git Delivery** | `/push` | Streamlined 3-step Git staging, secret prevention audit, conventional commit formatting, and atomic remote syncing. |
 | 🧠 **Continuous Learning** | `/learn` | Post-success reminder prompting you to persist discovered invariants or architectural conventions into project memory. |
 | 🚦 **Safety Guardrails** | Automatic | Strict traffic-light boundaries preventing secrets leaks, destructive resets, or out-of-scope edits. |
 
@@ -32,25 +33,19 @@ A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI
 
 * **Windows (PowerShell)**:
   ```powershell
-  New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.gemini\antigravity\skills"
-  Copy-Item -Recurse -Force "Antigravityskill" "$env:USERPROFILE\.gemini\antigravity\skills\antigravityskill"
+  git clone https://github.com/s5condlast-cmd/Antigravityskill.git "$env:USERPROFILE\.gemini\antigravity\skills\antigravityskill"
   ```
 * **macOS / Linux**:
   ```bash
-  mkdir -p ~/.gemini/antigravity/skills
-  cp -r Antigravityskill ~/.gemini/antigravity/skills/antigravityskill
+  git clone https://github.com/s5condlast-cmd/Antigravityskill.git ~/.gemini/antigravity/skills/antigravityskill
   ```
 
 ### Option 2: Project-Level Install (For Team Repositories)
 
 ```bash
-# Copy skill into your workspace
+# Clone skill into your project's workspace
 mkdir -p .gemini/skills
-cp -r /path/to/Antigravityskill .gemini/skills/antigravityskill
-
-# Copy project facts profile
-mkdir -p project-profile
-cp .gemini/skills/antigravityskill/project-profile/PROJECT_PROFILE.md project-profile/
+git clone https://github.com/s5condlast-cmd/Antigravityskill.git .gemini/skills/antigravityskill
 ```
 
 ---
@@ -72,6 +67,12 @@ cp .gemini/skills/antigravityskill/project-profile/PROJECT_PROFILE.md project-pr
   > *"/design create a dark/light semantic color palette for a SaaS analytics dashboard"*
 * **Create accessible interactive components**:
   > *"/design build an accessible Pricing comparison matrix with monthly/annual billing toggle"*
+
+### 3. The `/push` Command (Safe & Fast Git Delivery)
+* **Stage, commit, and push**:
+  > *"/push sync my verified changes to GitHub with a conventional commit message"*
+* **Push feature branches safely**:
+  > *"/push push this new bento grid component to origin"*
 
 ---
 
@@ -100,6 +101,7 @@ All reference manuals are organized inside the `references/` folder:
 
 | Document | What's Inside |
 | :--- | :--- |
+| **[references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md)** | Fast & safe Git delivery: pre-flight secrets audit, conventional commit standard, and atomic push commands. |
 | **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)** | Production React + Tailwind components: Buttons, Inputs, Dropdowns, Modals, Tabs, Badges, Toasts, Skeletons. |
 | **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** | Semantic color tokens (HSL/OKLCH), typography scales, motion curves, and pixel-perfect spatial math ladders. |
 | **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** | Complete landing page patterns: Hero banners, Navbars, Bento grids, Pricing matrices, Testimonials, FAQs, Footers. |
@@ -121,6 +123,7 @@ Antigravityskill/
 ├── project-profile/
 │   └── PROJECT_PROFILE.md                 # Project facts, standards, and invariants
 ├── references/
+│   ├── PUSH_PROTOCOL.md                   # Fast & safe Git delivery protocol
 │   ├── COMPONENT_LIBRARY.md               # Accessible React + Tailwind application components
 │   ├── DESIGN_SYSTEM_GUIDELINES.md        # Design system tokens & spatial math
 │   ├── LANDING_PAGE_PATTERNS.md           # Accessible UI landing page patterns (Hero, Bento, Footer)
@@ -129,7 +132,7 @@ Antigravityskill/
 │   ├── DEBUG_UTILITIES.md                 # Type guards & Result types
 │   ├── COMMON_BUG_PATTERNS.md             # Common AI bug patterns & fixes
 │   └── CLI_CHEAT_SHEET.md                 # Diagnostic CLI cheat sheet
-├── SKILL.md                               # Master /debug & /design skill definition
+├── SKILL.md                               # Master /debug, /design & /push skill definition
 ├── README.md                              # Comprehensive documentation
 ├── LICENSE                                # MIT License
 └── .gitignore                             # Ignored files (.env, node_modules)
