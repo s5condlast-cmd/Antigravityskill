@@ -102,6 +102,12 @@ When designing user interfaces, creating component libraries, or styling landing
 * **NO Marketing Buzzword Fluff**: Ban fake stock testimonials ("Alex R., Staff Architect") and empty buzzwords. Build **real functional product UI** (Spotlight `⌘K` bars, live deployment tables, macOS code previews).
 * **High Data Density**: Use authentic monospace IDs (`dep_994a`), tabular numerals, pulsing operational status dots, and hairline borders (`border-white/[0.08]`).
 
+### 🎯 Anti-Hallucination & Deterministic Generation Rules
+
+* **No Fabricated Package Imports**: Verify `package.json` before importing third-party libraries. If `lucide-react` is not installed, render clean inline SVGs.
+* **No Imaginary CSS Utilities**: Use only standard, verified Tailwind classes. Never hallucinate non-existent utility classes (e.g. `bg-glass-blur-super`).
+* **Flat Component Depth**: Ban excessive wrapper divs ("DOM soup"). Group elements using whitespace and the Law of Proximity rather than nesting 4+ levels of boxes.
+
 *(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)**, **[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)**, **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)**, and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
 
 ---

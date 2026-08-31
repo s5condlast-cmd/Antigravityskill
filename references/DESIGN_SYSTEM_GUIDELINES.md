@@ -399,3 +399,17 @@ Avoid wrapping every paragraph in unnecessary card boxes ("containeritis"):
 * Top-level sections must enforce `overflow-x-clip` or `overflow-x-hidden`.
 * Use `w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8` instead of raw `w-screen`.
 * Isolated `overflow-x-auto` is only permitted on wide data tables and code preview blocks.
+
+---
+
+## 🎯 14. Anti-Hallucination & Clean Generation Invariants
+
+To ensure AI pair-programming models generate reliable, copy-pasteable, compile-clean UI:
+1. **Never Invent Tailwind Classes**: Use official Tailwind v3/v4 utility classes (e.g. `backdrop-blur-md`, `max-w-7xl`, `p-4`). Never make up arbitrary class names like `card-glow-super` or `hero-glass-v2`.
+2. **Never Fabricate Uninstalled Imports**: Inspect `package.json` before importing dependencies. If `lucide-react` or `framer-motion` is not installed, use clean native SVG paths and standard CSS transitions.
+3. **Flat DOM Structure**: Avoid nesting 4+ levels of `div` wrappers. Let CSS grid/flex and whitespace define grouping.
+4. **Single Source of Truth**:
+   * Tokens & Spatial Math: This document ([references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md))
+   * Color & Containers: [references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)
+   * Primitives: [references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)
+   * Full Page Patterns: [references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)
