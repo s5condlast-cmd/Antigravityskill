@@ -12,7 +12,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 
 function printBanner() {
   console.log('\x1b[36m  ⚡ Antigravity Engineering Framework CLI\x1b[0m');
-  console.log('  /debug ➔ Root Cause | /push ➔ Safe Git | /design ➔ UI Suite\n');
+  console.log('  /debug ➔ Root Cause | /push ➔ Safe Git | /install ➔ UI Suite\n');
 }
 
 function copyRecursive(src, dest) {
@@ -52,7 +52,7 @@ function installSkill(targetDir, isGlobal = false) {
     }
 
     console.log('\x1b[32m✔ Skill successfully installed with 0 errors!\x1b[0m');
-    console.log('\x1b[34m💡 You can now use /debug, /push, and /design in your AI coding assistant.\x1b[0m\n');
+    console.log('\x1b[34m💡 You can now use /debug, /push, and /install in your AI coding assistant.\x1b[0m\n');
   } catch (err) {
     console.error('\x1b[31m❌ Installation failed: ' + err.message + '\x1b[0m\n');
     process.exit(1);
@@ -60,7 +60,7 @@ function installSkill(targetDir, isGlobal = false) {
 }
 
 function runDesign() {
-  console.log('\x1b[35m🎨 Installing Dedicated UI / UX Design Suite...\x1b[0m\n');
+  console.log('\x1b[35m🎨 Installing Dedicated UI / UX Design Suite (/install)...\x1b[0m\n');
   const cmds = [
     { name: 'Impeccable Design Engine', cmd: 'npx -y impeccable install' },
     { name: 'Taste Skill Extension', cmd: 'npx -y skills add Leonxlnx/taste-skill' },
@@ -76,7 +76,7 @@ function runDesign() {
       console.warn('\x1b[33m⚠ Notice for ' + c.name + ': ' + e.message + '\x1b[0m\n');
     }
   });
-  console.log('\x1b[32m✔ UI/UX Design toolchain ready for /design component prompts!\x1b[0m\n');
+  console.log('\x1b[32m✔ UI/UX Design toolchain ready!\x1b[0m\n');
 }
 
 function printHelp() {
@@ -86,7 +86,7 @@ function printHelp() {
 Commands:
   init, install, add   Install skill into current workspace (.gemini/skills/antigravityskill) [default]
   global, g            Install skill globally (~/.gemini/antigravity/skills/antigravityskill)
-  design, ui           Install external UI design suite (impeccable, taste-skill, agentation)
+  design, ui, setup    Install external UI design suite (impeccable, taste-skill, agentation)
   help, --help, -h     Display this help message
 `);
 }
@@ -106,6 +106,7 @@ switch (rawCommand) {
     break;
   case 'design':
   case 'ui':
+  case 'setup':
     printBanner();
     runDesign();
     break;

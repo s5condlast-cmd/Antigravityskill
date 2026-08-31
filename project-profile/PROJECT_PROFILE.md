@@ -29,7 +29,7 @@ Use these versions to ensure compatibility:
   * PostgreSQL `16+` / SQLite
   * Prisma / Drizzle ORM
   * Zustand / TanStack Query
-* **Dedicated UI Design Toolchain (`/design`)**:
+* **Dedicated UI Design Toolchain (`/install`)**:
   * `npx impeccable install`
   * `npx skills add Leonxlnx/taste-skill`
   * `npm install agentation`

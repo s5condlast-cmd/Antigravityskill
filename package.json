@@ -1,7 +1,7 @@
 {
   "name": "antigravityskill",
   "version": "1.0.0",
-  "description": "Simple engineering framework for /debug, /push, and /design across TypeScript, Python, Go, Rust, and PHP.",
+  "description": "Simple engineering framework for /debug, /push, and /install across TypeScript, Python, Go, Rust, and PHP.",
   "main": "bin/cli.js",
   "bin": {
     "antigravityskill": "./bin/cli.js"

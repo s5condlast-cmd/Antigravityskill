@@ -20,7 +20,7 @@ A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI
 | 🔬 **Systematic Debugging** | `/debug` | 5-Phase diagnostic workflow that eliminates compiler red lines across TS, Python, Go, Rust, and PHP without lazy hacks (`@ts-ignore`, empty catches). |
 | 🎯 **Pristine Code Invariants** | `/debug` | The 4 Laws: context ingestion first, boundary parsing, unrepresentable illegal states, and zero placeholder TODOs. |
 | 🚀 **Safe Git Delivery** | `/push` | Streamlined 3-step Git staging, secret prevention audit, conventional commit formatting, and atomic remote syncing. |
-| 🎨 **UI / UX Design Suite** | `/design` | On-demand installation of dedicated design packages (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke UI components. |
+| 📦 **Design Toolchain Setup** | `/install` | On-demand installation of dedicated design packages (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke UI components. |
 | 🧠 **Continuous Learning** | `/learn` | Post-success reminder prompting you to persist discovered invariants or architectural conventions into project memory. |
 | 🚦 **Safety Guardrails** | Automatic | Strict traffic-light boundaries preventing secrets leaks, destructive resets, or out-of-scope edits. |
 
@@ -84,9 +84,9 @@ git clone https://github.com/s5condlast-cmd/Antigravityskill.git .gemini/skills/
 * **Push feature branches safely**:
   > *"/push push this new auth module to origin"*
 
-### 3. The `/design` Command (Dedicated UI Toolchain)
+### 3. The `/install` Command (Dedicated UI Toolchain Setup)
 
-* When you enter `/design` or ask for UI/UX component generation, Antigravity triggers the installation of the specialized external design suite:
+* When you enter `/install` or ask to install the UI design toolchain, Antigravity triggers the installation of the specialized external design suite:
 
   ```bash
   npx impeccable install
@@ -160,9 +160,9 @@ Antigravityskill/
 
 ## 🧠 Continuous Learning (`/learn`) & Circuit Breaker
 
-### 💡 Post-Success Reminder (`/learn`, Health Check & `/design`)
+### 💡 Post-Success Reminder (`/learn`, Health Check & `/install`)
 
-Whenever Antigravity **successfully resolves a bug, clears compiler errors, or implements a feature**, it automatically includes a short reminder at the end of its response. This allows you to persist the architectural lesson into project memory, verify VS Code workspace health, and optionally upgrade UI styling with `/design`:
+Whenever Antigravity **successfully resolves a bug, clears compiler errors, or implements a feature**, it automatically includes a short reminder at the end of its response. This allows you to persist the architectural lesson into project memory, verify VS Code workspace health, and optionally install the external design suite with `/install`:
 
 ```markdown
 ---
@@ -182,9 +182,9 @@ To ensure Antigravity remembers this invariant and avoids this issue in future s
 
 ---
 
-### 🎨 Enhance Visuals & UI Components (`/design`)
+### 🎨 Install External UI / Design Suite (`/install`)
 
-> 💡 **Tip**: Run `/design` (or allow Antigravity to run it automatically) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
+> 💡 **Tip**: Run `/install` (or allow Antigravity to run it automatically) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
 ```
 
 ### ⚡ The "Rule of Three" Circuit Breaker & `/debug` Reminder

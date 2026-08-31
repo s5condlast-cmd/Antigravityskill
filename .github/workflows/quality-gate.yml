@@ -66,7 +66,7 @@ jobs:
               "references/CLI_CHEAT_SHEET.md",
               "commands/debug.md",
               "commands/push.md",
-              "commands/design.md",
+              "commands/install.md",
               ".github/pull_request_template.md",
               "LICENSE",
               "package.json",

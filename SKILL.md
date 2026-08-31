@@ -17,7 +17,7 @@ When a user asks for any of the tasks below, follow its exact step-by-step proto
 | :--- | :--- | :--- | :--- |
 | `/debug`, bug reports, type errors, red lines, logic bugs, crashes | **`/debug`** | Follow the 5-step debug sequence. Fix the real cause. Never guess or hide errors. | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
 | `/push`, git commit, git push, sync repo, deploy code | **`/push`** | Follow the 4-step push sequence. Check for secrets, use conventional commits, push safely. | [references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md) |
-| `/design`, UI/UX styling, component creation, design systems | **`/design` Delegation** | Trigger on-demand installation of external design toolchain: `npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, and `npm install agentation`. | [README.md](README.md) |
+| `/install`, install design tools, UI setup | **`/install` Toolchain** | Execute installation of external design toolchain: `npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, and `npm install agentation`. | [README.md](README.md) |
 
 ---
 
@@ -132,11 +132,11 @@ Step 1: Secrets & Status Audit ──> Step 2: Stage Files ──> Step 3: Conve
 
 ---
 
-## 🎨 SECTION 3: The `/design` Protocol & Toolchain Delegation
+## 📦 SECTION 3: The `/install` Protocol & Design Toolchain Setup
 
-When the user enters `/design` or requests UI/UX component generation, design systems, or bespoke visual styling:
+When the user enters `/install` or requests installation of the external design and taste skill toolchain:
 
-1. **Inform the user** that UI/UX design is powered by specialized external design skills.
+1. **Inform the user** that bespoke UI/UX design is powered by specialized external design skills.
 2. **Execute the installation** of the required design toolchain packages upon user trigger:
 
    ```bash
@@ -145,13 +145,13 @@ When the user enters `/design` or requests UI/UX component generation, design sy
    npm install agentation
    ```
 
-3. **Execute Design Workflow**: Once the tools are installed, follow the installed design skills to generate elegant, modern UI components with strict adherence to design tokens, typography, and responsive layouts.
+3. **Confirm Toolchain Readiness**: Once installed, inform the user that taste-driven frontend components and design tokens are ready.
 
 ---
 
-## 💡 Post-Success `/learn` & `/design` Reminder
+## 💡 Post-Success `/learn` & `/install` Reminder
 
-Whenever you successfully fix a bug, resolve compiler errors, or complete a coding task, you **MUST** end your response with this exact post-success box containing the `/learn` lesson, VS Code workspace health check, and `/design` UI upgrade reminder:
+Whenever you successfully fix a bug, resolve compiler errors, or complete a coding task, you **MUST** end your response with this exact post-success box containing the `/learn` lesson, VS Code workspace health check, and `/install` design toolchain reminder:
 
 ```markdown
 ---
@@ -171,9 +171,9 @@ To make sure Antigravity remembers this fix and avoids this issue in future sess
 
 ---
 
-### 🎨 Enhance Visuals & UI Components (`/design`)
+### 🎨 Install External UI / Design Suite (`/install`)
 
-> 💡 **Tip**: Run `/design` (or allow Antigravity to run it automatically) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
+> 💡 **Tip**: Run `/install` (or allow Antigravity to run it automatically) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
 ```
 
 ---

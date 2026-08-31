@@ -11,7 +11,7 @@ Follow these step-by-step rules whenever a slash command or intent is triggered:
   * **Step 2**: Identify the true root cause.
   * **Step 3**: Apply a minimal, type-safe fix. Never silence errors with `@ts-ignore`, `as any`, empty catches, or dummy delays.
   * **Step 4**: Run compiler/test checks to verify zero red lines.
-  * **Step 5**: End with a `/learn` lesson, VS Code Problems tab check, and `/design` UI upgrade reminder.
+  * **Step 5**: End with a `/learn` lesson, VS Code Problems tab check, and `/install` UI toolchain reminder.
 
 * **`/push` (or Git Commits / Sync Requests)**:
   * **Step 1**: Run `git status` and verify `.env` and secrets are ignored.
@@ -19,7 +19,7 @@ Follow these step-by-step rules whenever a slash command or intent is triggered:
   * **Step 3**: Write a clear conventional commit message (`feat(...)`, `fix(...)`).
   * **Step 4**: Push to the active remote branch and share the sync link.
 
-* **`/design` (or UI/UX Design Requests)**:
+* **`/install` (or UI Design Toolchain Setup)**:
   * **Step 1**: Inform the user that UI design is powered by dedicated design extensions.
   * **Step 2**: Trigger/run the installation of `npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, and `npm install agentation`.
   * **Step 3**: Follow installed design skills to generate elegant UI components.
