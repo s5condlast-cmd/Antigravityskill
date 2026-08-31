@@ -17,8 +17,8 @@ A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI
 
 | Feature | Slash Command | Description |
 | :--- | :--- | :--- |
-| 🔬 **Systematic Debugging** | `/debug` | 5-Phase diagnostic workflow that eliminates compiler red lines across TS, Python, Go, Rust, and PHP without lazy hacks (`@ts-ignore`, empty catches). |
-| 🎯 **Pristine Code Invariants** | `/debug` | The 4 Laws: context ingestion first, boundary parsing, unrepresentable illegal states, and zero placeholder TODOs. |
+| 🔬 **Systematic Debugging** | `/debug` | 5-Phase diagnostic workflow that eliminates compiler red lines and runs project-wide regression tests across TS, Python, Go, Rust, and PHP without lazy hacks (`@ts-ignore`, empty catches). |
+| 🎯 **Pristine Code Invariants** | `/debug` | The 5 Laws: context ingestion first, boundary parsing, unrepresentable illegal states, zero placeholder TODOs, and regression prevention. |
 | 🚀 **Safe Git Delivery** | `/push` | Streamlined 3-step Git staging, secret prevention audit, conventional commit formatting, and atomic remote syncing. |
 | 📦 **Design Toolchain Setup** | `/install` | On-demand installation of dedicated design packages (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke UI components. |
 | 🧠 **Continuous Learning** | `/learn` | Post-success reminder prompting you to persist discovered invariants or architectural conventions into project memory. |
@@ -84,13 +84,14 @@ This automatically sets up the skill in your current project (`.gemini/skills/an
 
 ---
 
-## 🔬 The 5 Laws of Pristine Code (`/debug`)
+## 🔬 The 6 Laws of Pristine Code (`/debug`)
 
 1. **Context Ingestion First**: Inspect existing project types, schemas, and utils before writing code.
 2. **"Parse, Don't Validate"**: Convert external input into validated domain types at system boundaries.
 3. **Make Illegal States Unrepresentable**: Use Discriminated Unions / Tagged Variants instead of loose nullable flags.
 4. **No Placeholders or TODOs**: Always generate complete, fully implemented, type-checked logic.
-5. **Dead Code & Duplication Elimination**: Ruthlessly remove unused imports, dead unreachable code, and consolidate copy-pasted duplicate logic.
+5. **Dead Code & Duplication Elimination**: Ruthlessly remove unused imports, dead unreachable code, and duplicate logic.
+6. **Zero-Regression Verification**: Run full test suites and consumer checks to guarantee fixes never break related features.
 
 ---
 

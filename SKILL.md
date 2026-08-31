@@ -55,7 +55,7 @@ If two instructions conflict, follow this priority order (1 is highest):
 Follow this 5-step sequence in order for every bug, error, or type issue:
 
 ```text
-Step 1: Read & Scan ──> Step 2: Find Root Cause ──> Step 3: Minimal Safe Fix ──> Step 4: Verify (0 Errors) ──> Step 5: /learn Lesson
+Step 1: Read & Scan ──> Step 2: Find Root Cause ──> Step 3: Minimal Safe Fix ──> Step 4: Verify & Regression Check ──> Step 5: /learn Lesson
 ```
 
 ### 📋 Step-by-Step Debugging Execution Checklist
@@ -83,9 +83,15 @@ Step 1: Read & Scan ──> Step 2: Find Root Cause ──> Step 3: Minimal Safe
      - ❌ NEVER write empty `catch (e) {}` blocks.
      - ❌ NEVER add dummy `setTimeout` delays to hide race conditions.
 
-4. **Step 4: Verify (Zero Errors & Clean Code Gate)**
-   - Run type checks or tests (`tsc --noEmit`, `phpstan analyse`, `composer test`, `pytest`, `npm test`, `cargo check`, `go test`).
-   - Confirm all compiler red lines, dead code warnings, and test failures are gone.
+4. **Step 4: Verify & Regression Check (Zero Red Lines + Zero Broken Consumers)**
+   - **Impact Radius Scan**: Identify all call sites, dependent consumers, and interacting modules that rely on the modified functions, interfaces, or database schemas.
+   - **Run Project-Wide Compiler & Test Suites**:
+     - TypeScript / Node: `npx tsc --noEmit` across whole workspace + `npm test`
+     - Python: `mypy .` + `pytest`
+     - PHP: `phpstan analyse` + `composer test` (Pest / PHPUnit)
+     - Go: `go vet ./...` + `go test ./...`
+     - Rust: `cargo check --all-targets` + `cargo test`
+   - *Regression Invariant*: Confirm that fixing the immediate error did NOT break any related functionality or existing test suites.
 
 5. **Step 5: Provide `/learn` Lesson**
    - Add the required `/learn` reminder box at the end of the response.
