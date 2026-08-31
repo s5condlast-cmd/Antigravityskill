@@ -236,3 +236,71 @@ export function MetricCard({ title, value, change, isPositive = true, icon }: Me
   );
 }
 ```
+
+---
+
+## 🎬 7. Motion Choreography & Staggered Delay Animations
+
+Smooth, intentional motion guides the user's eye without feeling sluggish or overwhelming.
+
+### 7.1 Easing Curves & Timing Standards
+
+| Motion Type | Duration | Easing Curve | Tailwind / CSS Class |
+| :--- | :--- | :--- | :--- |
+| **Micro-Interactions** (Button hover, click) | `150ms - 200ms` | `ease-out` or `cubic-bezier(0.16, 1, 0.3, 1)` | `transition-all duration-200 ease-out` |
+| **Surface Expansions** (Modals, menus, dropdowns) | `250ms - 300ms` | `cubic-bezier(0.16, 1, 0.3, 1)` (Spring feel) | `transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]` |
+| **Page Entry / Staggered Elements** | `400ms - 600ms` | `ease-out` with staggered delays | `animate-in fade-in slide-in-from-bottom-4` |
+
+### 7.2 Staggered Cascade Delays (Bento & Lists)
+When rendering lists, cards, or hero items, stagger entrance animations sequentially:
+* **Item 1**: `delay-0`
+* **Item 2**: `delay-75` (75ms offset)
+* **Item 3**: `delay-150` (150ms offset)
+* **Item 4**: `delay-200` (200ms offset)
+
+```tsx
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  {cards.map((card, index) => (
+    <div
+      key={card.id}
+      style={{ animationDelay: `${index * 80}ms` }}
+      className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-backwards"
+    >
+      <MetricCard {...card} />
+    </div>
+  ))}
+</div>
+```
+
+---
+
+## 📏 8. Pixel-Perfect Spatial Math & Alignment Standards
+
+High-taste UI relies on mathematical consistency in heights, widths, paddings, and icon alignments:
+
+### 8.1 Sizing & Padding Ladders
+
+| Size Token | Control Height | Horizontal Padding | Icon Size | Font Size | Gap |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Compact (`sm`)** | `h-9` (36px) | `px-3` (12px) | `h-4 w-4` (16px) | `text-xs font-medium` | `gap-1.5` |
+| **Standard (`md`)** | `h-11` (44px) | `px-5` (20px) | `h-5 w-5` (20px) | `text-sm font-medium` | `gap-2` |
+| **Featured (`lg`)** | `h-13` (52px) | `px-7` (28px) | `h-5 w-5` (20px) | `text-base font-semibold`| `gap-2.5` |
+
+### 8.2 Optical Centering & Icon Legibility
+* **Optical Alignment**: Never let icons float without vertical centering (`inline-flex items-center justify-center`).
+* **Icon Recognition & Affordance**: Place icons to the **left** of action verbs (e.g., `[Search Icon] Search documents`) or to the **right** for external/forward navigation (`[ArrowRight]`).
+* **Icon Touch Boundaries**: Interactive icons must have at least a `p-2` to `p-2.5` padding wrapper on mobile devices to meet Fitts's Law ($\ge 44\text{px}$ touch target).
+
+---
+
+## ✨ 9. The "Impeccable Taste" & Minimalist UI Checklist
+
+When building interfaces under `/design`, enforce these 7 golden rules of taste:
+
+1. **Eliminate Visual Noise**: If a border, divider, or background doesn't serve a clear grouping purpose, remove it and let whitespace create the structure.
+2. **Harmonious Typography**: Stick to 2-3 distinct font weights per page (`normal`, `medium`, `bold`) and never use more than 2 font families.
+3. **Subtle Surface Depth**: Layer surfaces smoothly (`canvas bg-background` $\rightarrow$ `card bg-card` with `border border-border/60` $\rightarrow$ `popover shadow-xl`).
+4. **Soft Glows & Ambient Accents**: Use low-opacity radial gradients (`bg-gradient-to-r from-primary/10 via-transparent to-transparent`) instead of harsh solid blocks.
+5. **No Broken Alignment**: Ensure all cards in a grid have equal height (`h-full flex flex-col justify-between`) and buttons align along the bottom edge.
+6. **Easy-to-Scan Navigation**: Highlight active menu routes with a subtle pill background (`bg-accent text-accent-foreground font-semibold`) or bottom indicator line.
+7. **Immediate Visual Feedback**: Every hover, click, and keystroke provides smooth, immediate micro-interactions ($< 150\text{ms}$).

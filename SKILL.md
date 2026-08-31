@@ -74,14 +74,15 @@ When conflicting constraints or instructions arise, resolve them using this stri
 
 When designing user interfaces, creating component libraries, or styling landing pages:
 
-### 🏛️ The 4 Pillars of Modern Design
+### 🏛️ The 5 Pillars of Impeccable Design & Craftsmanship
 
-1. **Semantic Token Architecture**: Use themeable semantic tokens (`bg-background`, `text-foreground`, `bg-primary`, `border-border`) rather than hardcoded hex values or arbitrary colors.
-2. **Mobile-First Responsive Layouts**: Build for mobile viewport first (`w-full flex-col`), then scale up using Tailwind breakpoints (`sm:`, `md:`, `lg:`, `xl:`).
-3. **Accessible by Default (WCAG 2.1 AA)**: Ensure color contrast $\ge 4.5:1$, visible focus rings (`focus-visible:ring-2`), semantic HTML tags, and screen-reader `aria-*` labels.
-4. **Micro-Interactions & Polish**: Implement interactive state feedback (hover, active scale, focus, disabled, loading) and subtle glassmorphism / smooth transitions.
+1. **Minimalism & Visual Restraint**: Zero visual noise. Use clean whitespace, subtle borders (`border-border/60`), and soft ambient gradients instead of cluttered heavy ornaments.
+2. **Smooth Motion & Staggered Delays**: Implement fluid spring physics (`cubic-bezier(0.16, 1, 0.3, 1)`) and cascading entry delays (`delay-75`, `delay-150`, `delay-200`) for butter-smooth 60fps transitions.
+3. **Effortless Navigation & Scannable Icons**: Position high-contrast, recognizable Lucide icons with optical padding and clear affordance so navigation is instant and intuitive.
+4. **Pixel-Perfect Spatial Math**: Strict adherence to the 8-point grid, height ladders (`h-9`, `h-11`, `h-13`), padding balance (`px-3 py-1.5` to `px-7 py-3.5`), and optical baseline alignment.
+5. **Accessible by Default (WCAG 2.1 AA)**: Contrast ratios $\ge 4.5:1$, visible focus rings (`focus-visible:ring-2`), semantic HTML tags, and screen-reader `aria-*` labels.
 
-*(Detailed token maps and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
+*(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
 
 ---
 

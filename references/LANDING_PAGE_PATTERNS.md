@@ -183,15 +183,11 @@ export function ResponsiveNavbar() {
       )}
     </header>
   );
-}
-```
-
----
-
 ## 3. 💳 Interactive Pricing Matrix with Billing Toggle
 
 ```tsx
 import React, { useState } from "react";
+import { Check } from "lucide-react";
 
 interface Plan {
   name: string;
@@ -209,19 +205,19 @@ const PLANS: Plan[] = [
     monthlyPrice: 0,
     annualPrice: 0,
     description: "Ideal for individual developers exploring zero-defect AI skills.",
-    features: ["Standard /debug skill", "Basic health checks", "Community Discord access"],
+    features: ["Standard /debug engine", "Accessible /design tokens", "Community support"],
     ctaText: "Start Free",
   },
   {
     name: "Pro",
     monthlyPrice: 29,
     annualPrice: 24,
-    description: "For professional engineers and high-velocity teams.",
+    description: "For professional engineers and high-velocity product teams.",
     features: [
-      "Staff-engineer grade /debug suite",
+      "Deep 5-phase /debug diagnostics",
+      "Full /design UI component system",
       "Automated /learn memory synthesis",
       "Zero-Red-Line CI Quality Gate",
-      "Unlimited branches & PR templates",
     ],
     isPopular: true,
     ctaText: "Upgrade to Pro",
@@ -230,11 +226,11 @@ const PLANS: Plan[] = [
     name: "Enterprise",
     monthlyPrice: 99,
     annualPrice: 79,
-    description: "Custom compliance, SLA, and dedicated MCP tool integrations.",
+    description: "Custom compliance, SLA, and dedicated engineering support.",
     features: [
-      "Custom organization rules",
-      "Dedicated MCP server connectors",
-      "Self-hosted runners",
+      "Custom organization design rules",
+      "Dedicated MCP tool connectors",
+      "Self-hosted quality runners",
       "24/7 Priority engineering support",
     ],
     ctaText: "Contact Sales",
@@ -245,72 +241,76 @@ export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(true);
 
   return (
-    <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-950 text-white">
+    <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-background text-foreground">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-5xl font-extrabold mb-4">Simple, Transparent Pricing</h2>
-        <p className="text-slate-400 max-w-xl mx-auto mb-10">
+        <h2 className="text-3xl sm:text-5xl font-extrabold mb-4 tracking-tight">Simple, Transparent Pricing</h2>
+        <p className="text-muted-foreground max-w-xl mx-auto mb-10 text-base sm:text-lg">
           Choose the plan that best fits your development velocity.
         </p>
 
         {/* Monthly / Annual Billing Toggle */}
         <div className="flex items-center justify-center gap-3 mb-16">
-          <span className={`text-sm ${!isAnnual ? "text-white font-semibold" : "text-slate-400"}`}>
+          <span className={`text-sm ${!isAnnual ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
             Monthly
           </span>
           <button
             onClick={() => setIsAnnual(!isAnnual)}
             aria-label="Toggle annual billing"
-            className="w-14 h-8 flex items-center bg-slate-800 rounded-full p-1 cursor-pointer transition-colors focus:ring-2 focus:ring-cyan-500"
+            className="w-14 h-8 flex items-center bg-muted border border-border rounded-full p-1 cursor-pointer transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
           >
             <div
-              className={`bg-cyan-400 w-6 h-6 rounded-full shadow-md transform transition-transform duration-200 ${
+              className={`bg-primary w-6 h-6 rounded-full shadow-md transform transition-transform duration-200 ${
                 isAnnual ? "translate-x-6" : "translate-x-0"
               }`}
             />
           </button>
-          <span className={`text-sm flex items-center gap-1.5 ${isAnnual ? "text-white font-semibold" : "text-slate-400"}`}>
-            Annual <span className="text-xs px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-400 font-bold">Save 20%</span>
+          <span className={`text-sm flex items-center gap-1.5 ${isAnnual ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
+            Annual <span className="text-xs px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-bold">Save 20%</span>
           </span>
         </div>
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {PLANS.map((plan) => {
+          {PLANS.map((plan, idx) => {
             const price = isAnnual ? plan.annualPrice : plan.monthlyPrice;
             return (
               <div
                 key={plan.name}
-                className={`relative rounded-2xl p-8 flex flex-col justify-between transition-all duration-200 ${
+                style={{ animationDelay: `${idx * 100}ms` }}
+                className={`relative rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 ${
                   plan.isPopular
-                    ? "bg-slate-900 border-2 border-cyan-500 shadow-xl shadow-cyan-500/10 scale-105 z-10"
-                    : "bg-slate-900/60 border border-slate-800 hover:border-slate-700"
+                    ? "bg-card border-2 border-primary shadow-xl shadow-primary/10 scale-105 z-10"
+                    : "bg-card/60 border border-border hover:border-primary/40 hover:shadow-md"
                 }`}
               >
                 {plan.isPopular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-cyan-500 text-slate-950 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
                     Most Popular
                   </span>
                 )}
                 <div>
                   <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-                  <p className="text-slate-400 text-sm mb-6 min-h-[40px]">{plan.description}</p>
+                  <p className="text-muted-foreground text-sm mb-6 min-h-[40px] leading-relaxed">{plan.description}</p>
                   <div className="flex items-baseline justify-center gap-1 mb-8">
-                    <span className="text-5xl font-black">${price}</span>
-                    <span className="text-slate-400 text-sm">/month</span>
+                    <span className="text-5xl font-black tracking-tight">${price}</span>
+                    <span className="text-muted-foreground text-sm">/month</span>
                   </div>
-                  <ul className="space-y-3 text-left text-sm text-slate-300 mb-8">
+                  <ul className="space-y-3.5 text-left text-sm text-muted-foreground mb-8">
                     {plan.features.map((feat) => (
-                      <li key={feat} className="flex items-center gap-2">
-                        <span className="text-cyan-400 font-bold">✔</span> {feat}
+                      <li key={feat} className="flex items-center gap-2.5">
+                        <span className="p-0.5 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                          <Check className="h-3.5 w-3.5 stroke-[3]" />
+                        </span>
+                        <span className="text-foreground">{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <button
-                  className={`w-full py-3 rounded-xl font-semibold transition-all ${
+                  className={`w-full h-11 rounded-xl font-semibold transition-all duration-200 active:scale-[0.98] ${
                     plan.isPopular
-                      ? "bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-md"
-                      : "bg-slate-800 hover:bg-slate-700 text-white"
+                      ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-md"
+                      : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border border-border"
                   }`}
                 >
                   {plan.ctaText}
@@ -323,7 +323,6 @@ export function PricingSection() {
     </section>
   );
 }
-```
 
 ---
 
@@ -331,6 +330,7 @@ export function PricingSection() {
 
 ```tsx
 import React, { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 
 interface FaqItem {
   question: string;
@@ -341,17 +341,17 @@ const FAQS: FaqItem[] = [
   {
     question: "Will this skill interfere with Antigravity or any AI model?",
     answer:
-      "No. It uses progressive disclosure and only loads on demand during active errors or /debug invocations, guaranteeing zero token waste and zero system interference.",
+      "No. It uses progressive disclosure and only activates on demand during /debug or /design invocations, guaranteeing zero token waste and zero system interference.",
   },
   {
-    question: "How does /push prevent breaking the main branch?",
+    question: "How does /design ensure accessible, high-taste UI?",
     answer:
-      "The /push protocol executes a pre-flight health scan (diagnose.js) and verifies your active Git branch. If you are on main, it automatically switches to a dedicated feature branch.",
+      "The /design skill strictly follows WCAG 2.1 AA accessibility (≥ 4.5:1 contrast, visible focus rings, aria labels), an 8-point spatial grid, smooth spring motion delays, and semantic HSL/OKLCH design tokens.",
   },
   {
     question: "Can I use these skills on Python, Go, or Rust codebases?",
     answer:
-      "Yes! All utilities, diagnostic scanners, and CI quality gates are 100% polyglot and support TypeScript, Python, Go, and Rust out of the box.",
+      "Yes! All engineering standards, type guards, and CI quality gates are 100% polyglot and support TypeScript, Python, Go, and Rust out of the box.",
   },
 ];
 
@@ -359,9 +359,9 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50 text-white">
+    <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/40 text-foreground">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-12 tracking-tight">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
@@ -370,20 +370,20 @@ export function FaqSection() {
             return (
               <div
                 key={faq.question}
-                className="border border-slate-800 rounded-xl bg-slate-950/60 overflow-hidden transition-colors"
+                className="border border-border rounded-xl bg-card overflow-hidden transition-colors shadow-sm"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="w-full text-left p-5 flex items-center justify-between font-semibold text-lg text-slate-200 hover:text-white"
+                  className="w-full text-left p-5 flex items-center justify-between font-semibold text-lg text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   <span>{faq.question}</span>
-                  <span className="text-cyan-400 text-xl font-bold ml-4">
-                    {isOpen ? "−" : "+"}
+                  <span className="p-1 rounded-lg bg-muted text-muted-foreground ml-4 flex items-center justify-center">
+                    {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                   </span>
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-900 pt-3">
+                  <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-3 animate-in fade-in duration-200">
                     {faq.answer}
                   </div>
                 )}
