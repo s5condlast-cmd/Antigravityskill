@@ -109,6 +109,19 @@ When designing user interfaces, creating component libraries, or styling landing
 * **Ambient Lighting Formula**: Top-center pinned radial light aura (`bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.12),transparent)]`) behind Hero sections.
 * **All 16 Master Landing Page Sections Ready**: When `/design` is invoked for any landing page or application view, generate directly from our 16 unified patterns (Command Palette `⌘K`, Sticky Navbar, Hero, Activity Table, Terminal Preview, Blog, Content, Bento, E-Commerce, Contact, CTA, Gallery, Telemetry KPI, Pricing Matrix, FAQ, Footer) in `references/LANDING_PAGE_PATTERNS.md`.
 
+### ⚡ The Law of Autonomous Full-Stack Execution (Vague Prompt Expansion)
+
+* **No Hesitation or 20 Questions**: If a user gives a brief or vague prompt (e.g. `"/design"`, `"build a landing page"`, `"make it look good"`, `"create a dashboard"`), **NEVER** return a partial stub or stall asking for wireframes. Proactively synthesize and assemble a **complete, full-scale, craft-level product interface**.
+* **Full Multi-Section Assembly**: Autonomously compose a complete, cohesive layout containing:
+  1. `GlassNavbar` (with brand anchor & embedded `⌘K` trigger).
+  2. `CraftHeroSection` (with ambient light aura, headline focal gradient, and live interactive preview).
+  3. `ModernBentoGrid` / `ArchitecturalContentGrid` (with dense telemetry).
+  4. `BlogCardGrid` / `CuratedMediaGrid` (with curated Unsplash imagery).
+  5. `PricingMatrix` / `KpiTelemetryRow` (with `tabular-nums` and billing toggle).
+  6. `ContainerlessFaq` (with hairline `divide-y` dividers).
+  7. `ModernFooter` (with category links & newsletter pill).
+* **Zero Placeholders & Zero "TODO" Comments**: Every generated component must be 100% complete, fully typed in TypeScript, WCAG AA accessible, and interactive with keyboard listeners.
+
 ### 🚫 The Anti-AI-Slop Design Invariant
 
 * **NO Generic Tacky Gradients**: Ban giant purple/cyan radial blur blobs and rainbow borders. Use crisp neutral darks (`#09090b`) with intentional single-hue accents.

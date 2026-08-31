@@ -60,3 +60,4 @@ All agents operate within strict traffic-light safety boundaries to protect code
 2. **"Parse, Don't Validate"**: Validate and sanitize external input (API payloads, query parameters, file reads) directly into typed domain models.
 3. **Make Illegal States Unrepresentable**: Leverage Discriminated Unions and Tagged Types instead of optional null fields that permit contradictory combinations.
 4. **No Placeholders or TODOs**: Every generated function, component, and test must be fully implemented, syntactically complete, and type-checked.
+5. **Autonomous Full-Stack Delivery on Vague Prompts**: When requests are brief (e.g. `"/design"`, `"make a landing page"`), synthesize and deliver a complete, multi-section, craft-grade layout with zero placeholders.
