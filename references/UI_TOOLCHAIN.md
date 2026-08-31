@@ -1,29 +1,22 @@
 # 🎨 UI/UX Design Toolchain Guide (`agentation`, `taste-skill`, `impeccable`)
 
-This reference provides complete, copy-pasteable integration code, layout wrappers, and design token presets for the 3 external UI tools installed via `/install`.
+This reference explains the exact purpose, integration methods, and operational workflows for the 3 external UI tools installed via `/install`.
 
 ---
 
-## 🛠️ Toolchain Overview
+## 🛠️ Toolchain Overview: Code Package vs. AI Skills
 
-| Tool | Type | Installation | How It Works |
+| Tool | Type | What it is | How to use it |
 | :--- | :--- | :--- | :--- |
-| **`agentation`** | **Code Package (NPM)** | `npm install agentation` | Exports the `<Agentation />` React component for in-browser visual DOM inspection during development. |
-| **`taste-skill`** | **AI Prompt Skill** | `npx skills add Leonxlnx/taste-skill` | Injects "anti-slop" aesthetic rules (micro-interactions, subtle borders, high-taste density dials) into the AI's coding behavior. |
-| **`impeccable`** | **AI Prompt Skill** | `npx -y impeccable install` | Injects 23+ design commands (`/polish`, `/audit`, `/typeset`) and ~60 design anti-pattern rules for consistent UI layouts. |
+| **`agentation`** | **NPM Code Package** | Live React in-browser visual DOM inspector toolbar | Import `<Agentation />` into your root layout (`app/layout.tsx` or `App.tsx`) |
+| **`taste-skill`** | **AI Prompt Skill** | Aesthetic anti-slop guidelines & visual density dials | Directs the AI to avoid generic purple gradients and build distinctive UI |
+| **`impeccable`** | **AI Prompt Skill** | 23+ Design commands & 60+ design anti-pattern rules | Run design review commands (`/polish`, `/audit`, `/typeset`) with your AI |
 
 ---
 
-> [!NOTE]
-> **Key Architecture Distinction**:
-> * **`agentation`** is an actual code library with imports (`import { Agentation } from 'agentation'`).
-> * **`taste-skill`** and **`impeccable`** do *not* export JS code; they are **AI Skills** that guide the AI on *how* to write beautiful, polished frontend code (Tailwind, CSS, React, Vue).
+## 1. 🔍 Agentation (The React Code Component)
 
----
-
-## 1. 🔍 Agentation Integration Code
-
-`agentation` provides a non-intrusive visual toolbar in your browser during local development to inspect elements, highlight layout boundaries, and provide visual feedback to AI agents.
+`agentation` is the **only code package** among the three. It exports a React component that renders a visual DOM inspection toolbar in your browser during local development.
 
 ### Next.js App Router (`app/layout.tsx`)
 
@@ -32,15 +25,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-// 1. Conditionally import Agentation for client dev mode
+// 1. Import Agentation
 import { Agentation } from "agentation";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Modern Web Application",
-  description: "Built with Antigravity UI Toolchain",
-};
 
 export default function RootLayout({
   children,
@@ -48,11 +36,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} antialiased bg-background text-foreground min-h-screen`}>
+    <html lang="en">
+      <body className={inter.className}>
         {children}
 
-        {/* 2. Dev-Only Visual Inspection Toolbar */}
+        {/* 2. Dev-Only Visual Telemetry Toolbar */}
         {process.env.NODE_ENV === "development" && (
           <Agentation />
         )}
@@ -68,7 +56,6 @@ export default function RootLayout({
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./index.css";
 import { Agentation } from "agentation";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -81,184 +68,52 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 ---
 
-## 2. 💎 Taste-Skill Design Tokens & Aesthetic Component Recipes
+## 2. 💎 Taste-Skill (AI Aesthetic & Anti-Slop Dials)
 
-`taste-skill` enforces high-taste design rules:
+`Leonxlnx/taste-skill` contains **no JavaScript library code**. It is an AI skill that injects aesthetic rules into your AI assistant to eradicate generic "AI slop" interfaces (like cookie-cutter purple gradients, nested cards, and cramped typography).
 
-1. **Subtle Borders**: Use `border-white/10` or `border-border/40` instead of harsh solid borders.
-2. **Glassmorphism**: Use `backdrop-blur-md bg-background/80` for elevated layers.
-3. **Micro-Interactions**: Use `transition-all duration-200 ease-out active:scale-[0.98]`.
-4. **Balanced Typography**: Tight tracking (`tracking-tight`) for display headers, relaxed line-height for body.
+### Core Aesthetic Dials
+When prompting your AI to build or restyle frontend interfaces, you can reference these dials:
 
-### Design Tokens (`app/globals.css` / `src/index.css`)
+* **`DESIGN_VARIANCE` (0.0 to 1.0)**:
+  * `0.2` = Conservative, standard enterprise SaaS layout.
+  * `0.8` = Bold, editorial, distinctive visual identity.
+* **`VISUAL_DENSITY`**:
+  * `compact` = Data-dense tables, dashboards, developer tools.
+  * `spacious` = High-end marketing, luxury landing pages, portfolios.
+* **`MOTION_INTENSITY`**:
+  * `subtle` = Crisp 150ms transitions and micro-interactions (`active:scale-[0.98]`).
+  * `expressive` = Smooth staggered entrances and fluid spring animations.
 
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --border: 240 5.9% 90%;
-    --radius: 0.75rem;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 6%;
-    --card-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-  }
-}
-```
-
-### Aesthetic Button Component Recipe (`components/ui/Button.tsx`)
-
-```tsx
-import * as React from "react";
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "glass" | "outline";
-  size?: "sm" | "md" | "lg";
-}
-
-export function Button({
-  children,
-  variant = "primary",
-  size = "md",
-  className = "",
-  ...props
-}: ButtonProps) {
-  const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-primary/40 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none";
-
-  const sizeStyles = {
-    sm: "px-3 py-1.5 text-xs gap-1.5",
-    md: "px-4 py-2 text-sm gap-2",
-    lg: "px-6 py-3 text-base gap-2.5",
-  }[size];
-
-  const variantStyles = {
-    primary:
-      "bg-primary text-primary-foreground shadow-sm hover:opacity-90 hover:shadow",
-    secondary:
-      "bg-muted text-foreground hover:bg-muted/80",
-    glass:
-      "bg-white/5 backdrop-blur-md border border-white/10 text-foreground hover:bg-white/10 hover:border-white/20 shadow-sm",
-    outline:
-      "border border-border/80 text-foreground hover:bg-accent hover:text-accent-foreground",
-  }[variant];
-
-  return (
-    <button
-      className={`${baseStyles} ${sizeStyles} ${variantStyles} ${className}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-}
-```
-
-### Glassmorphic Card Recipe (`components/ui/Card.tsx`)
-
-```tsx
-import * as React from "react";
-
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  hoverEffect?: boolean;
-}
-
-export function Card({
-  children,
-  hoverEffect = true,
-  className = "",
-  ...props
-}: CardProps) {
-  return (
-    <div
-      className={`rounded-2xl border border-border/40 bg-card/60 backdrop-blur-xl p-6 shadow-sm transition-all duration-300 ${
-        hoverEffect ? "hover:border-border/80 hover:shadow-md hover:-translate-y-0.5" : ""
-      } ${className}`}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
-```
+### What Taste-Skill Teaches the AI to Avoid
+1. ❌ **No Generic Gradients**: Eliminates cliché purple-to-blue linear background washes.
+2. ❌ **No Nested Card Hell**: Stops wrapping cards inside cards with redundant borders.
+3. ❌ **No Low-Contrast Gray Text**: Enforces accessible, legible typography hierarchy.
 
 ---
 
-## 3. 🎯 Impeccable Design Commands & Token Presets
+## 3. 🎯 Impeccable (AI Design Review Commands & Heuristics)
 
-`impeccable` provides the AI with structured design vocabulary and deterministic design anti-pattern checks (avoiding cramped padding, clashing colors, overused fonts):
+`pbakaus/impeccable` contains **no JavaScript runtime code**. It equips your AI coding agent with a suite of 23+ creative-director commands and ~60 deterministic design rules to audit and refine your UI.
 
-### Impeccable AI Design Commands
-* **`/polish`**: Audits and elevates an existing component's spacing, alignment, and typography.
-* **`/typeset`**: Refines typography hierarchy, line lengths, and font pairings.
-* **`/quieter`**: Softens harsh colors, reduces visual noise, and increases whitespace.
-* **`/delight`**: Adds subtle micro-animations, hover effects, and polish.
+### Key Impeccable AI Design Commands
 
-### Design Token Foundation (`design.config.json` / `impeccable.config.json`)
+You can prompt your AI with these commands to iterate on existing components:
 
-```json
-{
-  "name": "Antigravity UI Design System",
-  "version": "1.0.0",
-  "theme": {
-    "colors": {
-      "brand": {
-        "primary": "#0F172A",
-        "accent": "#38BDF8",
-        "surface": "#020617"
-      },
-      "neutral": {
-        "borderSubtle": "rgba(255, 255, 255, 0.08)",
-        "borderStrong": "rgba(255, 255, 255, 0.16)",
-        "textMuted": "#94A3B8"
-      }
-    },
-    "typography": {
-      "fontFamilySans": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
-      "fontFamilyDisplay": "Plus Jakarta Sans, Inter, sans-serif"
-    },
-    "radii": {
-      "sm": "0.375rem",
-      "md": "0.75rem",
-      "lg": "1rem",
-      "xl": "1.5rem"
-    }
-  }
-}
-```
+* **`/polish`**: Audits and elevates a component's alignment, spacing, contrast, and visual hierarchy.
+  > *Example: "Use `/polish` on `src/components/PricingTable.tsx`"*
+* **`/typeset`**: Audits font pairings, line heights, letter tracking (`tracking-tight`), and max line-widths.
+  > *Example: "Use `/typeset` to improve the typography on our blog post template"*
+* **`/quieter`**: Reduces visual noise, softens harsh borders, and introduces breathing room.
+  > *Example: "Make this sidebar `/quieter` so it doesn't distract from the main dashboard"*
+* **`/delight`**: Injects tasteful micro-animations, active states, and polish details.
+  > *Example: "Add `/delight` to the checkout submit button"*
+* **`/audit`**: Runs the 60+ point design heuristic audit against your UI code to flag UX flaws.
 
 ---
 
-## 4. ⚡ How the Toolchain Works in Your Project
+## 4. ⚡ Quick Summary: When to Use Each Tool
 
-* **What `/install` Installs**:
-  - `agentation`: The npm package providing `<Agentation />` for interactive visual DOM debugging in your browser.
-  - `taste-skill`: The AI prompt rules that instruct the assistant to write subtle borders, glassmorphism, and balanced typography.
-  - `impeccable`: The design token and design system generator.
-* **What the Code Recipes Provide**:
-  - The component code in this guide (`<Button />`, `<Card />`, and `globals.css` tokens) are the **production-ready patterns** Antigravity generates whenever you ask it to build UI components for your app.
-  - You can ask Antigravity to *"create a button component using the taste-skill glass variant"* or *"add the Agentation inspector to my root layout"*, and it will generate the exact code from this guide.
-
+* **When you want an in-browser DOM inspector toolbar**: Import `<Agentation />` from `agentation`.
+* **When you want the AI to generate distinctive, non-generic frontend designs**: Leverage `taste-skill` aesthetic rules and dials.
+* **When you want the AI to critique and polish an existing component**: Run `impeccable` commands (`/polish`, `/typeset`, `/quieter`).
