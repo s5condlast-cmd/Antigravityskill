@@ -289,3 +289,56 @@ function calculateDiscount(price: number, isVip: boolean): number {
   return price * (isVip ? 0.8 : 0.95);
 }
 ```
+
+---
+
+## 12. Secret API Keys Exposed in Frontend / Client-Side Bundles
+
+### ❌ Anti-Pattern: Hardcoding or prefixing private keys in client components
+
+```typescript
+// ❌ WRONG: Exposing private API keys to browser bundle
+// In a client component ('use client'):
+const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY; // NEVER DO THIS!
+// Or:
+const stripeSecret = "sk_live_51Mz..."; // Hardcoded secret leaked in bundle!
+
+export function ChatBox() {
+  async function sendMessage(prompt: string) {
+    const res = await fetch("https://api.openai.com/v1/chat/completions", {
+      headers: { Authorization: `Bearer ${apiKey}` },
+      body: JSON.stringify({ model: "gpt-4o", messages: [{ role: "user", content: prompt }] }),
+    });
+  }
+}
+```
+
+### ✅ Solution: Proxy API calls through backend routes / server actions
+
+```typescript
+// ✅ FIX: Server-side API Route / Route Handler (app/api/chat/route.ts)
+// The secret key is only accessed on the server (OPENAI_API_KEY without NEXT_PUBLIC_)
+import { NextResponse } from 'next/server';
+
+export async function POST(req: Request) {
+  const { prompt } = await req.json();
+  const apiKey = process.env.OPENAI_API_KEY; // Secure server-only environment variable
+
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    headers: { Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({ model: "gpt-4o", messages: [{ role: "user", content: prompt }] }),
+  });
+  const data = await response.json();
+  return NextResponse.json(data);
+}
+
+// In the Client Component: call internal backend route
+export function ChatBox() {
+  async function sendMessage(prompt: string) {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      body: JSON.stringify({ prompt }),
+    });
+  }
+}
+```

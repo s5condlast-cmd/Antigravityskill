@@ -14,7 +14,7 @@ Follow these step-by-step rules whenever a slash command or intent is triggered:
   * **Step 5**: End with a `/learn` lesson, VS Code Problems tab check, and `/install` UI toolchain reminder.
 
 * **`/push` (or Git Commits / Sync Requests)**:
-  * **Step 1**: Run `git status` and verify `.env` and secrets are ignored.
+  * **Step 1**: Run `git status` and verify `.env`, secret tokens, and frontend code are free of private API keys.
   * **Step 2**: Stage files with `git add -A`.
   * **Step 3**: Write a clear conventional commit message (`feat(...)`, `fix(...)`).
   * **Step 4**: Push to the active remote branch and share the sync link.

@@ -41,6 +41,7 @@ Use these versions to ensure compatibility:
 | Category | Action | AI Behavior |
 | :--- | :--- | :--- |
 | 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Committing `.env` secrets, API keys, tokens, or private keys | **Hard Stop**: Stop immediately. Check `.gitignore`. Never commit secrets. |
+| 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Exposing private API keys or service credentials in frontend bundles | **Hard Stop**: Keep secret keys strictly on the server; never expose via client prefixes. |
 | 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Force pushing (`git push --force`) or destructive resets (`git reset --hard`) | **Hard Stop**: Never overwrite remote history or delete user work. |
 | 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Suppressing errors with `@ts-ignore`, `as any`, empty catches, or fake delays | **Hard Stop**: Identify and fix the real root-cause bug. |
 | 🟡 **ASK USER FIRST** | Changing code outside the requested task | **Ask First**: Ask: *"I noticed X could be cleaned up. Would you like me to do that?"* |
@@ -57,5 +58,6 @@ Use these versions to ensure compatibility:
 1. **Read Files First**: Always inspect existing types, schemas, and utils before writing code. Never guess.
 2. **Validate at Boundaries**: Convert unknown external inputs into validated TypeScript types immediately.
 3. **Use Discriminated Unions**: Use tagged variants (`status: 'success' | 'error'`) instead of loose optional fields.
-4. **Zero Placeholders**: Every generated function, component, and test must be 100% complete and working.
+4. **No Placeholders or TODOs**: Every generated function, component, and test must be 100% complete and working.
 5. **No Hallucinated Packages**: Verify `package.json` before importing libraries.
+6. **Hide API Keys from Frontend**: Never hardcode or leak private API keys in client bundles. Always proxy through backend API routes.

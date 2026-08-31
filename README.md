@@ -137,6 +137,7 @@ Antigravityskill/
 | Status | Action | Behavior |
 | :--- | :--- | :--- |
 | 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets or API credentials | Hard blocked; keeps secrets uncommitted. |
+| 🔴 **STRICTLY PROHIBITED** | Exposing private API keys in client/frontend code | Hard blocked; forces server-side API proxying. |
 | 🔴 **STRICTLY PROHIBITED** | Force pushing (`git push --force`) or destructive reset | Hard blocked; protects user history. |
 | 🔴 **STRICTLY PROHIBITED** | Suppressing errors (`@ts-ignore`, `any`, empty catch) | Hard blocked; root-cause fix required. |
 | 🟡 **ASK FIRST** | Refactoring outside requested task scope | Pauses and asks for user confirmation. |

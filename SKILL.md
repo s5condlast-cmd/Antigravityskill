@@ -28,6 +28,7 @@ Follow these rules on every action:
 | Color | Action | Rule for AI |
 | :--- | :--- | :--- |
 | 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Staging or committing `.env` files, API keys, passwords, or secrets | **Hard Stop**: Stop immediately. Check `.gitignore`. Never commit secrets. |
+| 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Exposing private API keys, service tokens, or secrets in frontend/client bundles | **Hard Stop**: Keep secret keys strictly on the server/backend. Never expose private credentials via client-side prefixes. |
 | 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Running `git push --force` or `git reset --hard` | **Hard Stop**: Never overwrite remote history or delete user work. |
 | 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Hiding errors with `@ts-ignore`, `as any`, empty `catch {}`, or random `setTimeout` delays | **Hard Stop**: Fix the real root cause. Never hide or ignore errors. |
 | 🟡 **ASK USER FIRST** | Changing code outside the user's requested task | **Ask First**: Ask: *"I noticed X could be cleaned up. Would you like me to do that?"* |
@@ -82,6 +83,7 @@ Step 1: Read & Scan ──> Step 2: Find Root Cause ──> Step 3: Minimal Safe
      - ❌ NEVER cast to `any` (`as any`).
      - ❌ NEVER write empty `catch (e) {}` blocks.
      - ❌ NEVER add dummy `setTimeout` delays to hide race conditions.
+     - ❌ NEVER expose private API keys in client-side code; proxy external API calls through server routes.
 
 4. **Step 4: Verify & Regression Check (Zero Red Lines + Zero Broken Consumers)**
    - **Impact Radius Scan**: Identify all call sites, dependent consumers, and interacting modules that rely on the modified functions, interfaces, or database schemas.
