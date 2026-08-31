@@ -1,4 +1,4 @@
-# 🛠️ Antigravity AI Engineering Skill (`/debug` & `/push`)
+# 🛠️ Antigravity AI Engineering Skill (`/debug`, `/push`, `/install`)
 
 [![CI Quality Gate](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml)
 [![Node.js](https://img.shields.io/badge/node-20%2B-blue.svg)](https://nodejs.org/)
@@ -9,7 +9,7 @@
 [![PHP](https://img.shields.io/badge/php-8.2%2B-blue.svg)](https://www.php.net/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI agents with strict type-safety rules, systematic root-cause debugging workflows (`/debug`), fast and safe Git delivery (`/push`), and anti-hallucination guardrails.
+A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI agents with strict type-safety rules, systematic root-cause debugging workflows (`/debug`), safe Git delivery (`/push`), and 1-time design suite setup (`/install`).
 
 ---
 
@@ -115,6 +115,12 @@ Antigravityskill/
 ├── .github/
 │   ├── workflows/quality-gate.yml         # Polyglot CI workflow (Node, Python, Go, Rust, Meta)
 │   └── pull_request_template.md           # Pull request quality template
+├── bin/
+│   └── cli.js                             # Standalone executable CLI (npx antigravityskill)
+├── commands/
+│   ├── debug.md                           # /debug command definition
+│   ├── install.md                         # /install 1-time setup definition
+│   └── push.md                            # /push command definition
 ├── project-profile/
 │   └── PROJECT_PROFILE.md                 # Project facts, standards, and invariants
 ├── references/
@@ -122,10 +128,11 @@ Antigravityskill/
 │   ├── DEBUG_UTILITIES.md                 # Type guards & Result types
 │   ├── COMMON_BUG_PATTERNS.md             # Common AI bug patterns & fixes
 │   └── CLI_CHEAT_SHEET.md                 # Diagnostic CLI cheat sheet
-├── SKILL.md                               # Master /debug & /push skill definition
+├── SKILL.md                               # Master skill definition & trigger matrix
 ├── GEMINI.md                              # Always-on Antigravity workspace rules bridge
 ├── AGENTS.md                              # Multi-agent standard instructions bridge
 ├── README.md                              # Comprehensive documentation
+├── package.json                           # NPM package manifest
 ├── LICENSE                                # MIT License
 └── .gitignore                             # Ignored files (.env, node_modules)
 ```
