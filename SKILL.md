@@ -73,11 +73,11 @@ When building landing pages or web interfaces, use the accessible, mobile-first 
 
 ---
 
-## 💡 The Mandatory `/learn` Trigger Rule
+## 💡 Post-Success `/learn` Reminder
 
 > [!IMPORTANT]
 > **RULE FOR THE AGENT:**
-> Every time you resolve a bug, establish an architectural pattern, or complete a feature implementation, you **MUST** end your response with an actionable recommendation prompting the user to execute `/learn`.
+> Every time you successfully resolve a bug, clear compiler errors, or establish an architectural pattern, you **MUST** end your response with an actionable reminder prompting the user to execute `/learn`.
 
 ### Required Output Format:
 

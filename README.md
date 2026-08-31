@@ -126,15 +126,8 @@ Antigravityskill/
 
 ## 🧠 Continuous Learning (`/learn`) & Circuit Breaker
 
-### The "Rule of Three" Circuit Breaker
-If **3 consecutive edit attempts fail**:
-1. **STOP modifying code immediately.**
-2. Acknowledge that current assumptions about the codebase are flawed.
-3. Re-examine interface contracts, verify environment configuration, and formulate a new hypothesis.
-4. Report findings to the user or orchestrator rather than looping destructively.
-
-### Mandatory `/learn` Post-Mortem Prompt
-Every time an agent resolves a defect, establishes a new pattern, or completes a push delivery, it concludes with:
+### 💡 Post-Success Reminder (`/learn`)
+Whenever Antigravity **successfully resolves a bug, clears compiler errors, or implements a feature**, it automatically includes a short reminder at the end of its response. This allows you to persist the architectural lesson or invariant into Antigravity's long-term project memory with a single slash command:
 
 ```markdown
 ---
@@ -146,6 +139,13 @@ To ensure Antigravity remembers this invariant and avoids this issue in future s
 > **/learn**
 > *Lesson*: [1-2 sentences summarizing the specific invariant, pattern, or gotcha discovered]
 ```
+
+### ⚡ The "Rule of Three" Circuit Breaker
+If **3 consecutive edit attempts fail**:
+1. **STOP modifying code immediately.**
+2. Acknowledge that current assumptions about the codebase are flawed.
+3. Re-examine interface contracts, verify environment configuration, and formulate a new hypothesis.
+4. Report findings to the user rather than looping destructively.
 
 ---
 
