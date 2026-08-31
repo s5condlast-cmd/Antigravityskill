@@ -258,3 +258,34 @@ async function syncData() {
   }
 }
 ```
+
+---
+
+## 11. Dead Code, Unused Variables & Redundant Duplicates
+
+### ❌ Anti-Pattern: Unused imports, dead unreachable code, or copy-pasted helper logic
+
+```typescript
+// ❌ WRONG: Leftover unused imports, unreachable dead logic, duplicate helper
+import { fetchUserData, formatAddress, legacyParser } from './utils'; // formatAddress never used
+
+function calculateDiscount(price: number, isVip: boolean): number {
+  if (isVip) {
+    return price * 0.8;
+  } else {
+    return price * 0.95;
+  }
+  console.log("Discount calculated"); // Unreachable dead code!
+}
+```
+
+### ✅ Solution: Ruthless dead-code elimination & clean DRY consolidation
+
+```typescript
+// ✅ FIX: Clean imports, zero dead code, shared utilities
+import { fetchUserData } from './utils';
+
+function calculateDiscount(price: number, isVip: boolean): number {
+  return price * (isVip ? 0.8 : 0.95);
+}
+```

@@ -137,3 +137,29 @@ composer dump-autoload -o
 # 5. Quick local PHP built-in server with routing
 php -S localhost:8000 -t public/
 ```
+
+---
+
+## 7. 🧹 Dead Code & Redundancy Detection Across Languages
+
+```bash
+# TypeScript / JavaScript (Dead code, unused exports & dependencies)
+npx tsc --noEmit                          # Strict noUnusedLocals / noUnusedParameters
+npx knip                                  # Find unused files, exports, and dependencies
+npx ts-prune                              # Find unused TypeScript exports
+
+# Python (Unused imports, dead variables & unreachable code)
+ruff check --select F401,F841,B018 .     # Find unused imports, variables & dead expressions
+vulture .                                 # Find dead code and unreachable functions
+
+# Go (Dead code & unused logic)
+go vet ./...                              # Standard compiler analysis
+golangci-lint run --enable unused ./...   # Deep unused analysis
+
+# Rust (Unused code, functions & dependencies)
+cargo clippy -- -D dead_code -D unused_variables -D unused_imports
+
+# PHP (Dead code analysis)
+./vendor/bin/phpstan analyse --level=8   # PHPStan strict dead-code detection
+./vendor/bin/psalm --find-dead-code      # Psalm dead code detection
+```

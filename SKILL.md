@@ -15,7 +15,7 @@ When a user asks for any of the tasks below, follow its exact step-by-step proto
 
 | Command / Intent | Protocol | What to Do | References |
 | :--- | :--- | :--- | :--- |
-| `/debug`, bug reports, type errors, red lines, logic bugs, crashes | **`/debug`** | Follow the 5-step debug sequence. Fix the real cause. Never guess or hide errors. | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
+| `/debug`, bug reports, type errors, red lines, logic bugs, dead code, duplicates | **`/debug`** | Follow the 5-step debug sequence. Fix root causes, eliminate dead code and redundant duplicates. | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
 | `/push`, git commit, git push, sync repo, deploy code | **`/push`** | Follow the 4-step push sequence. Check for secrets, use conventional commits, push safely. | [references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md) |
 | `/install`, install design tools, UI setup | **`/install` Toolchain** | Execute installation of external design toolchain: `npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, and `npm install agentation`. | [README.md](README.md) |
 
@@ -66,13 +66,15 @@ Step 1: Read & Scan ──> Step 2: Find Root Cause ──> Step 3: Minimal Safe
    - Read existing project types, path aliases (`@/*`), and imported utilities.
    - *Anti-Hallucination Rule*: Never guess what code is in a file without reading it first.
 
-2. **Step 2: Find Root Cause**
+2. **Step 2: Find Root Cause & Redundancy Scan**
    - Identify why the failure happens (type mismatch, null/undefined access, async timing, missing return).
+   - **Audit for Redundancies**: Scan for dead code, unused imports/variables, unreachable branches, and copy-pasted duplicate utility functions.
    - Check against known bugs in [references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md).
-   - *Anti-Hallucination Rule*: Do not fix symptoms. Fix the underlying cause.
+   - *Anti-Hallucination Rule*: Do not fix symptoms. Fix the underlying cause and remove dead/redundant code.
 
-3. **Step 3: Minimal Safe Fix**
+3. **Step 3: Minimal Safe Fix & Dead Code Removal**
    - Make the smallest change that fixes the root cause.
+   - Eliminate unused imports, dead variables, unreachable code, and consolidate duplicate helpers into shared utilities.
    - Validate inputs at system boundaries ("Parse, Don't Validate").
    - Use Discriminated Unions (`type State = { status: 'success'; data: T } | { status: 'error'; error: Error }`) instead of loose nullable flags.
    - *Anti-Hallucination Rule*:
@@ -81,9 +83,9 @@ Step 1: Read & Scan ──> Step 2: Find Root Cause ──> Step 3: Minimal Safe
      - ❌ NEVER write empty `catch (e) {}` blocks.
      - ❌ NEVER add dummy `setTimeout` delays to hide race conditions.
 
-4. **Step 4: Verify (Zero Errors Gate)**
+4. **Step 4: Verify (Zero Errors & Clean Code Gate)**
    - Run type checks or tests (`tsc --noEmit`, `phpstan analyse`, `composer test`, `pytest`, `npm test`, `cargo check`, `go test`).
-   - Confirm all compiler red lines are gone.
+   - Confirm all compiler red lines, dead code warnings, and test failures are gone.
 
 5. **Step 5: Provide `/learn` Lesson**
    - Add the required `/learn` reminder box at the end of the response.

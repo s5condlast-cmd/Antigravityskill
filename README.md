@@ -84,12 +84,13 @@ This automatically sets up the skill in your current project (`.gemini/skills/an
 
 ---
 
-## 🔬 The 4 Laws of Pristine Code (`/debug`)
+## 🔬 The 5 Laws of Pristine Code (`/debug`)
 
 1. **Context Ingestion First**: Inspect existing project types, schemas, and utils before writing code.
 2. **"Parse, Don't Validate"**: Convert external input into validated domain types at system boundaries.
 3. **Make Illegal States Unrepresentable**: Use Discriminated Unions / Tagged Variants instead of loose nullable flags.
 4. **No Placeholders or TODOs**: Always generate complete, fully implemented, type-checked logic.
+5. **Dead Code & Duplication Elimination**: Ruthlessly remove unused imports, dead unreachable code, and consolidate copy-pasted duplicate logic.
 
 ---
 
