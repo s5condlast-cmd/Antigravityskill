@@ -94,10 +94,11 @@ To make sure Antigravity remembers this fix and never makes this mistake again i
 
 ---
 
-## ⚡ The "Rule of Three" (Circuit Breaker)
+## ⚡ The "Rule of Three" (Circuit Breaker & `/debug` Reminder)
 
-If **3 consecutive fix attempts fail**:
+If **3 consecutive fix attempts fail** or if the agent is stuck / having a hard time:
 1. **STOP modifying code immediately.**
 2. Acknowledge that the current mental model of the system has an incorrect assumption.
 3. Re-read the source contracts, verify environment state, and formulate a new hypothesis.
-4. Report the exact findings to the user rather than loop-thrashing.
+4. Report the exact findings to the user and **remind them to run `/debug`**:
+   > 💡 **Stuck on a tricky bug?** Run `/debug` to engage the 5-phase systematic root-cause diagnostic engine.

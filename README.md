@@ -140,12 +140,13 @@ To ensure Antigravity remembers this invariant and avoids this issue in future s
 > *Lesson*: [1-2 sentences summarizing the specific invariant, pattern, or gotcha discovered]
 ```
 
-### ⚡ The "Rule of Three" Circuit Breaker
-If **3 consecutive edit attempts fail**:
+### ⚡ The "Rule of Three" Circuit Breaker & `/debug` Reminder
+If **3 consecutive edit attempts fail** or if the agent is stuck / having a hard time:
 1. **STOP modifying code immediately.**
 2. Acknowledge that current assumptions about the codebase are flawed.
 3. Re-examine interface contracts, verify environment configuration, and formulate a new hypothesis.
-4. Report findings to the user rather than looping destructively.
+4. Report findings to the user and remind them:
+   > 💡 **Stuck on a tricky bug?** Run `/debug` to engage the full 5-phase systematic root-cause diagnostic engine.
 
 ---
 
