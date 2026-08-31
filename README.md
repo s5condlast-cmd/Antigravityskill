@@ -28,21 +28,15 @@ A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI
 
 ## 🚀 Quick Start & Installation
 
-### Option 1: Instant `npx` Installation (Recommended)
-
-Run directly in your project root to initialize the skill:
+Run this single command in your terminal:
 
 ```bash
 npx antigravityskill
 ```
 
-Or install globally for all projects:
+This automatically sets up the skill in your current project (`.gemini/skills/antigravityskill`) and registers it globally for all your AI coding sessions.
 
-```bash
-npx antigravityskill global
-```
-
-### Option 2: Global Git Clone
+### Alternative: Git Clone
 
 * **Windows (PowerShell)**:
 
@@ -55,14 +49,6 @@ npx antigravityskill global
   ```bash
   git clone https://github.com/s5condlast-cmd/Antigravityskill.git ~/.gemini/antigravity/skills/antigravityskill
   ```
-
-### Option 3: Project-Level Workspace Install
-
-```bash
-# Clone skill into your project's workspace
-mkdir -p .gemini/skills
-git clone https://github.com/s5condlast-cmd/Antigravityskill.git .gemini/skills/antigravityskill
-```
 
 ---
 
