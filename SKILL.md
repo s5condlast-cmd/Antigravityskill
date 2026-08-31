@@ -155,8 +155,7 @@ When the user enters `/install` or requests installation of the external design 
    npm install agentation
    ```
 
-3. **Provide Integration Code**: Reference [references/UI_TOOLCHAIN.md](references/UI_TOOLCHAIN.md) for `<Agentation />` layout mounting in Next.js/React and high-taste component recipes (`<Button variant="glass" />`, `<Card />`).
-4. **Confirm Toolchain Readiness**: Once installed, taste-driven frontend styling and visual DOM inspection are permanently active for the project.
+3. **Confirm Toolchain Readiness**: Inform the user that the external design suite (`agentation`, `taste-skill`, `impeccable`) is installed and active in their environment.
 
 ---
 

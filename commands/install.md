@@ -7,7 +7,4 @@ Follow the external UI/UX design toolchain 1-time installation workflow:
    - `npx -y impeccable install`
    - `npx -y skills add Leonxlnx/taste-skill`
    - `npm install agentation`
-3. **Mount Components & Design Tokens**:
-   - Mount `<Agentation />` in `app/layout.tsx` or `src/App.tsx` (wrapped in `NODE_ENV === 'development'`).
-   - Use `references/UI_TOOLCHAIN.md` component recipes (`<Button variant="glass" />`, `<Card />`).
-4. **Confirm Toolchain Readiness**: Confirm setup completion and enable taste-driven frontend component workflows.
+3. **Confirm Toolchain Readiness**: Confirm setup completion and notify the user that the external design suite is installed and ready.
