@@ -20,6 +20,7 @@ A lightweight, streamlined Git delivery workflow for staging, committing, and pu
 ## 🛡️ Step 1: Pre-Flight Safety Audit
 
 Before staging any files:
+
 1. **Check Git Status**: Inspect untracked and modified files (`git status`).
 2. **Secrets Prevention Gate**: Verify that `.env`, `.env.local`, API keys, private credentials, and certificates are in `.gitignore` and **NEVER** staged.
 3. **Verify Build Health**: Ensure no broken syntax or red lines exist before pushing.

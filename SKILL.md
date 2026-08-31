@@ -181,6 +181,7 @@ To make sure Antigravity remembers this fix and avoids this issue in future sess
 ## ⚡ The Rule of Three (Circuit Breaker)
 
 If **3 consecutive fix attempts fail**:
+
 1. **STOP editing code immediately.**
 2. Tell the user that the current assumption about the codebase was incorrect.
 3. Re-read the source files, check environment state, and state the new plan clearly.
