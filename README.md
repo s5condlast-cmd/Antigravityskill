@@ -19,6 +19,7 @@ A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI
 | 🔬 **Systematic Debugging** | `/debug` | 5-Phase diagnostic workflow that eliminates compiler red lines across TS, Python, Go, and Rust without lazy hacks (`@ts-ignore`, empty catches). |
 | 🎯 **Pristine Code Invariants** | `/debug` | The 4 Laws: context ingestion first, boundary parsing, unrepresentable illegal states, and zero placeholder TODOs. |
 | 🎨 **Design System & Tokens** | `/design` | Semantic color token architecture (light/dark mode with HSL/OKLCH), fluid typography hierarchy, and spacing tokens. |
+| 🔄 **Adaptive Brand Ingestion** | `/design` | Ingests and respects existing logos, brand colors, custom SVGs, and fonts; enhances missing contrast and dark mode with 0 breaking changes. |
 | 🧩 **Accessible Component Library**| `/design` | Production-ready React + Tailwind components (Hero banners, Navbars, Pricing matrices, Metric cards, FAQs) meeting **WCAG 2.1 AA** standards. |
 | 🧠 **Continuous Learning** | `/learn` | Post-success reminder prompting you to persist discovered invariants or architectural conventions into project memory. |
 | 🚦 **Safety Guardrails** | Automatic | Strict traffic-light boundaries preventing secrets leaks, destructive resets, or out-of-scope edits. |

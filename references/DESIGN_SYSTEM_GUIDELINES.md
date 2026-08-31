@@ -304,3 +304,47 @@ When building interfaces under `/design`, enforce these 7 golden rules of taste:
 5. **No Broken Alignment**: Ensure all cards in a grid have equal height (`h-full flex flex-col justify-between`) and buttons align along the bottom edge.
 6. **Easy-to-Scan Navigation**: Highlight active menu routes with a subtle pill background (`bg-accent text-accent-foreground font-semibold`) or bottom indicator line.
 7. **Immediate Visual Feedback**: Every hover, click, and keystroke provides smooth, immediate micro-interactions ($< 150\text{ms}$).
+
+---
+
+## 🔄 10. Adaptive Brand Ingestion & Migration Framework (New & Existing Sites)
+
+When applying `/design` to a codebase, the agent must adaptively respect, ingest, and elevate existing brand assets, logos, colors, icons, and imagery.
+
+```text
+┌───────────────────────────┐      ┌───────────────────────────┐      ┌───────────────────────────┐
+│ 1. BRAND INGESTION AUDIT  │ ───> │ 2. PRESERVE & MAP TOKENS  │ ───> │ 3. ENHANCE & MIGRATE      │
+│  - Scan logos & SVGs      │      │  - Keep brand core colors │      │  - Ensure WCAG AA contrast│
+│  - Extract palette/fonts  │      │  - Retain icon glyphs     │      │  - Generate dark mode pair│
+│  - Identify image style   │      │  - Maintain brand meaning │      │  - 0-breaking-change drop │
+└───────────────────────────┘      └───────────────────────────┘      └───────────────────────────┘
+```
+
+### 10.1 The 4 Rules of Brand Preservation & Elevation
+
+1. **Never Overwrite User Brand Identity**:
+   * If the project has an existing logo (`public/logo.svg`, `src/assets/logo.png`), always preserve its geometry, aspect ratio, and color hierarchy.
+   * If the user has an established brand color (e.g. Stripe purple `#635bff`, Spotify green `#1ed760`, Airbnb coral `#ff5a5f`), preserve that exact hue and its semantic meaning.
+
+2. **Map Existing Colors to Semantic Token Triad**:
+   * Convert raw brand hex values into themeable semantic tokens:
+     ```css
+     :root {
+       /* User's existing brand mapped directly into the system */
+       --primary: 247 100% 68%; /* Existing brand purple */
+       --primary-foreground: 0 0% 100%;
+       
+       /* Derived accessible companion tokens */
+       --primary-hover: 247 90% 60%;
+       --primary-subtle: 247 100% 96%;
+     }
+     ```
+
+3. **Intelligent Enhancement Recommendations**:
+   * If an existing brand color fails WCAG AA text contrast ($< 4.5:1$), recommend an accessible companion shade for body text while keeping the exact brand color for large logos and primary buttons:
+     > *"Your primary brand color `#38bdf8` is vibrant! For small text on light backgrounds, I've added a high-contrast companion token `#0284c7` (5.2:1 contrast) to ensure full accessibility."*
+   * If the codebase lacks a Dark Mode, generate harmonious dark-surface pairings that complement the user's primary brand color.
+
+4. **Universal Drop-in Migration (New or Legacy Web)**:
+   * Design components with standard CSS variable hooks so they drop seamlessly into **Next.js, Vite, Astro, Remix, Vue, Svelte, or plain HTML/CSS** without breaking legacy pages.
+   * Use non-destructive Tailwind class merging via `cn(...)` so existing custom classes override defaults cleanly.

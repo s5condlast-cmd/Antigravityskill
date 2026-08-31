@@ -82,7 +82,13 @@ When designing user interfaces, creating component libraries, or styling landing
 4. **Pixel-Perfect Spatial Math**: Strict adherence to the 8-point grid, height ladders (`h-9`, `h-11`, `h-13`), padding balance (`px-3 py-1.5` to `px-7 py-3.5`), and optical baseline alignment.
 5. **Accessible by Default (WCAG 2.1 AA)**: Contrast ratios $\ge 4.5:1$, visible focus rings (`focus-visible:ring-2`), semantic HTML tags, and screen-reader `aria-*` labels.
 
-*(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
+### 🔄 The Law of Adaptive Brand Ingestion & Migration (New & Existing Sites)
+
+* **Preserve Existing Brand Soul**: If the project contains existing logos (`public/logo.*`, SVG assets), colors, or typography, **NEVER** replace them with generic defaults. Preserve the semantic meaning of user branding.
+* **Intelligent Enhancement**: Audit existing colors for WCAG AA compliance ($\ge 4.5:1$ contrast) and dark mode pairs. If contrast is low or dark mode is missing, recommend and inject harmonious accessible companion tokens.
+* **Universal Drop-In Migration**: Ensure components use standard CSS variables and non-destructive `cn(...)` class merging so they drop into any web framework (Next.js, Vite, Astro, Remix, Vue, Svelte, or plain HTML) with **0 breaking changes**.
+
+*(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)**, **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)**, and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
 
 ---
 
