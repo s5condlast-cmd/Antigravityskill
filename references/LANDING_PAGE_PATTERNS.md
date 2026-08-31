@@ -1,32 +1,54 @@
-# 🎨 Modernized Landing Page & Product Interface Patterns
+# 🎨 Master Landing Page & Product Interface Patterns
 
-Production-ready, accessible, high-density React + Tailwind component patterns. Built to the standards of **Linear, Stripe, Apple, Vercel, and Raycast**—with **zero AI slop, zero generic fluff, curated Unsplash imagery, Lucide icon restraint, and containerless whitespace structure**.
+Production-ready, accessible, high-density React + Tailwind component patterns. Built to the standards of **Linear, Stripe, Apple, Vercel, and Raycast**—with **100% unified lighting, consistent zinc surface hierarchy, curated Unsplash CDN photography, Lucide icon restraint, and containerless whitespace structure**.
+
+---
+
+## 🌟 The Unified Lighting & Surface Hierarchy Standard
+
+All components across all 13 categories adhere strictly to this mathematical surface ladder:
+
+```text
+┌──────────────────────────────┬──────────────────────────────┬──────────────────────────────┐
+│ SURFACE LAYER                │ TAILWIND CLASS               │ VISUAL PURPOSE               │
+├──────────────────────────────┼──────────────────────────────┼──────────────────────────────┤
+│ 1. Canvas Base               │ bg-zinc-950 text-white       │ 80% background canvas        │
+│ 2. Ambient Light Aura        │ radial-gradient top-center   │ Subtle < 15% top glow bleed  │
+│ 3. Contained Card / Surface  │ bg-zinc-900/60 border-zinc-800│ High-density cards & tables │
+│ 4. Hairline Dividers         │ divide-zinc-800/80           │ Clean containerless splits   │
+│ 5. Primary Typography        │ text-zinc-100 tracking-tight │ Crisp H1/H2 titles           │
+│ 6. Secondary Typography      │ text-zinc-400 leading-relaxed│ Readable body paragraphs     │
+│ 7. Monospace Metadata        │ text-zinc-500 font-mono      │ Tabular numbers, IDs, badges │
+│ 8. Primary CTA Button        │ bg-zinc-100 text-zinc-950    │ High-contrast active action  │
+└──────────────────────────────┴──────────────────────────────┴──────────────────────────────┘
+```
 
 ---
 
 ## 📑 Master Pattern Index
 
 1. [Spotlight Command Palette (`⌘K`)](#1-spotlight-command-palette-k)
-2. [High-Density Deployment & Activity Table](#2-high-density-deployment--activity-table)
-3. [Interactive Code Terminal & Diff Preview](#3-interactive-code-terminal--diff-preview)
-4. [Craft-Grade Heroes](#4-craft-grade-heroes)
-5. [Editorial Blogs & Article Showcases](#5-editorial-blogs--article-showcases)
-6. [High-Taste Modular Bento & Feature Grids](#6-high-taste-modular-bento--feature-grids)
-7. [E-Commerce & Product Showcase](#7-e-commerce--product-showcase)
-8. [Contact & Feedback Forms](#8-contact--feedback-forms)
-9. [Call to Action (CTA) Sections](#9-call-to-action-cta-sections)
-10. [Curated Gallery & Media Showcases](#10-curated-gallery--media-showcases)
-11. [Navigation Headers & Navbars](#11-navigation-headers--navbars)
-12. [Subdued Footers](#12-subdued-footers)
+2. [Navigation Headers & Navbars](#2-navigation-headers--navbars)
+3. [Craft-Grade Heroes](#3-craft-grade-heroes)
+4. [High-Density Deployment & Activity Table](#4-high-density-deployment--activity-table)
+5. [Interactive Code Terminal & Diff Preview](#5-interactive-code-terminal--diff-preview)
+6. [Editorial Blogs & Article Showcases](#6-editorial-blogs--article-showcases)
+7. [Content & Architectural Sections](#7-content--architectural-sections)
+8. [Modular Bento & Feature Grids](#8-modular-bento--feature-grids)
+9. [E-Commerce & Product Showcases](#9-e-commerce--product-showcases)
+10. [Contact & Feedback Forms](#10-contact--feedback-forms)
+11. [Call to Action (CTA) Sections](#11-call-to-action-cta-sections)
+12. [Curated Gallery & Media Showcases](#12-curated-gallery--media-showcases)
 13. [Statistics & KPI Telemetry Counters](#13-statistics--kpi-telemetry-counters)
 14. [Interactive Pricing Matrices](#14-interactive-pricing-matrices)
 15. [Containerless Clean FAQ](#15-containerless-clean-faq)
+16. [Subdued Footers](#16-subdued-footers)
 
 ---
 
 ## 1. 🔍 Spotlight Command Palette (`⌘K`)
 
-A keyboard-accessible command bar (Raycast / Linear style) with group filtering, recent items, and shortcut hints.
+A functional, keyboard-accessible command bar (Raycast / Linear style) with fuzzy filtering and shortcut badges.
 
 ```tsx
 import React, { useState, useEffect } from 'react';
@@ -73,19 +95,19 @@ export function CommandPalette({ isOpen, onClose }: { isOpen: boolean; onClose: 
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-28 px-4 bg-zinc-950/80 backdrop-blur-md animate-in fade-in duration-150">
-      <div className="w-full max-w-xl rounded-2xl border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/80 overflow-hidden">
-        {/* Search Bar */}
-        <div className="flex items-center px-4 border-b border-zinc-800/80">
+      <div className="w-full max-w-xl rounded-2xl border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/90 overflow-hidden">
+        {/* Search Input */}
+        <div className="flex items-center px-4 border-b border-zinc-800">
           <Search className="h-4 w-4 text-zinc-400 shrink-0 mr-3" />
           <input
             type="text"
             value={query}
             onChange={(e) => { setQuery(e.target.value); setSelectedIndex(0); }}
             placeholder="Type a command or search actions..."
-            className="w-full h-13 bg-transparent text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none font-sans"
+            className="w-full h-12 bg-transparent text-xs sm:text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none"
             autoFocus
           />
-          <kbd className="hidden sm:inline-flex items-center gap-0.5 px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded border border-zinc-700/60">
+          <kbd className="hidden sm:inline-flex items-center px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800 rounded border border-zinc-700">
             ESC
           </kbd>
         </div>
@@ -130,9 +152,195 @@ export function CommandPalette({ isOpen, onClose }: { isOpen: boolean; onClose: 
 
 ---
 
-## 2. 📊 High-Density Deployment & Activity Table
+## 2. 🧭 Navigation Headers & Navbars
 
-Real author avatars, commit hashes, live status dots, branch tags, and execution latencies.
+### 2.1 Glassmorphic Sticky Header with Command Trigger
+```tsx
+import React from 'react';
+import { Search } from 'lucide-react';
+
+export function GlassNavbar({ onOpenCommand }: { onOpenCommand: () => void }) {
+  return (
+    <header className="sticky top-0 z-40 w-full border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto h-14 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="flex items-center gap-6">
+          <a href="#" className="flex items-center gap-2 text-sm font-semibold text-zinc-100 tracking-tight">
+            <span>⚡ Antigravity</span>
+          </a>
+          <nav className="hidden md:flex items-center gap-5 text-xs text-zinc-400">
+            <a href="#features" className="hover:text-zinc-200 transition-colors">Features</a>
+            <a href="#benchmarks" className="hover:text-zinc-200 transition-colors">Benchmarks</a>
+            <a href="#pricing" className="hover:text-zinc-200 transition-colors">Pricing</a>
+            <a href="#docs" className="hover:text-zinc-200 transition-colors">Documentation</a>
+          </nav>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onOpenCommand}
+            className="h-8 px-3 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 hover:text-zinc-200 hover:border-zinc-700 transition-colors flex items-center gap-2"
+          >
+            <Search className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Search commands...</span>
+            <kbd className="text-[10px] font-mono px-1.5 py-0.5 bg-zinc-950 rounded border border-zinc-800">⌘K</kbd>
+          </button>
+          <a
+            href="https://github.com/s5condlast-cmd/Antigravityskill"
+            className="h-8 px-3.5 rounded-lg bg-zinc-100 text-zinc-950 text-xs font-medium hover:bg-white transition-colors flex items-center"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </header>
+  );
+}
+```
+
+### 2.2 Centered Brand Split Navigation Header
+```tsx
+import React from 'react';
+
+export function CenteredBrandHeader() {
+  return (
+    <header className="w-full border-b border-zinc-800/80 bg-zinc-950 text-white">
+      <div className="max-w-7xl mx-auto h-16 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <nav className="hidden md:flex items-center gap-6 text-xs text-zinc-400 w-1/3">
+          <a href="#protocols" className="hover:text-zinc-200 transition-colors">Protocols</a>
+          <a href="#architecture" className="hover:text-zinc-200 transition-colors">Architecture</a>
+          <a href="#benchmarks" className="hover:text-zinc-200 transition-colors">Benchmarks</a>
+        </nav>
+
+        <div className="w-1/3 flex justify-center">
+          <a href="#" className="font-bold text-sm tracking-tight text-zinc-100 flex items-center gap-2">
+            <span>⚡ Antigravity</span>
+          </a>
+        </div>
+
+        <div className="w-1/3 flex justify-end items-center gap-3">
+          <a href="#login" className="text-xs text-zinc-400 hover:text-zinc-200 transition-colors hidden sm:block">
+            Sign In
+          </a>
+          <button className="h-9 px-4 rounded-xl bg-zinc-100 text-zinc-950 text-xs font-medium hover:bg-white transition-colors">
+            Get Started
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
+```
+
+---
+
+## 3. ⚡ Craft-Grade Heroes
+
+### 3.1 Typography Hero with Ambient Radial Light Aura & Live Product Preview
+```tsx
+import React from 'react';
+import { ActivityTable } from './ActivityTable';
+import { ArrowRight } from 'lucide-react';
+
+export function CraftHeroSection() {
+  return (
+    <section className="relative overflow-x-clip py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white text-center">
+      {/* Spot 4: Ambient Canvas Light Bleed */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -z-10 w-[800px] h-[350px] bg-[radial-gradient(ellipse_at_top,rgba(120,119,198,0.12),transparent_70%)] pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto flex flex-col items-center">
+        {/* Status Tag */}
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-300 mb-8">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          <span>v2.4 Engine: /debug, /design & /push</span>
+        </div>
+
+        {/* Primary Headline with Spot 3 Focal Gradient */}
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-[-0.035em] leading-[1.08] mb-6 text-zinc-100">
+          Precision engineering with{' '}
+          <span className="bg-gradient-to-r from-zinc-100 via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
+            deterministic quality.
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-base sm:text-lg text-zinc-400 max-w-xl mb-10 leading-relaxed font-normal">
+          An opinionated AI pair-programming skill that enforces zero-red-line type safety, mathematical design tokens, and atomic Git delivery.
+        </p>
+
+        {/* Action Controls */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 mb-16">
+          <a
+            href="#quickstart"
+            className="w-full sm:w-auto h-11 px-6 rounded-xl font-medium text-xs bg-zinc-100 text-zinc-950 hover:bg-white active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+          >
+            <span>Get Started</span>
+            <ArrowRight className="h-3.5 w-3.5" />
+          </a>
+          <div className="h-11 px-4 rounded-xl font-mono text-xs bg-zinc-900/90 border border-zinc-800 text-zinc-400 flex items-center gap-2 select-all">
+            <span className="text-zinc-500">$</span>
+            <span>git clone Antigravityskill</span>
+          </div>
+        </div>
+
+        {/* Live Activity Table Preview */}
+        <div className="w-full max-w-2xl">
+          <ActivityTable />
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+### 3.2 Split Product Hero with Quick Email Form & Workspace Image
+```tsx
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+
+export function SplitProductHero() {
+  return (
+    <section className="relative overflow-x-clip py-20 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-6 space-y-6">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-[0.12em]">Universal Pair-Programming Engine</span>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-100 leading-[1.12]">
+            Elevate your frontend to <span className="text-zinc-400">pure craftsmanship.</span>
+          </h1>
+          <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-lg">
+            Stop generating AI slop. Build high-density SaaS applications with mathematical typography scales and WCAG 2.1 AA compliance.
+          </p>
+
+          <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3 max-w-md">
+            <input
+              type="email"
+              placeholder="Enter your work email"
+              className="h-11 px-4 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 flex-grow"
+            />
+            <button className="h-11 px-6 rounded-xl bg-zinc-100 text-zinc-950 font-medium text-xs hover:bg-white transition-colors flex items-center justify-center gap-2 shrink-0">
+              <span>Request Access</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          </form>
+        </div>
+
+        <div className="lg:col-span-6">
+          <div className="relative aspect-[16/10] w-full rounded-2xl border border-zinc-800 bg-zinc-900 overflow-hidden shadow-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+              alt="System Terminal Environment"
+              className="h-full w-full object-cover opacity-85 hover:opacity-100 transition-opacity"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+---
+
+## 4. 📊 High-Density Deployment & Activity Table
 
 ```tsx
 import React from 'react';
@@ -141,16 +349,16 @@ interface Deployment {
   id: string;
   commit: string;
   branch: string;
-  author: { name: string; initials: string };
-  status: 'ready' | 'building' | 'failed';
+  author: { initials: string };
+  status: 'ready' | 'building';
   timeAgo: string;
   latencyMs: number;
 }
 
 const DEPLOYMENTS: Deployment[] = [
-  { id: 'dep_994a', commit: '09c803c feat: implement /push secrets audit', branch: 'main', author: { name: 'Alex R.', initials: 'AR' }, status: 'ready', timeAgo: '4m ago', latencyMs: 142 },
-  { id: 'dep_881b', commit: '7822cbc feat: adaptive brand ingestion', branch: 'main', author: { name: 'Elena V.', initials: 'EV' }, status: 'ready', timeAgo: '2h ago', latencyMs: 168 },
-  { id: 'dep_770c', commit: '4194e80 fix: strict type narrowing', branch: 'feature/tokens', author: { name: 'Marcus K.', initials: 'MK' }, status: 'building', timeAgo: 'just now', latencyMs: 0 },
+  { id: 'dep_994a', commit: '09c803c feat: implement /push secrets audit', branch: 'main', author: { initials: 'AR' }, status: 'ready', timeAgo: '4m ago', latencyMs: 142 },
+  { id: 'dep_881b', commit: '7822cbc feat: adaptive brand ingestion', branch: 'main', author: { initials: 'EV' }, status: 'ready', timeAgo: '2h ago', latencyMs: 168 },
+  { id: 'dep_770c', commit: '4194e80 fix: strict type narrowing', branch: 'feature/tokens', author: { initials: 'MK' }, status: 'building', timeAgo: 'just now', latencyMs: 0 },
 ];
 
 export function ActivityTable() {
@@ -205,9 +413,7 @@ export function ActivityTable() {
 
 ---
 
-## 3. 💻 Interactive Code Terminal & Diff Preview
-
-macOS window controls, syntax-highlighted discriminated union types, and 1-click copy feedback.
+## 5. 💻 Interactive Code Terminal & Diff Preview
 
 ```tsx
 import React, { useState } from 'react';
@@ -258,150 +464,17 @@ export function CodeTerminalPreview() {
 
 ---
 
-## 4. ⚡ Craft-Grade Heroes
+## 6. 📝 Editorial Blogs & Article Showcases
 
-### 4.1 Typography Hero with Ambient Light Aura & Activity Table
-```tsx
-import React from 'react';
-import { ActivityTable } from './ActivityTable';
-import { ArrowRight } from 'lucide-react';
-
-export function CraftHeroSection() {
-  return (
-    <section className="relative overflow-x-clip py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white text-center">
-      {/* Spot 4: Ambient Canvas Light Bleed */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -z-10 w-[800px] h-[350px] bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.12),transparent_70%)] pointer-events-none" />
-
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
-        {/* Release Pill Tag */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-300 mb-8">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          <span>v2.4 Engine: /debug, /design & /push</span>
-        </div>
-
-        {/* Primary Headline with Spot 3 Focal Gradient */}
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] mb-6 text-zinc-100">
-          Precision engineering with{' '}
-          <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/50 bg-clip-text text-transparent">
-            deterministic quality.
-          </span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-base sm:text-lg text-zinc-400 max-w-2xl mb-10 leading-relaxed font-normal">
-          An opinionated AI pair-programming skill that enforces zero-red-line type safety, mathematical design tokens, and atomic Git delivery.
-        </p>
-
-        {/* Action Controls */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 mb-16">
-          <a
-            href="#quickstart"
-            className="w-full sm:w-auto h-11 px-6 rounded-xl font-medium text-xs bg-zinc-100 text-zinc-950 hover:bg-white active:scale-[0.98] transition-all flex items-center justify-center gap-2"
-          >
-            <span>Get Started</span>
-            <ArrowRight className="h-3.5 w-3.5" />
-          </a>
-          <div className="h-11 px-4 rounded-xl font-mono text-xs bg-zinc-900/90 border border-zinc-800 text-zinc-400 flex items-center gap-2 select-all">
-            <span className="text-zinc-500">$</span>
-            <span>git clone Antigravityskill</span>
-          </div>
-        </div>
-
-        {/* Real Live Component Preview */}
-        <div className="w-full max-w-2xl">
-          <ActivityTable />
-        </div>
-      </div>
-    </section>
-  );
-}
-```
-
-### 4.2 Split Product Hero with Interactive Quick-Signup
-```tsx
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-
-export function SplitProductHero() {
-  return (
-    <section className="relative overflow-x-clip py-20 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-6 space-y-6">
-          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Next-Gen Interface Engine</span>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-100 leading-tight">
-            Elevate your frontend to <span className="text-zinc-400">pure craftsmanship.</span>
-          </h1>
-          <p className="text-base text-zinc-400 leading-relaxed max-w-lg">
-            Stop generating AI slop. Build high-density SaaS applications with mathematical typography scales and WCAG 2.1 AA compliance.
-          </p>
-
-          <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3 max-w-md">
-            <input
-              type="email"
-              placeholder="Enter your work email"
-              className="h-11 px-4 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 flex-grow"
-            />
-            <button className="h-11 px-6 rounded-xl bg-zinc-100 text-zinc-950 font-medium text-xs hover:bg-white transition-colors flex items-center justify-center gap-2 shrink-0">
-              <span>Request Access</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </button>
-          </form>
-        </div>
-
-        <div className="lg:col-span-6">
-          <div className="relative aspect-[16/10] w-full rounded-2xl border border-zinc-800 bg-zinc-900 overflow-hidden shadow-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
-              alt="System Terminal Environment"
-              className="h-full w-full object-cover opacity-85 hover:opacity-100 transition-opacity"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-```
-
----
-
-## 5. 📝 Editorial Blogs & Article Showcases
-
-### 5.1 3-Column Curated Post Cards with Reading Times
+### 6.1 3-Column Curated Post Cards
 ```tsx
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
-interface Article {
-  title: string;
-  category: string;
-  readTime: string;
-  excerpt: string;
-  imageUrl: string;
-}
-
-const ARTICLES: Article[] = [
-  {
-    title: "Eradicating AI Slop in Modern Web Applications",
-    category: "Design Architecture",
-    readTime: "4 min read",
-    excerpt: "Why generic neon gradients and low-density cards fail user trust, and how Linear-style craftsmanship wins.",
-    imageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "The 80/15/5 Color Rule for Minimalist Interfaces",
-    category: "Color Theory",
-    readTime: "6 min read",
-    excerpt: "Confining vibrant brand tokens to 4 intentional spots to maximize contrast and eliminate eye fatigue.",
-    imageUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "Boundary Hardening with Discriminated Unions",
-    category: "TypeScript Safety",
-    readTime: "5 min read",
-    excerpt: "Eliminating compiler red lines and undefined state bugs with zero-defect domain models.",
-    imageUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
-  }
+const ARTICLES = [
+  { title: "Eradicating AI Slop in Modern Web Applications", category: "Design Architecture", readTime: "4 min read", excerpt: "Why generic neon gradients fail user trust, and how Linear-style craftsmanship wins.", imageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" },
+  { title: "The 80/15/5 Color Rule for Minimalist Interfaces", category: "Color Theory", readTime: "6 min read", excerpt: "Confining vibrant brand tokens to 4 intentional spots to eliminate eye fatigue.", imageUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" },
+  { title: "Boundary Hardening with Discriminated Unions", category: "TypeScript Safety", readTime: "5 min read", excerpt: "Eliminating compiler red lines and undefined states with zero-defect domain models.", imageUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" },
 ];
 
 export function BlogCardGrid() {
@@ -410,7 +483,7 @@ export function BlogCardGrid() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
           <div>
-            <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Engineering Journal</span>
+            <span className="text-xs font-mono text-zinc-400 uppercase tracking-[0.12em]">Engineering Journal</span>
             <h2 className="text-3xl font-bold tracking-tight text-zinc-100 mt-2">Latest Insights & Dispatches</h2>
           </div>
           <p className="text-xs font-mono text-zinc-500 mt-2 sm:mt-0">Updated weekly</p>
@@ -445,15 +518,15 @@ export function BlogCardGrid() {
 }
 ```
 
-### 5.2 Containerless Date-Stamped Article List
+### 6.2 Containerless Date-Stamped Article List
 ```tsx
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
 const POSTS = [
-  { date: "Oct 12, 2026", title: "Automated Secret Auditing in Pre-Flight Git Staging", category: "DevOps & Security", author: "Dev Team" },
-  { date: "Sep 28, 2026", title: "Container Determination: When Whitespace Outperforms Card Boxes", category: "UX Architecture", author: "UI Team" },
-  { date: "Sep 14, 2026", title: "Zero-Horizontal-Overflow: Viewport Containment Strategies", category: "Frontend", author: "Core Team" },
+  { date: "Oct 12, 2026", title: "Automated Secret Auditing in Pre-Flight Git Staging", category: "DevOps & Security" },
+  { date: "Sep 28, 2026", title: "Container Determination: When Whitespace Outperforms Card Boxes", category: "UX Architecture" },
+  { date: "Sep 14, 2026", title: "Zero-Horizontal-Overflow: Viewport Containment Strategies", category: "Frontend" },
 ];
 
 export function ContainerlessArticleList() {
@@ -465,7 +538,6 @@ export function ContainerlessArticleList() {
           <p className="text-xs font-mono text-zinc-400 mt-1">Continuous product enhancements</p>
         </div>
 
-        {/* Containerless hairline divide-y list */}
         <div className="divide-y divide-zinc-800/80 border-y border-zinc-800/80">
           {POSTS.map((post) => (
             <a key={post.title} href="#" className="py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group block">
@@ -488,9 +560,50 @@ export function ContainerlessArticleList() {
 
 ---
 
-## 6. 🧩 High-Taste Modular Bento & Feature Grids
+## 7. 📑 Content & Architectural Sections
 
-### 6.1 Asymmetric Bento Grid
+### 7.1 4-Column Architectural Blocks with Monospace Indexing
+```tsx
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+
+const BLOCKS = [
+  { index: "01", title: "Diagnostic Ingestion", desc: "Scans project AST and dependencies to prove root cause before touching code." },
+  { index: "02", title: "Boundary Hardening", desc: "Parses unvalidated inputs directly into validated domain types." },
+  { index: "03", title: "Mathematical Spatial Math", desc: "Strict 8-point spatial ladders with WCAG 2.1 AA contrast compliance." },
+  { index: "04", title: "Atomic Remote Sync", desc: "Pre-flight secret scan and conventional commit generation." },
+];
+
+export function ArchitecturalContentGrid() {
+  return (
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="max-w-2xl mb-16">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-[0.12em]">System Primitives</span>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-100 mt-2">
+            The 4 Foundations of Reliable Engineering
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {BLOCKS.map((b) => (
+            <div key={b.index} className="border-l border-zinc-800 pl-6 space-y-3">
+              <span className="text-xs font-mono text-zinc-500">{b.index}</span>
+              <h3 className="text-base font-semibold text-zinc-200">{b.title}</h3>
+              <p className="text-xs text-zinc-400 leading-relaxed">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+---
+
+## 8. 🧩 Modular Bento & Feature Grids
+
 ```tsx
 import React from 'react';
 import { ShieldCheck, Cpu, GitCommit } from 'lucide-react';
@@ -500,7 +613,7 @@ export function ModernBentoGrid() {
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white">
       <div className="max-w-6xl mx-auto">
         <div className="max-w-2xl mb-16">
-          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Core Architecture</span>
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-[0.12em]">Core Architecture</span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-100 mt-2">
             Engineered for deterministic speed and visual restraint.
           </h2>
@@ -565,20 +678,12 @@ export function ModernBentoGrid() {
 
 ---
 
-## 7. 🛍️ E-Commerce & Product Showcase
+## 9. 🛍️ E-Commerce & Product Showcases
 
-### 7.1 4-Column Minimal Product Catalog
 ```tsx
 import React from 'react';
 
-interface Product {
-  name: string;
-  category: string;
-  price: string;
-  imageUrl: string;
-}
-
-const PRODUCTS: Product[] = [
+const PRODUCTS = [
   { name: "Monochrome Mechanical Keyboard", category: "Hardware", price: "$149.00", imageUrl: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80" },
   { name: "Precision CNC Aluminum Stand", category: "Accessories", price: "$68.00", imageUrl: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80" },
   { name: "Matte Black Studio Headphones", category: "Audio", price: "$299.00", imageUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" },
@@ -590,7 +695,7 @@ export function MinimalProductCatalog() {
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
-          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Selected Hardware</span>
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-[0.12em]">Selected Hardware</span>
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 mt-2">Engineered Tools & Peripherals</h2>
         </div>
 
@@ -616,9 +721,8 @@ export function MinimalProductCatalog() {
 
 ---
 
-## 8. 📬 Contact & Feedback Forms
+## 10. 📬 Contact & Feedback Forms
 
-### 8.1 Minimal Split Contact Form with Accessible Inputs
 ```tsx
 import React, { useState } from 'react';
 
@@ -629,7 +733,7 @@ export function MinimalContactSection() {
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white">
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5 space-y-4">
-          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Direct Inquiries</span>
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-[0.12em]">Direct Inquiries</span>
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100">Get in touch with the engineering team.</h2>
           <p className="text-xs text-zinc-400 leading-relaxed">
             Have a custom architecture question or need dedicated enterprise pairing? Send us a message and we'll reply within 24 hours.
@@ -678,9 +782,8 @@ export function MinimalContactSection() {
 
 ---
 
-## 9. 🚀 Call to Action (CTA) Sections
+## 11. 🚀 Call to Action (CTA) Sections
 
-### 9.1 Ambient Glow Action Banner with Copy Command
 ```tsx
 import React, { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
@@ -717,7 +820,7 @@ export function AmbientGlowCta() {
 
 ---
 
-## 10. 🖼️ Curated Gallery & Media Showcases
+## 12. 🖼️ Curated Gallery & Media Showcases
 
 ```tsx
 import React from 'react';
@@ -733,7 +836,7 @@ export function CuratedMediaGrid() {
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 text-white">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 text-left">
-          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Interface Gallery</span>
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-[0.12em]">Interface Gallery</span>
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 mt-2">Crafted Visual Standards</h2>
         </div>
 
@@ -750,119 +853,6 @@ export function CuratedMediaGrid() {
         </div>
       </div>
     </section>
-  );
-}
-```
-
----
-
-## 11. 🧭 Navigation Headers & Navbars
-
-### 11.1 Glassmorphic Sticky Header with Command Trigger
-```tsx
-import React from 'react';
-import { Search } from 'lucide-react';
-
-export function GlassNavbar({ onOpenCommand }: { onOpenCommand: () => void }) {
-  return (
-    <header className="sticky top-0 z-40 w-full border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto h-14 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Soul */}
-        <div className="flex items-center gap-6">
-          <a href="#" className="flex items-center gap-2 text-sm font-semibold text-zinc-100 tracking-tight">
-            <span>⚡ Antigravity</span>
-          </a>
-          <nav className="hidden md:flex items-center gap-5 text-xs text-zinc-400">
-            <a href="#features" className="hover:text-zinc-200 transition-colors">Features</a>
-            <a href="#benchmarks" className="hover:text-zinc-200 transition-colors">Benchmarks</a>
-            <a href="#pricing" className="hover:text-zinc-200 transition-colors">Pricing</a>
-            <a href="#docs" className="hover:text-zinc-200 transition-colors">Documentation</a>
-          </nav>
-        </div>
-
-        {/* Quick Command Trigger */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={onOpenCommand}
-            className="h-8 px-3 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 hover:text-zinc-200 hover:border-zinc-700 transition-colors flex items-center gap-2"
-          >
-            <Search className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Search commands...</span>
-            <kbd className="text-[10px] font-mono px-1.5 py-0.5 bg-zinc-950 rounded border border-zinc-800">⌘K</kbd>
-          </button>
-          <a
-            href="https://github.com/s5condlast-cmd/Antigravityskill"
-            className="h-8 px-3.5 rounded-lg bg-zinc-100 text-zinc-950 text-xs font-medium hover:bg-white transition-colors flex items-center"
-          >
-            GitHub
-          </a>
-        </div>
-      </div>
-    </header>
-  );
-}
-```
-
----
-
-## 12. ⚓ Subdued Footers
-
-### 12.1 Multi-Column Category Footer with Newsletter
-```tsx
-import React from 'react';
-import { Github } from 'lucide-react';
-
-export function ModernFooter() {
-  return (
-    <footer className="border-t border-zinc-800/80 bg-zinc-950 text-zinc-400 py-16 px-4 sm:px-6 lg:px-8 text-xs">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
-        <div className="md:col-span-4 space-y-4">
-          <div className="flex items-center gap-2 text-zinc-100 font-semibold text-sm">
-            <span>⚡ Antigravity Skill</span>
-          </div>
-          <p className="text-xs text-zinc-500 leading-relaxed max-w-sm">
-            Deterministic AI pair-programming skill for clean architectures, strict types, mathematical design systems, and atomic Git pushes.
-          </p>
-        </div>
-
-        <div className="md:col-span-2 space-y-3">
-          <h4 className="font-mono text-zinc-200 uppercase tracking-wider text-[11px]">Protocols</h4>
-          <ul className="space-y-2">
-            <li><a href="#" className="hover:text-zinc-200 transition-colors">/debug Diagnostics</a></li>
-            <li><a href="#" className="hover:text-zinc-200 transition-colors">/design Systems</a></li>
-            <li><a href="#" className="hover:text-zinc-200 transition-colors">/push Protocol</a></li>
-          </ul>
-        </div>
-
-        <div className="md:col-span-2 space-y-3">
-          <h4 className="font-mono text-zinc-200 uppercase tracking-wider text-[11px]">Resources</h4>
-          <ul className="space-y-2">
-            <li><a href="#" className="hover:text-zinc-200 transition-colors">Component Library</a></li>
-            <li><a href="#" className="hover:text-zinc-200 transition-colors">WCAG AA Guide</a></li>
-            <li><a href="#" className="hover:text-zinc-200 transition-colors">UX Heuristics</a></li>
-          </ul>
-        </div>
-
-        <div className="md:col-span-4 space-y-3">
-          <h4 className="font-mono text-zinc-200 uppercase tracking-wider text-[11px]">Newsletter</h4>
-          <p className="text-zinc-500 text-[11px]">Get notified when new UI components or diagnostic modules land.</p>
-          <div className="flex gap-2">
-            <input type="email" placeholder="you@company.com" className="h-9 px-3 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:outline-none flex-grow" />
-            <button className="h-9 px-3.5 rounded-lg bg-zinc-100 text-zinc-950 font-medium text-xs hover:bg-white transition-colors shrink-0">Join</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto pt-8 border-t border-zinc-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-zinc-500">
-        <div>© 2026 Antigravity Skill. MIT License.</div>
-        <div className="flex items-center gap-4">
-          <a href="https://github.com/s5condlast-cmd/Antigravityskill" className="hover:text-zinc-300 transition-colors flex items-center gap-1">
-            <Github className="h-3.5 w-3.5" />
-            <span>GitHub</span>
-          </a>
-        </div>
-      </div>
-    </footer>
   );
 }
 ```
@@ -983,8 +973,6 @@ export function PricingMatrix() {
 
 ## 15. ❓ Containerless Clean FAQ
 
-A clean, borderless FAQ section using hairline `divide-y` dividers and whitespace instead of boxed card containers.
-
 ```tsx
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
@@ -1040,6 +1028,69 @@ export function ContainerlessFaq() {
         </div>
       </div>
     </section>
+  );
+}
+```
+
+---
+
+## 16. ⚓ Subdued Footers
+
+```tsx
+import React from 'react';
+import { Github } from 'lucide-react';
+
+export function ModernFooter() {
+  return (
+    <footer className="border-t border-zinc-800/80 bg-zinc-950 text-zinc-400 py-16 px-4 sm:px-6 lg:px-8 text-xs">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+        <div className="md:col-span-4 space-y-4">
+          <div className="flex items-center gap-2 text-zinc-100 font-semibold text-sm">
+            <span>⚡ Antigravity Skill</span>
+          </div>
+          <p className="text-xs text-zinc-500 leading-relaxed max-w-sm">
+            Deterministic AI pair-programming skill for clean architectures, strict types, mathematical design systems, and atomic Git pushes.
+          </p>
+        </div>
+
+        <div className="md:col-span-2 space-y-3">
+          <h4 className="font-mono text-zinc-200 uppercase tracking-wider text-[11px]">Protocols</h4>
+          <ul className="space-y-2">
+            <li><a href="#" className="hover:text-zinc-200 transition-colors">/debug Diagnostics</a></li>
+            <li><a href="#" className="hover:text-zinc-200 transition-colors">/design Systems</a></li>
+            <li><a href="#" className="hover:text-zinc-200 transition-colors">/push Protocol</a></li>
+          </ul>
+        </div>
+
+        <div className="md:col-span-2 space-y-3">
+          <h4 className="font-mono text-zinc-200 uppercase tracking-wider text-[11px]">Resources</h4>
+          <ul className="space-y-2">
+            <li><a href="#" className="hover:text-zinc-200 transition-colors">Component Library</a></li>
+            <li><a href="#" className="hover:text-zinc-200 transition-colors">WCAG AA Guide</a></li>
+            <li><a href="#" className="hover:text-zinc-200 transition-colors">UX Heuristics</a></li>
+          </ul>
+        </div>
+
+        <div className="md:col-span-4 space-y-3">
+          <h4 className="font-mono text-zinc-200 uppercase tracking-wider text-[11px]">Newsletter</h4>
+          <p className="text-zinc-500 text-[11px]">Get notified when new UI components or diagnostic modules land.</p>
+          <div className="flex gap-2">
+            <input type="email" placeholder="you@company.com" className="h-9 px-3 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:outline-none flex-grow" />
+            <button className="h-9 px-3.5 rounded-lg bg-zinc-100 text-zinc-950 font-medium text-xs hover:bg-white transition-colors shrink-0">Join</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto pt-8 border-t border-zinc-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-zinc-500">
+        <div>© 2026 Antigravity Skill. MIT License.</div>
+        <div className="flex items-center gap-4">
+          <a href="https://github.com/s5condlast-cmd/Antigravityskill" className="hover:text-zinc-300 transition-colors flex items-center gap-1">
+            <Github className="h-3.5 w-3.5" />
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 }
 ```

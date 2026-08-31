@@ -103,6 +103,12 @@ When designing user interfaces, creating component libraries, or styling landing
 * **The Container Determination Rule**: Only use boxed card containers for dense tables, modals, and code blocks. Go **containerless** for headings, text blocks, FAQs (`divide-y`), and footers—using whitespace and proximity as structure.
 * **Zero-Horizontal-Overflow Invariant**: Enforce `overflow-x-clip` on root containers, ban `w-screen` with scrollbars, and eliminate uncontained negative margins.
 
+### 💡 The Unified Surface & Lighting Invariant
+
+* **Consistent Surface Ladder**: Canvas (`bg-zinc-950`), Cards (`bg-zinc-900/60 border border-zinc-800`), Hairline Dividers (`divide-zinc-800/80`), Primary Text (`text-zinc-100 font-bold tracking-tight`), Body Text (`text-zinc-400 text-xs leading-relaxed`).
+* **Ambient Lighting Formula**: Top-center pinned radial light aura (`bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.12),transparent)]`) behind Hero sections.
+* **All 16 Master Landing Page Sections Ready**: When `/design` is invoked for any landing page or application view, generate directly from our 16 unified patterns (Command Palette `⌘K`, Sticky Navbar, Hero, Activity Table, Terminal Preview, Blog, Content, Bento, E-Commerce, Contact, CTA, Gallery, Telemetry KPI, Pricing Matrix, FAQ, Footer) in `references/LANDING_PAGE_PATTERNS.md`.
+
 ### 🚫 The Anti-AI-Slop Design Invariant
 
 * **NO Generic Tacky Gradients**: Ban giant purple/cyan radial blur blobs and rainbow borders. Use crisp neutral darks (`#09090b`) with intentional single-hue accents.
