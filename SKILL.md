@@ -10,7 +10,7 @@ description: "Universal Staff-Engineer framework for /debug (zero-defect pristin
 | User Trigger / Intent | Active Protocol | Primary Workflow & Standards | Reference Manual |
 | :--- | :--- | :--- | :--- |
 | `/debug`, compiler red lines, type errors, bug reports, logic defects, memory leaks, performance bottlenecks | **`/debug`** | 5-Phase Diagnostic Workflow, 4 Laws of Pristine Code Generation, Surgical Root-Cause Isolation | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
-| `/design`, UI components, landing pages, design systems, color palettes, responsive layouts, dark mode | **`/design`** | 4 Pillars of Modern Design, Semantic Token Mapping, WCAG 2.1 AA Accessibility, Component States | [references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md) |
+| `/design`, UI components, landing pages, design systems, color palettes, responsive layouts, dark mode | **`/design`** | 5 Pillars of Impeccable Design, Semantic Tokens, WCAG 2.1 AA Accessibility, Staggered Motion | [references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)<br>[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)<br>[references/UX_PSYCHOLOGY_AND_HEURISTICS.md](references/UX_PSYCHOLOGY_AND_HEURISTICS.md)<br>[references/ACCESSIBILITY_WCAG_GUIDE.md](references/ACCESSIBILITY_WCAG_GUIDE.md) |
 
 ---
 
@@ -27,7 +27,7 @@ To protect codebases from accidental damage and prevent broken builds:
 | 🟡 **REQUIRES CONFIRMATION** | Installing brand-new third-party packages or modifying package manifests | **Asks User First**: Verifies if an existing dependency or zero-dependency utility already solves it. |
 | 🟡 **REQUIRES CONFIRMATION** | Modifying database schemas, running destructive migrations, or deleting files | **Asks User First**: Confirms data safety and backup state before destructive operations. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Running diagnostic compiler & test commands (`tsc`, `mypy`, `npm test`, `cargo check`) | **Runs Automatically**: Scans for red lines, broken imports, and type discrepancies. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing pages & design system components | **Runs Automatically**: Applies pre-tested patterns from `references/DESIGN_SYSTEM_GUIDELINES.md` and `references/LANDING_PAGE_PATTERNS.md`. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing pages & design system components | **Runs Automatically**: Applies pre-tested patterns from `references/DESIGN_SYSTEM_GUIDELINES.md`, `references/COMPONENT_LIBRARY.md`, and `references/LANDING_PAGE_PATTERNS.md`. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries upon successful bug resolution or UI completion | **Runs Automatically**: Persists lessons learned into Antigravity project memory. |
 
 ---

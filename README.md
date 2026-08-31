@@ -83,12 +83,13 @@ cp .gemini/skills/antigravityskill/project-profile/PROJECT_PROFILE.md project-pr
 
 ---
 
-## 🎨 The 4 Pillars of Modern Design (`/design`)
+## 🎨 The 5 Pillars of Impeccable Design (`/design`)
 
-1. **Semantic Token Architecture**: Use themeable semantic tokens (`bg-background`, `text-foreground`, `bg-primary`, `border-border`) rather than hardcoded hex values.
-2. **Mobile-First Responsive Layouts**: Build for mobile viewports first, scaling up with Tailwind breakpoints (`sm:`, `md:`, `lg:`, `xl:`).
-3. **Accessible by Default (WCAG 2.1 AA)**: Contrast ratios $\ge 4.5:1$, visible focus rings (`focus-visible:ring-2`), semantic HTML, and `aria-*` tags.
-4. **Micro-Interactions & Polish**: Interactive hover/active scale states, loading spinners, glassmorphism, and smooth transitions.
+1. **Minimalism & Visual Restraint**: Zero visual clutter. Use clean whitespace, subtle borders (`border-border/60`), and soft ambient lighting instead of heavy ornaments.
+2. **Smooth Motion & Staggered Cascades**: Fluid spring physics (`cubic-bezier(0.16, 1, 0.3, 1)`) and cascading entry delays (`delay-75`, `delay-150`, `delay-200`) for buttery 60fps transitions.
+3. **Scannable Icons & Effortless Navigation**: High-contrast, recognizable Lucide icons with optical touch padding ($\ge 44\text{px}$) and predictable placement.
+4. **Pixel-Perfect Spatial Math**: Strict adherence to the 8-point grid, height ladders (`h-9`, `h-11`, `h-13`), and balanced padding ratios (`px-3 py-1.5` to `px-7 py-3.5`).
+5. **Accessible by Default (WCAG 2.1 AA)**: Contrast ratios $\ge 4.5:1$, visible focus rings (`focus-visible:ring-2`), semantic HTML, and screen-reader ARIA roles.
 
 ---
 
@@ -98,8 +99,11 @@ All reference manuals are organized inside the `references/` folder:
 
 | Document | What's Inside |
 | :--- | :--- |
-| **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** | Semantic color tokens (HSL/OKLCH), typography scales, button states, metric cards, and WCAG 2.1 AA checklist. |
-| **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** | Production-ready React + Tailwind templates for Hero sections, Glassmorphic Navbars, Pricing matrices, and FAQs. |
+| **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)** | Production React + Tailwind components: Buttons, Inputs, Dropdowns, Modals, Tabs, Badges, Toasts, Skeletons. |
+| **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** | Semantic color tokens (HSL/OKLCH), typography scales, motion curves, and pixel-perfect spatial math ladders. |
+| **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** | Complete landing page patterns: Hero banners, Navbars, Bento grids, Pricing matrices, Testimonials, FAQs, Footers. |
+| **[references/UX_PSYCHOLOGY_AND_HEURISTICS.md](references/UX_PSYCHOLOGY_AND_HEURISTICS.md)** | The 7 core Laws of UX (Fitts, Hick, Jakob, Miller, Doherty, Gestalt, Peak-End) with practical formulas. |
+| **[references/ACCESSIBILITY_WCAG_GUIDE.md](references/ACCESSIBILITY_WCAG_GUIDE.md)** | Complete WCAG 2.1 & 2.2 AA/AAA guide: Contrast formulas, keyboard navigation matrix, focus traps, and ARIA roles. |
 | **[references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)** | Type-safe `Result<T, E>` types, type guards, boundary parsers, and anti-hallucination helpers. |
 | **[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)** | Catalog of top 10 recurring AI anti-patterns and surgical fixes. |
 | **[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md)** | Fast terminal cheat sheet for `tsc`, `mypy`, `pytest`, `go vet`, and `cargo check`. |
@@ -116,8 +120,11 @@ Antigravityskill/
 ├── project-profile/
 │   └── PROJECT_PROFILE.md                 # Project facts, standards, and invariants
 ├── references/
-│   ├── DESIGN_SYSTEM_GUIDELINES.md        # Design system tokens & WCAG accessibility
-│   ├── LANDING_PAGE_PATTERNS.md           # Accessible UI landing page patterns
+│   ├── COMPONENT_LIBRARY.md               # Accessible React + Tailwind application components
+│   ├── DESIGN_SYSTEM_GUIDELINES.md        # Design system tokens & spatial math
+│   ├── LANDING_PAGE_PATTERNS.md           # Accessible UI landing page patterns (Hero, Bento, Footer)
+│   ├── UX_PSYCHOLOGY_AND_HEURISTICS.md    # Cognitive psychology laws & friction reduction
+│   ├── ACCESSIBILITY_WCAG_GUIDE.md        # WCAG 2.1/2.2 AA & AAA compliance checklist
 │   ├── DEBUG_UTILITIES.md                 # Type guards & Result types
 │   ├── COMMON_BUG_PATTERNS.md             # Common AI bug patterns & fixes
 │   └── CLI_CHEAT_SHEET.md                 # Diagnostic CLI cheat sheet

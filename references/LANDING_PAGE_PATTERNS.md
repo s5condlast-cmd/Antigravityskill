@@ -396,3 +396,311 @@ export function FaqSection() {
   );
 }
 ```
+
+---
+
+## 5. 🍱 Asymmetric Bento Grid Feature Showcase
+
+Modern 3-column asymmetric bento grid with gradient glow, staggered animations, and live interactive feature previews.
+
+```tsx
+import React from 'react';
+import { cn } from '@/lib/utils';
+import { Sparkles, ShieldCheck, Zap, Layers, Cpu, ArrowUpRight } from 'lucide-react';
+
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  tag?: string;
+  className?: string;
+  children?: React.ReactNode;
+}
+
+function BentoCard({ icon, title, description, tag, className, children }: FeatureCardProps) {
+  return (
+    <div
+      className={cn(
+        "group relative overflow-hidden rounded-3xl border border-border/80 bg-card/60 p-8 backdrop-blur-sm shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 flex flex-col justify-between",
+        className
+      )}
+    >
+      {/* Top subtle ambient light */}
+      <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-primary/10 blur-3xl group-hover:bg-primary/20 transition-all duration-500" />
+
+      <div>
+        <div className="flex items-center justify-between mb-6">
+          <div className="p-3 rounded-2xl bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-200">
+            {icon}
+          </div>
+          {tag && (
+            <span className="text-xs font-semibold px-3 py-1 rounded-full bg-secondary text-secondary-foreground border border-border">
+              {tag}
+            </span>
+          )}
+        </div>
+
+        <h3 className="text-xl font-bold tracking-tight text-foreground mb-2 group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          {description}
+        </p>
+      </div>
+
+      {children && <div className="mt-6 pt-4 border-t border-border/40">{children}</div>}
+    </div>
+  );
+}
+
+export function BentoGridSection() {
+  return (
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background text-foreground">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-xs font-bold uppercase tracking-wider text-primary px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+            Engineered for Precision
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mt-4 mb-4">
+            Everything you need for zero-defect velocity
+          </h2>
+          <p className="text-muted-foreground text-base sm:text-lg">
+            High-performance tools, design systems, and diagnostic guardrails built right in.
+          </p>
+        </div>
+
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: Large Featured (Spans 2 columns) */}
+          <BentoCard
+            icon={<Cpu className="h-6 w-6" />}
+            title="5-Phase Systematic Root-Cause Diagnostics"
+            description="Isolate defects at the boundary layer without trial-and-error edits or symptom-masking hacks."
+            tag="Core Engine"
+            className="md:col-span-2 min-h-[320px]"
+          >
+            <div className="rounded-xl bg-muted/60 p-4 border border-border flex items-center justify-between text-xs font-mono">
+              <span className="text-muted-foreground">$ diagnose --strict</span>
+              <span className="text-emerald-500 font-semibold flex items-center gap-1">
+                ✔ 0 red lines (100% healthy)
+              </span>
+            </div>
+          </BentoCard>
+
+          {/* Card 2: Regular */}
+          <BentoCard
+            icon={<Zap className="h-6 w-6" />}
+            title="Buttery Smooth Micro-Interactions"
+            description="Spring curves and cascading delays deliver fluid 60fps tactile response."
+            tag="Motion"
+          />
+
+          {/* Card 3: Regular */}
+          <BentoCard
+            icon={<ShieldCheck className="h-6 w-6" />}
+            title="Strict WCAG 2.1 AA Accessibility"
+            description="Guaranteed 4.5:1 contrast, visible focus rings, and screen-reader ARIA roles."
+            tag="A11y"
+          />
+
+          {/* Card 4: Large (Spans 2 columns) */}
+          <BentoCard
+            icon={<Layers className="h-6 w-6" />}
+            title="Semantic Token System (Light & Dark Mode)"
+            description="Themeable HSL/OKLCH color scales ensure instant, seamless dark mode transitions."
+            tag="Design System"
+            className="md:col-span-2 min-h-[320px]"
+          >
+            <div className="flex flex-wrap gap-2">
+              {['Primary', 'Secondary', 'Muted', 'Card', 'Popover', 'Destructive'].map((token) => (
+                <span key={token} className="text-xs px-2.5 py-1 rounded-lg bg-background border border-border text-foreground">
+                  var(--{token.toLowerCase()})
+                </span>
+              ))}
+            </div>
+          </BentoCard>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+---
+
+## 6. ⭐ Testimonial & Social Proof Cards Grid
+
+```tsx
+import React from 'react';
+import { Star } from 'lucide-react';
+
+interface Testimonial {
+  name: string;
+  role: string;
+  company: string;
+  avatar: string;
+  content: string;
+  rating?: number;
+}
+
+const TESTIMONIALS: Testimonial[] = [
+  {
+    name: "Alex Rivera",
+    role: "Staff Frontend Architect",
+    company: "Vercel Ecosystem",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+    content: "The /design skill cut our component scaffolding time by 75%. Every card and modal comes out with flawless WCAG contrast and perfect 8-point spatial rhythm.",
+    rating: 5,
+  },
+  {
+    name: "Sarah Chen",
+    role: "Lead Systems Engineer",
+    company: "Supabase Cloud",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    content: "Zero red lines isn't just a marketing slogan—the /debug workflow systematically identifies compiler mismatches before code ever touches Git.",
+    rating: 5,
+  },
+  {
+    name: "Elena Rostova",
+    role: "Head of Product Design",
+    company: "Linear Workspaces",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+    content: "Finally, an AI design tool that understands restrained minimalism, spring physics, and semantic tokens instead of generating cluttered, generic templates.",
+    rating: 5,
+  },
+];
+
+export function TestimonialsSection() {
+  return (
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/30 text-foreground">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center max-w-xl mx-auto mb-16">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+            Loved by engineering leaders
+          </h2>
+          <p className="text-muted-foreground text-base sm:text-lg">
+            See how teams ship higher-quality products with /debug and /design.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {TESTIMONIALS.map((t, idx) => (
+            <div
+              key={t.name}
+              style={{ animationDelay: `${idx * 100}ms` }}
+              className="rounded-3xl border border-border bg-card p-8 shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-primary/30"
+            >
+              <div>
+                <div className="flex items-center gap-1 text-amber-500 mb-6">
+                  {[...Array(t.rating || 5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-amber-500 text-amber-500" />
+                  ))}
+                </div>
+                <p className="text-sm text-foreground/90 leading-relaxed mb-6 italic">
+                  "{t.content}"
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 pt-4 border-t border-border/60">
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="h-10 w-10 rounded-full object-cover border border-border"
+                />
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground">{t.name}</h4>
+                  <p className="text-xs text-muted-foreground">{t.role} · {t.company}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+---
+
+## 7. ⚓ High-Converting Footer
+
+```tsx
+import React from 'react';
+import { ArrowRight, Github, Twitter, Disc as Discord } from 'lucide-react';
+
+export function FooterSection() {
+  return (
+    <footer className="border-t border-border bg-card/60 text-foreground py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-12">
+          {/* Brand & Newsletter (Spans 2 cols) */}
+          <div className="md:col-span-2 space-y-4">
+            <div className="flex items-center gap-2 text-xl font-bold tracking-tight">
+              <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-black">
+                ⚡
+              </span>
+              <span>Antigravity Skill</span>
+            </div>
+            <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
+              Universal staff-engineer framework for /debug, /design, and zero-defect code generation.
+            </p>
+            <div className="flex items-center gap-2 pt-2">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="h-10 px-3.5 rounded-xl border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary w-full max-w-xs"
+              />
+              <button className="h-10 px-4 rounded-xl bg-primary text-primary-foreground font-semibold text-xs hover:bg-primary/90 transition-all flex items-center gap-1 shrink-0">
+                <span>Join</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Navigation Links Column 1 */}
+          <div className="space-y-3">
+            <h5 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Framework</h5>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-foreground transition-colors">/debug Protocol</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">/design System</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">CI Quality Gate</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">/learn Memory</a></li>
+            </ul>
+          </div>
+
+          {/* Navigation Links Column 2 */}
+          <div className="space-y-3">
+            <h5 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">References</h5>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-foreground transition-colors">Component Library</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">UX Heuristics</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">WCAG 2.1 AA Guide</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">Common Bug Patterns</a></li>
+            </ul>
+          </div>
+
+          {/* Navigation Links Column 3 */}
+          <div className="space-y-3">
+            <h5 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Community</h5>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-foreground transition-colors">GitHub Repository</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">Discord Server</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">MIT License</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">Release Notes</a></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <p>© 2026 Antigravity Engineering Framework. Open source under MIT License.</p>
+          <div className="flex items-center gap-4">
+            <a href="https://github.com/s5condlast-cmd/Antigravityskill" className="hover:text-foreground transition-colors"><Github className="h-4 w-4" /></a>
+            <a href="#" className="hover:text-foreground transition-colors"><Twitter className="h-4 w-4" /></a>
+            <a href="#" className="hover:text-foreground transition-colors"><Discord className="h-4 w-4" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+```
