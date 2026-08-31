@@ -41,13 +41,13 @@ jobs:
             if (!content.includes("name:") || !content.includes("description:")) {
               throw new Error("SKILL.md frontmatter must contain name and description fields");
             }
-            const requiredPillars = ["/debug", "/push", "/teamwork-preview"];
+            const requiredPillars = ["/debug", "/push"];
             for (const pillar of requiredPillars) {
               if (!content.includes(pillar)) {
                 throw new Error("SKILL.md missing required pillar protocol: " + pillar);
               }
             }
-            console.log("✔ SKILL.md frontmatter and 3-pillar protocol definitions successfully validated.");
+            console.log("✔ SKILL.md frontmatter and 2-pillar protocol definitions successfully validated.");
           '
 
       - name: 🔗 Validate Reference Documents & Project Profile
@@ -56,16 +56,16 @@ jobs:
             const fs = require("fs");
             const requiredFiles = [
               "README.md",
+              "SKILL.md",
               "project-profile/PROJECT_PROFILE.md",
               "references/PUSH_PROTOCOL.md",
-              "references/TEAMWORK_ORCHESTRATION.md",
-              "references/MULTI_AGENT_PATTERNS.md",
               "references/BRANCH_AND_COMMIT_CONVENTIONS.md",
               "references/LANDING_PAGE_PATTERNS.md",
               "references/DEBUG_UTILITIES.md",
               "references/COMMON_BUG_PATTERNS.md",
               "references/CLI_CHEAT_SHEET.md",
-              ".github/pull_request_template.md"
+              ".github/pull_request_template.md",
+              "LICENSE"
             ];
             for (const f of requiredFiles) {
               if (!fs.existsSync(f)) {

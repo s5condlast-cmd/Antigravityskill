@@ -1,9 +1,8 @@
-## 🎯 Pull Request Overview
+﻿## 🎯 Pull Request Overview
 
 ### 🏷️ Primary Skill Pillar & Change Classification
 - [ ] 🔬 **`/debug`**: Compiler red-line eradication, type safety fix, anti-hallucination refactor, or accessible landing page UI component.
 - [ ] 🚀 **`/push`**: Branch-protected delivery, atomic conventional commit formatting, or pre-flight gate clearance.
-- [ ] 🤝 **`/teamwork-preview`**: Multi-agent prompt synthesis, team topology orchestration, or autonomous subagent delegation.
 - [ ] 🛠️ **Cross-Cutting**: CI/CD quality gate workflow, project profile facts, polyglot diagnostic scripts, or documentation.
 
 ---
@@ -19,16 +18,7 @@
 - [ ] **Python**
 - [ ] **Go**
 - [ ] **Rust**
-- [ ] **Multi-Agent / Skill Infrastructure**
-
----
-
-### 🤝 Multi-Agent Orchestration & Protocol Verification (If Applicable)
-- [ ] **Team Topology Justification**: Selected matching topology (Document Review / Proof Pipeline / Small Focused Team / Large-Scale Proof Swarm / Full Swarm) based on scope.
-- [ ] **Integrity Mode Conformance**: Adhered strictly to designated integrity mode (`development`, `demo`, or `benchmark`).
-- [ ] **Subagent Spawn Quota**: Stayed within budget ($\le 16$ spawns per orchestrator) or executed soft succession.
-- [ ] **Workspace Layout Compliance (`.agents/` Purity)**: `.agents/` contains **ONLY** agent metadata (`BRIEFING.md`, `DISPATCH.md`, `progress.md`, `handoff.md`); **NO** source code, tests, or application data placed in `.agents/`.
-- [ ] **Self-Contained 5-Component Handoff**: Deliverable reports follow the standard 5 sections (*Observation*, *Logic Chain*, *Caveats*, *Conclusion*, *Verification Method*).
+- [ ] **Skill Infrastructure & Utilities**
 
 ---
 

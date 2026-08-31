@@ -1,18 +1,18 @@
-# 🛠️ Universal AI Agent Engineering Suite (`/debug`, `/push`, `/teamwork-preview`)
+# 🛠️ Universal AI Agent Engineering Suite (`/debug` & `/push`)
 
-[![CI Quality Gate](https://github.com/owner/Antigravityskill/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/owner/Antigravityskill/actions/workflows/quality-gate.yml)
+[![CI Quality Gate](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml)
 [![Node.js](https://img.shields.io/badge/node-20%2B-blue.svg)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/typescript-5.5%2B-blue.svg)](https://www.typescriptlang.org/)
 [![Python](https://img.shields.io/badge/python-3.12%2B-blue.svg)](https://www.python.org/)
 [![Go](https://img.shields.io/badge/go-1.22%2B-blue.svg)](https://go.dev/)
 [![Rust](https://img.shields.io/badge/rust-2021%20edition-orange.svg)](https://www.rust-lang.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-A specialized, battle-tested **Antigravity Slash Skill Suite** delivering zero-defect code generation, safe branch-protected git delivery, polyglot diagnostic scanning, and structured multi-agent orchestration for complex engineering tasks.
+A specialized, battle-tested **Antigravity Slash Skill Suite** delivering zero-defect code generation, safe branch-protected git delivery, polyglot diagnostic scanning, accessible UI component patterns, and deterministic pre-flight quality checks.
 
 ---
 
-## 🌟 The Three Core Skill Pillars
+## 🌟 The Core Skill Pillars
 
 ```text
                                ┌─────────────────────────────────────────┐
@@ -21,26 +21,26 @@ A specialized, battle-tested **Antigravity Slash Skill Suite** delivering zero-d
                                                     │
                                                     ▼
                                ┌─────────────────────────────────────────┐
-                               │   Unified SKILL.md Master Framework     │
-                               │  (Traffic Light Guardrails & Router)    │
-                               └───────────┬────────┬───────────┬────────┘
-                                           │        │           │
-                       ┌───────────────────┘        │           └───────────────────┐
-                       ▼                            ▼                               ▼
-       ┌───────────────────────────┐ ┌───────────────────────────┐ ┌───────────────────────────┐
-       │     Pillar 1: /debug      │ │      Pillar 2: /push      │ │ Pillar 3: /teamwork-prev  │
-       │  - 5-Phase Diagnostics    │ │  - 5-Step Delivery Runbook│ │  - 9-Step Prompt Synthesis│
-       │  - 4 Laws of Pristine Code│ │  - Pre-flight Gatekeeper  │ │  - 5 Team Topologies      │
-       │  - Landing Page UI Toolkit│ │  - Branch Protection      │ │  - Live Workspace Memory  │
-       │  - Anti-Hallucination     │ │  - Atomic Commits & PRs   │ │  - Integrity Modes        │
-       └───────────────┬───────────┘ └──────────────┬────────────┘ └──────────────┬────────────┘
-                       │                            │                             │
-                       ▼                            ▼                             ▼
-       ┌───────────────────────────┐ ┌───────────────────────────┐ ┌───────────────────────────┐
-       │ references/DEBUG_UTILS    │ │ references/PUSH_PROTOCOL  │ │ references/TEAMWORK_...   │
-       │ references/COMMON_BUGS    │ │ references/BRANCH_COMMITS │ │ references/MULTI_AGENT_...│
-       │ references/LANDING_PAGE   │ │ scripts/diagnose.js / .py │ │ .agents/ Working Memory   │
-       └───────────────────────────┘ └───────────────────────────┘ └───────────────────────────┘
+                               │       Unified SKILL.md Framework        │
+                               │   (Traffic Light Guardrails & Router)   │
+                               └──────────────┬───────────┬──────────────┘
+                                              │           │
+                               ┌──────────────┘           └──────────────┐
+                               ▼                                         ▼
+               ┌───────────────────────────┐             ┌───────────────────────────┐
+               │     Pillar 1: /debug      │             │      Pillar 2: /push      │
+               │  - 5-Phase Diagnostics    │             │  - 5-Step Delivery Runbook│
+               │  - 4 Laws of Pristine Code│             │  - Pre-flight Gatekeeper  │
+               │  - Landing Page UI Toolkit│             │  - Branch Protection      │
+               │  - Anti-Hallucination     │             │  - Atomic Commits & PRs   │
+               └───────────────┬───────────┘             └──────────────┬────────────┘
+                               │                                        │
+                               ▼                                        ▼
+               ┌───────────────────────────┐             ┌───────────────────────────┐
+               │ references/DEBUG_UTILS    │             │ references/PUSH_PROTOCOL  │
+               │ references/COMMON_BUGS    │             │ references/BRANCH_COMMITS │
+               │ references/LANDING_PAGE   │             │ scripts/diagnose.js / .py │
+               └───────────────────────────┘             └───────────────────────────┘
                                                     │
                                                     ▼
                                ┌─────────────────────────────────────────┐
@@ -88,63 +88,7 @@ Automates safe git delivery, protects production branches, and enforces conventi
 
 ---
 
-### 🤝 Pillar 3: `/teamwork-preview` (Multi-Agent Orchestration & Autonomous Delegation)
-
-Orchestrates complex engineering goals across multi-agent swarms with persistent memory and rigorous verification:
-
-* **9-Step Prompt Synthesis Pipeline**: A structured protocol transforming ambiguous user requests into hardened, verifiable subagent execution plans.
-* **5 Standard Team Topologies**:
-  1. *Document Review*: 1 Lead Synthesizer + $N$ Parallel Specialist Reviewers (read-only PR and RFC audits).
-  2. *Proof Pipeline*: Sequential staged pipeline (`Explorer` $\rightarrow$ `Implementer` $\rightarrow$ `Verifier` $\rightarrow$ `Forensic Auditor`).
-  3. *Small Focused Team*: 1 Orchestrator + 2–3 Specialist Workers (targeted features, 3–8 files).
-  4. *Large-Scale Proof Swarm*: 2-Tier Hierarchical Swarm (`Meta-Orchestrator` $\rightarrow$ Domain Sub-Orchestrators $\rightarrow$ Worker Pools $\rightarrow$ Global Auditor).
-  5. *Full Swarm (Dual-Track)*: Project Orchestrator coordinating concurrent Implementation and Black-Box E2E Testing tracks.
-* **3 Integrity Modes**: `development` (standard production workflow), `demo` (speed & UI fidelity), and `benchmark` (zero external dependencies, scratch algorithms, deterministic evaluation).
-* **16-Spawn Succession Protocol**: Prevents context saturation by consolidating state to `orchestrator_handoff.md` and delegating to a successor orchestrator upon reaching 16 spawns.
-* **Live Workspace Artifact Management**: Persistent working memory maintained strictly inside `.agents/<agent_folder>/`:
-  - `BRIEFING.md`: Working memory index kept under 100 lines with 🔒 append-only sections.
-  - `DISPATCH.md`: Timestamped instruction history log.
-  - `progress.md`: Liveness heartbeat with `- Last visited: [timestamp]`.
-  - `handoff.md`: 5-Component self-contained handoff report (*Observation*, *Logic Chain*, *Caveats*, *Conclusion*, *Verification Method*).
-* **References**: [references/TEAMWORK_ORCHESTRATION.md](references/TEAMWORK_ORCHESTRATION.md), [references/MULTI_AGENT_PATTERNS.md](references/MULTI_AGENT_PATTERNS.md).
-
----
-
-## 🏗️ Visual Architecture Diagrams
-
-### 1. The 9-Step Prompt Synthesis Pipeline & Live Artifact Lifecycle
-
-```text
- ┌───────────────────────────┐      ┌───────────────────────────┐      ┌───────────────────────────┐
- │ Step 1: Context & Goal    │ ───> │ Step 2: WBS (DAG)         │ ───> │ Step 3: Integrity Mode    │
- │ Ingest profile & scope    │      │ Decompose into milestones │      │ dev | demo | benchmark    │
- └───────────────────────────┘      └───────────────────────────┘      └───────────────────────────┘
-               │
-               ▼
- ┌───────────────────────────┐      ┌───────────────────────────┐      ┌───────────────────────────┐
- │ Step 4: Draft Req & Invars│ ───> │ Step 5: Objective Verify  │ ───> │ Step 6: Acceptance Crit   │
- │ R1..Rn + Type Invariants  │      │ Automated test commands   │      │ Binary checkable items    │
- └───────────────────────────┘      └───────────────────────────┘      └───────────────────────────┘
-               │
-               ▼
- ┌───────────────────────────┐      ┌───────────────────────────┐      ┌───────────────────────────┐
- │ Step 7: Tool Scoping      │ ───> │ Step 8: Prompt Hardening  │ ───> │ Step 9: Assemble Plan     │
- │ Least-privilege roles     │      │ Anti-cheating & Decoy     │      │ Output /teamwork-preview  │
- └───────────────────────────┘      └───────────────────────────┘      └───────────────────────────┘
-               │
-               ▼
- ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
- │                                   Live Artifact State Lifecycle                                 │
- │                                                                                                 │
- │   .agents/orchestrator/                .agents/<worker_1>/                 .agents/<verifier>/  │
- │   ├── BRIEFING.md (Memory Index)       ├── BRIEFING.md (Memory Index)      ├── BRIEFING.md      │
- │   ├── progress.md (Heartbeat)          ├── DISPATCH.md (Instruction Log)   ├── progress.md      │
- │   └── orchestrator_handoff.md          ├── progress.md (Heartbeat)         └── handoff.md       │
- │                                        └── handoff.md (5-Component Report)     (Verdict: Pass)  │
- └─────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
-
-### 2. Git Delivery, Branch Protection & CI Quality Gate Flow
+## 🏗️ Git Delivery & Branch Protection Flow
 
 ```text
  ┌───────────────────────────┐
@@ -194,15 +138,14 @@ Orchestrates complex engineering goals across multi-agent swarms with persistent
 Antigravityskill/
 ├── .github/
 │   ├── workflows/
-│   │   └── quality-gate.yml               # 🚦 Polyglot 6-job CI Quality Gate (Node, Python, Go, Rust, Meta, Scripts)
-│   └── pull_request_template.md           # 📝 3-Pillar PR template with multi-agent verification checks
+│   │   └── quality-gate.yml               # 🚦 Polyglot CI Quality Gate (Node, Python, Go, Rust, Meta, Scripts)
+│   └── pull_request_template.md           # 📝 Standardized PR template with pre-flight check list
 ├── .gitignore                             # 🛡️ Comprehensive ignore file (.env, node_modules, .venv, credentials)
+├── LICENSE                                # 📄 MIT Open Source License
 ├── project-profile/
-│   └── PROJECT_PROFILE.md                 # 🎯 Universal facts schema, orchestration rules & invariants
+│   └── PROJECT_PROFILE.md                 # 🎯 Universal facts schema, coding standards & invariants
 ├── references/
 │   ├── PUSH_PROTOCOL.md                   # 🚀 5-Step safe branch push, commit & PR runbook
-│   ├── TEAMWORK_ORCHESTRATION.md          # 🤝 9-Step prompt pipeline, artifact schemas & delegation protocol
-│   ├── MULTI_AGENT_PATTERNS.md            # 🏛️ 5 Team topologies, integrity modes, role matrix & conflict synthesis
 │   ├── BRANCH_AND_COMMIT_CONVENTIONS.md   # 🌿 Branch taxonomy (feat/*, ui/*, fix/*) & Conventional Commits
 │   ├── LANDING_PAGE_PATTERNS.md           # 🎨 Accessible UI component patterns (Hero, Navbar, Pricing, FAQ)
 │   ├── DEBUG_UTILITIES.md                 # 🧰 Polyglot Result types, type guards & anti-hallucination helpers
@@ -213,13 +156,8 @@ Antigravityskill/
 │   ├── diagnose.py                        # 🐍 Zero-dependency Python standard library scanner
 │   ├── test-diagnose.js                   # 🧪 Node.js automated test harness for diagnostic scanners
 │   └── test_diagnose.py                   # 🧪 Python automated test harness for diagnostic scanners
-├── tests/
-│   └── e2e/                               # 🔬 Independent E2E black-box test suite (Tiers 1-4)
-├── .agents/                               # 🤖 Runtime agent workspace metadata (strictly non-source)
-├── SKILL.md                               # 🧭 Master 3-pillar skill definition & routing framework
-├── README.md                              # 📖 Comprehensive engineering manual, diagrams & install guides
-├── TEST_INFRA.md                          # 🏗️ Testing infrastructure architecture & execution guide
-└── TEST_READY.md                          # 📋 E2E Test Suite Readiness and verification sign-off
+├── SKILL.md                               # 🧭 Master 2-pillar skill definition & routing framework
+└── README.md                              # 📖 Comprehensive engineering manual, diagrams & install guides
 ```
 
 ---
@@ -287,7 +225,7 @@ node .agents/skills/antigravityskill/scripts/diagnose.js --strict
 
 ### Option 2: Global Installation (Workstation-Wide)
 
-Install globally so that Antigravity loads the 3-pillar skill suite across all local repositories:
+Install globally so that Antigravity loads the 2-pillar skill suite across all local repositories:
 
 * **Windows**:
   ```powershell
@@ -324,17 +262,13 @@ python scripts/test_diagnose.py
 | 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets or API credentials | Hard blocked; flags unignored secrets and halts staging. |
 | 🔴 **STRICTLY PROHIBITED** | Force pushing (`git push --force`) or destructive reset | Hard blocked; remote history and unstaged work protected. |
 | 🔴 **STRICTLY PROHIBITED** | Suppressing errors with `@ts-ignore`, `any`, empty catch | Hard blocked; root-cause resolution required. |
-| 🔴 **STRICTLY PROHIBITED** | Placing agent metadata or logs into source directories | Hard blocked; metadata strictly confined to `.agents/`. |
-| 🔴 **STRICTLY PROHIBITED** | Exceeding 16 subagent spawns without succession | Hard blocked; executes soft handoff to successor orchestrator. |
+| 🔴 **STRICTLY PROHIBITED** | Bypassing pre-flight health scan before commit | Hard blocked; pre-flight check must pass cleanly. |
 | 🟡 **REQUIRES CONFIRMATION** | Out-of-scope code refactoring | Prompts user with proposal before modifying code. |
 | 🟡 **REQUIRES CONFIRMATION** | Installing new third-party packages | Prompts user to confirm if native utilities suffice. |
 | 🟡 **REQUIRES CONFIRMATION** | Destructive database migrations or schema drops | Prompts user to confirm data safety and backup status. |
-| 🟡 **REQUIRES CONFIRMATION** | Switching integrity modes (`development` $\rightarrow$ `demo`) | Prompts user to confirm trade-offs and constraints. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Running diagnostic health checks (`diagnose.js`/`py`) | Runs automatically across all supported language stacks. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Creating safe branches following standard taxonomy | Runs automatically (`feat/landing-hero`, `fix/navbar-types`). |
-| 🟢 **AUTOMATICALLY ALLOWED** | Generating `/teamwork-preview` plans & synthesis | Runs automatically to prepare structured plans for user review. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Managing agent workspace memory in `.agents/` | Maintains `BRIEFING.md`, `progress.md`, and `handoff.md`. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Triggering `/learn` summaries on successful fixes | Persists architectural lessons into Antigravity long-term memory. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries on successful fixes | Persists architectural lessons into Antigravity long-term memory. |
 
 ---
 
