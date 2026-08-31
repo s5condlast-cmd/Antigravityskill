@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Terminal, GitBranch, Bug, Sparkles, CornerDownLeft } from 'lucide-react';
+import { Search, Terminal, Settings, Sun, CornerDownLeft } from 'lucide-react';
 
 export interface CommandItem {
   id: string;
   title: string;
-  category: 'Commands' | 'Navigation' | 'Actions';
+  category: string;
   shortcut?: string;
   icon: React.ReactNode;
 }
 
 const DEFAULT_COMMANDS: CommandItem[] = [
-  { id: '1', title: '/debug: Run 5-Phase Diagnostic Scan', category: 'Commands', shortcut: '⌘D', icon: <Bug className="h-4 w-4 text-emerald-400" /> },
-  { id: '2', title: '/design: Ingest Brand Tokens', category: 'Commands', shortcut: '⌘G', icon: <Sparkles className="h-4 w-4 text-sky-400" /> },
-  { id: '3', title: '/push: Stage & Atomic Sync', category: 'Commands', shortcut: '⌘P', icon: <GitBranch className="h-4 w-4 text-amber-400" /> },
-  { id: '4', title: 'Open Diagnostics Console', category: 'Navigation', shortcut: 'G D', icon: <Terminal className="h-4 w-4 text-zinc-400" /> },
+  { id: '1', title: 'Open Diagnostics Console', category: 'Navigation', shortcut: 'G D', icon: <Terminal className="h-4 w-4 text-zinc-400" /> },
+  { id: '2', title: 'Workspace Settings', category: 'Preferences', shortcut: '⌘,', icon: <Settings className="h-4 w-4 text-zinc-400" /> },
+  { id: '3', title: 'Toggle Color Theme', category: 'Preferences', shortcut: '⌘T', icon: <Sun className="h-4 w-4 text-zinc-400" /> },
 ];
 
 export function CommandPalette({
@@ -58,7 +57,7 @@ export function CommandPalette({
             type="text"
             value={query}
             onChange={(e) => { setQuery(e.target.value); setSelectedIndex(0); }}
-            placeholder="Type a command or search actions..."
+            placeholder="Type a command or search..."
             className="w-full h-12 bg-transparent text-xs sm:text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none"
             autoFocus
           />
@@ -70,7 +69,7 @@ export function CommandPalette({
         {/* Results List */}
         <div className="p-2 max-h-80 overflow-y-auto space-y-1">
           {filtered.length === 0 ? (
-            <div className="py-8 text-center text-xs text-zinc-500 font-mono">No matching commands found.</div>
+            <div className="py-8 text-center text-xs text-zinc-500 font-mono">No matching items found.</div>
           ) : (
             filtered.map((cmd, idx) => (
               <button

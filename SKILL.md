@@ -140,6 +140,12 @@ When generating code, the agent inspects the user's intent and selects the optim
 
 *The agent reads the selected template file, adapts user brand tokens and copy, and drops the complete, production-ready code into the project.*
 
+### 🏷️ The Zero-Hardcoded-Brand Invariant
+
+* **100% Unbranded Component Blueprints**: All component templates in [`templates/`](./templates) are completely unbranded.
+* **Dynamic Workspace Injection**: When generating or adapting code for a user, the agent **MUST** inspect the workspace (`package.json`, `public/logo.*`, SVG files, existing headlines, page titles) and dynamically inject the user's **actual brand name, logo SVG, custom icons, and real project copy** into the template props.
+* **Ban Foreign Brand Placeholders**: Never output fixed third-party brand names, dummy placeholder domains, or foreign brand URLs. Every output must seamlessly match the user's current or target project identity.
+
 ### 🚫 The Anti-AI-Slop Design Invariant
 
 * **NO Generic Tacky Gradients**: Ban giant purple/cyan radial blur blobs and rainbow borders. Use crisp neutral darks (`#09090b`) with intentional single-hue accents.

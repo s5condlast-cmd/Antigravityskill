@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
 
-export function CtaCentered({
-  headline = "Ready to build with zero-defect pair programming?",
-  subtitle = "Clone the repository to unlock the full 3-pillar protocol (/debug, /design, /push) in your workspace.",
-  command = "git clone https://github.com/s5condlast-cmd/Antigravityskill.git",
-}: {
+export interface CtaCenteredProps {
   headline?: string;
   subtitle?: string;
   command?: string;
-}) {
+}
+
+export function CtaCentered({
+  headline = "Ready to start building?",
+  subtitle = "Integrate our modular component architecture and design tokens into your codebase in seconds.",
+  command = "npm install @your-org/core",
+}: CtaCenteredProps) {
   const [copied, setCopied] = useState(false);
 
   function handleCopy() {

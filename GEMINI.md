@@ -8,6 +8,7 @@ When the user enters any of the following slash commands or intents, execute the
 
 * **`/design` (or UI / Landing Page Requests)**:
   * Ingest existing brand tokens, SVGs, and colors with zero breaking changes.
+  * Dynamically inject the user's workspace brand name, logo SVG, custom icons, and copy into unbranded templates ([`templates/`](./templates)).
   * Enforce the **80/15/5 Color Restraint Rule** (4 approved accent spots).
   * Enforce the **Unified Surface & Lighting Standard** (`bg-zinc-950` canvas, `bg-zinc-900/60` cards, hairline `divide-zinc-800/80` dividers, top ambient radial light aura).
   * Enforce the **Inverse Tracking Law** (tight negative tracking on big headlines `tracking-[-0.035em]`, wide positive on micro uppercase `tracking-[0.12em]`) and **Inverse Leading Law** (`leading-[1.08]` on headlines).

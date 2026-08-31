@@ -1,18 +1,34 @@
 import React from 'react';
 import { Search } from 'lucide-react';
 
-interface HeaderFullProps {
+export interface NavLinkItem {
+  label: string;
+  href: string;
+}
+
+export interface HeaderFullProps {
+  logo?: React.ReactNode;
   brandName?: string;
+  navLinks?: NavLinkItem[];
   onOpenCommand?: () => void;
   ctaText?: string;
   ctaHref?: string;
 }
 
+const DEFAULT_NAV_LINKS: NavLinkItem[] = [
+  { label: 'Features', href: '#features' },
+  { label: 'Architecture', href: '#architecture' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'Changelog', href: '#changelog' },
+];
+
 export function HeaderFull({
-  brandName = "⚡ Antigravity",
+  logo,
+  brandName,
+  navLinks = DEFAULT_NAV_LINKS,
   onOpenCommand,
-  ctaText = "Get Started",
-  ctaHref = "#get-started",
+  ctaText = 'Get Started',
+  ctaHref = '#get-started',
 }: HeaderFullProps) {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md">
@@ -20,13 +36,15 @@ export function HeaderFull({
         {/* Brand & Nav */}
         <div className="flex items-center gap-8">
           <a href="#" className="flex items-center gap-2 text-sm font-bold text-zinc-100 tracking-tight">
-            <span>{brandName}</span>
+            {logo}
+            {brandName && <span>{brandName}</span>}
           </a>
           <nav className="hidden md:flex items-center gap-6 text-xs text-zinc-400 font-medium">
-            <a href="#features" className="hover:text-zinc-200 transition-colors">Features</a>
-            <a href="#architecture" className="hover:text-zinc-200 transition-colors">Architecture</a>
-            <a href="#pricing" className="hover:text-zinc-200 transition-colors">Pricing</a>
-            <a href="#changelog" className="hover:text-zinc-200 transition-colors">Changelog</a>
+            {navLinks.map((link) => (
+              <a key={link.label} href={link.href} className="hover:text-zinc-200 transition-colors">
+                {link.label}
+              </a>
+            ))}
           </nav>
         </div>
 
