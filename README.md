@@ -158,9 +158,13 @@ Antigravityskill/
 
 ## 🧠 Continuous Learning (`/learn`) & Circuit Breaker
 
-### 💡 Post-Success Reminder (`/learn`, Health Check & `/install`)
+### 💡 Post-Success Reminder Rules (`/learn`, Health Check & `/install`)
 
-Whenever Antigravity **successfully resolves a bug, clears compiler errors, or implements a feature**, it automatically includes a short reminder at the end of its response. This allows you to persist the architectural lesson into project memory, verify VS Code workspace health, and optionally install the external design suite with `/install`:
+Whenever Antigravity **successfully resolves a bug, clears compiler errors, or implements a feature**, it provides a clean post-success reminder governed by smart frequency rules:
+
+1. **`/learn`**: Included whenever an architectural invariant or bug fix pattern is discovered.
+2. **`Workspace Health Check`**: Included **only once every 3 prompts** (or after fixing compiler errors) to keep chat clean.
+3. **`/install` [1-Time Setup]**: Included **only once per project until installed**; omitted once `agentation` and design skills are configured.
 
 ```markdown
 ---
@@ -174,15 +178,15 @@ To ensure Antigravity remembers this invariant and avoids this issue in future s
 
 ---
 
-### 🔍 Workspace Health Check
+### 🔍 Workspace Health Check (Shown once every 3 prompts or after compiler fixes)
 
 > 💡 **Tip**: Press `Ctrl + Shift + M` (or `Cmd + Shift + M` on macOS) to check the **Problems** tab in VS Code and confirm 0 errors and 0 warnings remain.
 
 ---
 
-### 🎨 Install External UI / Design Suite (`/install`) [1-Time Setup]
+### 🎨 Install External UI / Design Suite (`/install`) [Omit once installed]
 
-> 💡 **Tip**: If you haven't yet, run `/install` (one-time setup) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
+> 💡 **Tip**: Run `/install` (1-time setup) to install the dedicated design toolchain (`npx -y impeccable install`, `npx -y skills add Leonxlnx/taste-skill`, `npm install agentation`).
 ```
 
 ### ⚡ The "Rule of Three" Circuit Breaker & `/debug` Reminder

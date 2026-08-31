@@ -11,7 +11,7 @@ Follow these step-by-step rules whenever a slash command or intent is triggered:
   * **Step 2**: Identify the true root cause and scan for dead code / duplicate logic.
   * **Step 3**: Apply a minimal, type-safe fix and remove unused/redundant code. Never silence errors with `@ts-ignore`, `as any`, empty catches, or dummy delays.
   * **Step 4**: Run compiler/test checks to verify zero red lines and zero regressions in related functionality.
-  * **Step 5**: End with a `/learn` lesson, VS Code Problems tab check, and `/install` UI toolchain reminder.
+  * **Step 5**: End with a smart post-success reminder (/learn lesson, VS Code Problems tab check once per 3 prompts, and /install 1-time setup reminder).
 
 * **`/push` (or Git Commits / Sync Requests)**:
   * **Step 1**: Run `git status` and verify `.env`, secret tokens, and frontend code are free of private API keys.

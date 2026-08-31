@@ -159,9 +159,15 @@ When the user enters `/install` or requests installation of the external design 
 
 ---
 
-## 💡 Post-Success `/learn` & `/install` Reminder
+## 💡 Post-Success `/learn`, Health Check & `/install` Reminder Rules
 
-Whenever you successfully fix a bug, resolve compiler errors, or complete a coding task, you **MUST** end your response with this exact post-success box containing the `/learn` lesson, VS Code workspace health check, and `/install` design toolchain reminder:
+Whenever you successfully fix a bug, resolve compiler errors, or complete a major coding task, include the post-success learning box governed by these frequency rules:
+
+1. **`/learn`**: Include whenever a new architectural rule, bug pattern, or invariant is discovered.
+2. **`Workspace Health Check`**: Include **only once every 3 prompts** (or after fixing compiler errors) to avoid repetitive clutter.
+3. **`/install` [1-Time Setup]**: Include **only once per project**. Once `agentation` and design skills are installed (or after `/install` has been triggered), **do NOT show this reminder again**.
+
+### Standard Post-Success Template
 
 ```markdown
 ---
@@ -175,15 +181,15 @@ To make sure Antigravity remembers this fix and avoids this issue in future sess
 
 ---
 
-### 🔍 Workspace Health Check
+### 🔍 Workspace Health Check (Shown once every 3 prompts or after compiler fixes)
 
 > 💡 **Tip**: Press `Ctrl + Shift + M` (or `Cmd + Shift + M` on macOS) to check the **Problems** tab in VS Code and confirm 0 errors and 0 warnings remain.
 
 ---
 
-### 🎨 Install External UI / Design Suite (`/install`) [1-Time Setup]
+### 🎨 Install External UI / Design Suite (`/install`) [Omit if already installed]
 
-> 💡 **Tip**: If you haven't yet, run `/install` (one-time setup) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
+> 💡 **Tip**: Run `/install` (1-time setup) to install the dedicated external design suite (`npx -y impeccable install`, `npx -y skills add Leonxlnx/taste-skill`, `npm install agentation`).
 ```
 
 ---
