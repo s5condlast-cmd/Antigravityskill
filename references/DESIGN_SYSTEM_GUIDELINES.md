@@ -369,3 +369,33 @@ When applying `/design` to a codebase, the agent must adaptively respect, ingest
 4. **Universal Drop-in Migration (New or Legacy Web)**:
    * Design components with standard CSS variable hooks so they drop seamlessly into **Next.js, Vite, Astro, Remix, Vue, Svelte, or plain HTML/CSS** without breaking legacy pages.
    * Use non-destructive Tailwind class merging via `cn(...)` so existing custom classes override defaults cleanly.
+
+---
+
+## 🎨 11. The 80 / 15 / 5 Color Restraint Rule & Strategic Placement
+
+Color is a functional signal, not decorative wallpaper:
+* **80% Canvas (Neutral)**: Backgrounds, whitespace, and body text (`#09090b` dark, `#fafafa` light).
+* **15% Structure (Surface)**: Cards, popovers, table headers, hairline borders (`border-white/[0.08]`).
+* **5% Intentional Accent**: Strictly confined to the **4 Approved Spots**:
+  1. **Active CTA Affordance**: Primary buttons and focused input rings (`bg-primary`).
+  2. **Semantic Feedback**: Live operational status pulse dots (`bg-emerald-400`).
+  3. **Hero Focal Words**: 1 or 2 high-impact headline words with adaptive brand gradient.
+  4. **Ambient Light Aura**: Subtle $< 15\%$ top-center radial glow behind the hero.
+
+---
+
+## 📦 12. The Container Determination Engine (Whitespace vs. Boxes)
+
+Avoid wrapping every paragraph in unnecessary card boxes ("containeritis"):
+* **Use Containers For**: Dense multi-row data tables, command palettes (`⌘K`), code previews, and floating modals.
+* **Go Containerless For**: Hero intros, section headings, feature text blocks, FAQ lists (use clean `divide-y divide-border/60`), and footers. Let whitespace and the Law of Proximity define structure.
+
+---
+
+## 🚫 13. Zero-Horizontal-Scroll & Viewport Containment
+
+* Never allow side-scrolling or layout jumps on viewport resize.
+* Top-level sections must enforce `overflow-x-clip` or `overflow-x-hidden`.
+* Use `w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8` instead of raw `w-screen`.
+* Isolated `overflow-x-auto` is only permitted on wide data tables and code preview blocks.

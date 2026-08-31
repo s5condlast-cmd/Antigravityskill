@@ -10,7 +10,7 @@ description: "Universal Staff-Engineer framework for /debug (zero-defect pristin
 | User Trigger / Intent | Active Protocol | Primary Workflow & Standards | Reference Manual |
 | :--- | :--- | :--- | :--- |
 | `/debug`, compiler red lines, type errors, bug reports, logic defects, memory leaks, performance bottlenecks | **`/debug`** | 5-Phase Diagnostic Workflow, 4 Laws of Pristine Code Generation, Surgical Root-Cause Isolation | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
-| `/design`, UI components, landing pages, design systems, color palettes, responsive layouts, dark mode | **`/design`** | 5 Pillars of Impeccable Design, Semantic Tokens, WCAG 2.1 AA Accessibility, Staggered Motion | [references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)<br>[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)<br>[references/UX_PSYCHOLOGY_AND_HEURISTICS.md](references/UX_PSYCHOLOGY_AND_HEURISTICS.md)<br>[references/ACCESSIBILITY_WCAG_GUIDE.md](references/ACCESSIBILITY_WCAG_GUIDE.md) |
+| `/design`, UI components, landing pages, design systems, color palettes, responsive layouts, dark mode | **`/design`** | 5 Pillars of Impeccable Design, Semantic Tokens, WCAG 2.1 AA Accessibility, Staggered Motion | [references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)<br>[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)<br>[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)<br>[references/UX_PSYCHOLOGY_AND_HEURISTICS.md](references/UX_PSYCHOLOGY_AND_HEURISTICS.md)<br>[references/ACCESSIBILITY_WCAG_GUIDE.md](references/ACCESSIBILITY_WCAG_GUIDE.md) |
 | `/push`, git commit, git push, sync to github, publish changes, deploy code | **`/push`** | 3-Step Pre-Flight Audit, Conventional Commits Formatting, Safe Atomic Remote Sync | [references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md) |
 
 ---
@@ -28,7 +28,7 @@ To protect codebases from accidental damage and prevent broken builds:
 | 🟡 **REQUIRES CONFIRMATION** | Installing brand-new third-party packages or modifying package manifests | **Asks User First**: Verifies if an existing dependency or zero-dependency utility already solves it. |
 | 🟡 **REQUIRES CONFIRMATION** | Modifying database schemas, running destructive migrations, or deleting files | **Asks User First**: Confirms data safety and backup state before destructive operations. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Running diagnostic compiler & test commands (`tsc`, `mypy`, `npm test`, `cargo check`) | **Runs Automatically**: Scans for red lines, broken imports, and type discrepancies. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing pages & design system components | **Runs Automatically**: Applies pre-tested patterns from `references/DESIGN_SYSTEM_GUIDELINES.md`, `references/COMPONENT_LIBRARY.md`, and `references/LANDING_PAGE_PATTERNS.md`. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing pages & design system components | **Runs Automatically**: Applies pre-tested patterns from `references/DESIGN_SYSTEM_GUIDELINES.md`, `references/COLOR_AND_CONTAINER_ENGINE.md`, and `references/LANDING_PAGE_PATTERNS.md`. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries upon successful bug resolution or UI completion | **Runs Automatically**: Persists lessons learned into Antigravity project memory. |
 
 ---
@@ -39,13 +39,14 @@ When conflicting constraints or instructions arise, resolve them using this stri
 
 1. **User's Explicit Instruction** (Always highest priority).
 2. **Project Profile Facts** (`project-profile/PROJECT_PROFILE.md`).
-3. **Antigravity Built-in Tool Calling & Safety Guardrails**.
-4. **Existing Codebase Conventions & Invariants**.
-5. **This Protocol Framework**.
+3. **Pristine Code & Impeccable Design Invariants** (This document).
+4. **General Pre-training Defaults** (Lowest priority).
 
 ---
 
-# 🛠️ SECTION 1: The `/debug` Protocol
+# 🔬 SECTION 1: The `/debug` Protocol
+
+When diagnosing defects, fixing compiler red lines, resolving exceptions, or hardening type systems:
 
 ### 🏗️ The 4 Laws of Pristine Code Generation
 
@@ -89,13 +90,19 @@ When designing user interfaces, creating component libraries, or styling landing
 * **Intelligent Enhancement**: Audit existing colors for WCAG AA compliance ($\ge 4.5:1$ contrast) and dark mode pairs. If contrast is low or dark mode is missing, recommend and inject harmonious accessible companion tokens.
 * **Universal Drop-In Migration**: Ensure components use standard CSS variables and non-destructive `cn(...)` class merging so they drop into any web framework (Next.js, Vite, Astro, Remix, Vue, Svelte, or plain HTML) with **0 breaking changes**.
 
+### 📦 The Law of Container Determination & Color Restraint
+
+* **The 80/15/5 Color Rule**: Confine accent colors strictly to **4 approved spots** (Active CTA buttons, Semantic status dots, Hero focal gradient words, Ambient top aura). $80\%$ remains neutral canvas.
+* **The Container Determination Rule**: Only use boxed card containers for dense tables, modals, and code blocks. Go **containerless** for headings, text blocks, FAQs (`divide-y`), and footers—using whitespace and proximity as structure.
+* **Zero-Horizontal-Overflow Invariant**: Enforce `overflow-x-clip` on root containers, ban `w-screen` with scrollbars, and eliminate uncontained negative margins.
+
 ### 🚫 The Anti-AI-Slop Design Invariant
 
 * **NO Generic Tacky Gradients**: Ban giant purple/cyan radial blur blobs and rainbow borders. Use crisp neutral darks (`#09090b`) with intentional single-hue accents.
 * **NO Marketing Buzzword Fluff**: Ban fake stock testimonials ("Alex R., Staff Architect") and empty buzzwords. Build **real functional product UI** (Spotlight `⌘K` bars, live deployment tables, macOS code previews).
 * **High Data Density**: Use authentic monospace IDs (`dep_994a`), tabular numerals, pulsing operational status dots, and hairline borders (`border-white/[0.08]`).
 
-*(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)**, **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)**, and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
+*(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)**, **[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)**, **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)**, and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
 
 ---
 

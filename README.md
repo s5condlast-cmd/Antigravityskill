@@ -102,6 +102,7 @@ All reference manuals are organized inside the `references/` folder:
 | Document | What's Inside |
 | :--- | :--- |
 | **[references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md)** | Fast & safe Git delivery: pre-flight secrets audit, conventional commit standard, and atomic push commands. |
+| **[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)** | 80/15/5 color restraint rule, 4 approved accent spots, containerless whitespace guidelines, and zero-overflow rules. |
 | **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)** | Production React + Tailwind components: Buttons, Inputs, Dropdowns, Modals, Tabs, Badges, Toasts, Skeletons. |
 | **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** | Semantic color tokens (HSL/OKLCH), typography scales, motion curves, and pixel-perfect spatial math ladders. |
 | **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** | Complete landing page patterns: Hero banners, Navbars, Bento grids, Pricing matrices, Testimonials, FAQs, Footers. |
@@ -124,6 +125,7 @@ Antigravityskill/
 │   └── PROJECT_PROFILE.md                 # Project facts, standards, and invariants
 ├── references/
 │   ├── PUSH_PROTOCOL.md                   # Fast & safe Git delivery protocol
+│   ├── COLOR_AND_CONTAINER_ENGINE.md      # Color restraint & container determination engine
 │   ├── COMPONENT_LIBRARY.md               # Accessible React + Tailwind application components
 │   ├── DESIGN_SYSTEM_GUIDELINES.md        # Design system tokens & spatial math
 │   ├── LANDING_PAGE_PATTERNS.md           # Accessible UI landing page patterns (Hero, Bento, Footer)
