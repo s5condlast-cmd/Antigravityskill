@@ -10,7 +10,7 @@ description: "Universal Staff-Engineer framework for /debug (zero-defect pristin
 | User Trigger / Intent | Active Protocol | Primary Workflow & Standards | Reference Manual |
 | :--- | :--- | :--- | :--- |
 | `/debug`, compiler red lines, type errors, bug reports, logic defects, memory leaks, performance bottlenecks | **`/debug`** | 5-Phase Diagnostic Workflow, 4 Laws of Pristine Code Generation, Surgical Root-Cause Isolation | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
-| `/design`, UI components, landing pages, design systems, color palettes, responsive layouts, dark mode | **`/design`** | 5 Pillars of Impeccable Design, Semantic Tokens, WCAG 2.1 AA Accessibility, Staggered Motion | [references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)<br>[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)<br>[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)<br>[references/UX_PSYCHOLOGY_AND_HEURISTICS.md](references/UX_PSYCHOLOGY_AND_HEURISTICS.md)<br>[references/ACCESSIBILITY_WCAG_GUIDE.md](references/ACCESSIBILITY_WCAG_GUIDE.md) |
+| `/design`, UI components, landing pages, design systems, color palettes, responsive layouts, dark mode | **`/design`** | 5 Pillars of Impeccable Design, Semantic Tokens, WCAG 2.1 AA Accessibility, Staggered Motion | [references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)<br>[references/TYPOGRAPHY_AND_FONTS_GUIDE.md](references/TYPOGRAPHY_AND_FONTS_GUIDE.md)<br>[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)<br>[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)<br>[references/UX_PSYCHOLOGY_AND_HEURISTICS.md](references/UX_PSYCHOLOGY_AND_HEURISTICS.md)<br>[references/ACCESSIBILITY_WCAG_GUIDE.md](references/ACCESSIBILITY_WCAG_GUIDE.md) |
 | `/push`, git commit, git push, sync to github, publish changes, deploy code | **`/push`** | 3-Step Pre-Flight Audit, Conventional Commits Formatting, Safe Atomic Remote Sync | [references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md) |
 
 ---
@@ -28,7 +28,7 @@ To protect codebases from accidental damage and prevent broken builds:
 | 🟡 **REQUIRES CONFIRMATION** | Installing brand-new third-party packages or modifying package manifests | **Asks User First**: Verifies if an existing dependency or zero-dependency utility already solves it. |
 | 🟡 **REQUIRES CONFIRMATION** | Modifying database schemas, running destructive migrations, or deleting files | **Asks User First**: Confirms data safety and backup state before destructive operations. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Running diagnostic compiler & test commands (`tsc`, `mypy`, `npm test`, `cargo check`) | **Runs Automatically**: Scans for red lines, broken imports, and type discrepancies. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing pages & design system components | **Runs Automatically**: Applies pre-tested patterns from `references/DESIGN_SYSTEM_GUIDELINES.md`, `references/COLOR_AND_CONTAINER_ENGINE.md`, and `references/LANDING_PAGE_PATTERNS.md`. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing pages & design system components | **Runs Automatically**: Applies pre-tested patterns from `references/DESIGN_SYSTEM_GUIDELINES.md`, `references/TYPOGRAPHY_AND_FONTS_GUIDE.md`, `references/COLOR_AND_CONTAINER_ENGINE.md`, and `references/LANDING_PAGE_PATTERNS.md`. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries upon successful bug resolution or UI completion | **Runs Automatically**: Persists lessons learned into Antigravity project memory. |
 
 ---
@@ -84,6 +84,13 @@ When designing user interfaces, creating component libraries, or styling landing
 4. **Pixel-Perfect Spatial Math**: Strict adherence to the 8-point grid, height ladders (`h-9`, `h-11`, `h-13`), padding balance (`px-3 py-1.5` to `px-7 py-3.5`), and optical baseline alignment.
 5. **Accessible by Default (WCAG 2.1 AA)**: Contrast ratios $\ge 4.5:1$, visible focus rings (`focus-visible:ring-2`), semantic HTML tags, and screen-reader `aria-*` labels.
 
+### 🔤 The Law of Mathematical Typography & Font Restraint
+
+* **The Inverse Tracking Law**: Large headlines ($\ge 36\text{px}$) use tight negative tracking (`tracking-[-0.035em]` or `tracking-tight`). Micro uppercase badges ($\le 12\text{px}$) use wide positive tracking (`tracking-[0.12em]`). Body text uses neutral tracking (`tracking-normal`).
+* **The Inverse Leading Law**: Large titles use ultra-compact line-height (`leading-[1.08]`). Body copy uses comfortable breathing room (`leading-relaxed` or `1.65`).
+* **Strict Weight Restraint**: Max 3 weights per project (`font-normal` 400 for copy, `font-medium` 500 for UI buttons/badges, `font-semibold`/`font-bold` 600/700 for titles).
+* **The 45–75 Character Measure**: Always constrain paragraph width (`max-w-prose` or `max-w-xl`) to prevent line-length reading fatigue.
+
 ### 🔄 The Law of Adaptive Brand Ingestion & Migration (New & Existing Sites)
 
 * **Preserve Existing Brand Soul**: If the project contains existing logos (`public/logo.*`, SVG assets), colors, or typography, **NEVER** replace them with generic defaults. Preserve the semantic meaning of user branding.
@@ -108,7 +115,7 @@ When designing user interfaces, creating component libraries, or styling landing
 * **No Imaginary CSS Utilities**: Use only standard, verified Tailwind classes. Never hallucinate non-existent utility classes (e.g. `bg-glass-blur-super`).
 * **Flat Component Depth**: Ban excessive wrapper divs ("DOM soup"). Group elements using whitespace and the Law of Proximity rather than nesting 4+ levels of boxes.
 
-*(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)**, **[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)**, **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)**, and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
+*(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)**, **[references/TYPOGRAPHY_AND_FONTS_GUIDE.md](references/TYPOGRAPHY_AND_FONTS_GUIDE.md)**, **[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)**, **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)**, and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
 
 ---
 

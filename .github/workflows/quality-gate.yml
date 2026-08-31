@@ -59,6 +59,7 @@ jobs:
               "SKILL.md",
               "project-profile/PROJECT_PROFILE.md",
               "references/PUSH_PROTOCOL.md",
+              "references/TYPOGRAPHY_AND_FONTS_GUIDE.md",
               "references/COLOR_AND_CONTAINER_ENGINE.md",
               "references/DESIGN_SYSTEM_GUIDELINES.md",
               "references/COMPONENT_LIBRARY.md",

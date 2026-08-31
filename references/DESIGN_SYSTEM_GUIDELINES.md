@@ -95,20 +95,29 @@ All UI components must use **semantic design tokens** rather than hardcoded hex 
 
 ---
 
-## 🔤 2. Typography Hierarchy & Fluid Scales
+## 🔤 2. Typography Hierarchy, Font Stacks & Spatial Optics
 
-Use a modular, readable type scale that maintains vertical harmony:
+Never use default unstyled text. All text must strictly adhere to the **Inverse Tracking Law** and **Inverse Leading Law** (see **[references/TYPOGRAPHY_AND_FONTS_GUIDE.md](references/TYPOGRAPHY_AND_FONTS_GUIDE.md)**).
 
-| Level | Size (Tailwind) | Line Height | Tracking | Recommended Use |
+### 2.1 Modern Engineered Font Stacks
+* **UI & Body Sans**: `'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
+* **Monospace & Telemetry**: `'Geist Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace`
+* **Editorial Display (Optional)**: `'Newsreader', 'Playfair Display', Georgia, serif`
+
+### 2.2 Fluid Typography Scale & Inverse Optics
+
+| Level | Size (Tailwind) | Line Height (Inverse Leading) | Letter Spacing (Inverse Tracking) | Recommended Use |
 | :--- | :--- | :--- | :--- | :--- |
-| **Display / Hero** | `text-4xl sm:text-6xl font-extrabold` | `leading-tight` | `tracking-tight` | Landing page hero headlines |
-| **H1 Headline** | `text-3xl sm:text-4xl font-bold` | `leading-snug` | `tracking-tight` | Major page headers & title sections |
-| **H2 Section** | `text-2xl sm:text-3xl font-semibold`| `leading-snug` | `tracking-tight` | Feature blocks & category headers |
-| **H3 Subsection** | `text-xl sm:text-2xl font-semibold` | `leading-normal`| `tracking-normal`| Cards, modals, dialog titles |
-| **Body (Large)** | `text-lg font-normal` | `leading-relaxed`| `tracking-normal`| Subtitles, lead paragraphs, hero descriptions |
-| **Body (Base)** | `text-base font-normal` | `leading-relaxed`| `tracking-normal`| Standard UI text, descriptions, content |
-| **Caption / Small**| `text-sm font-medium` | `leading-normal`| `tracking-wide` | Badges, timestamps, input helper text |
-| **Micro / Mono** | `text-xs font-mono font-medium` | `leading-none` | `tracking-wider` | Keyboard shortcuts, status tags, pill tags |
+| **Display / Hero** | `text-4xl sm:text-6xl font-bold` | `leading-[1.08]` (Ultra-Tight) | `tracking-[-0.035em]` or `tracking-tighter` | Landing page hero headlines |
+| **H1 Headline** | `text-3xl sm:text-4xl font-bold` | `leading-[1.15]` (Tight) | `tracking-[-0.025em]` or `tracking-tight` | Major page headers & title sections |
+| **H2 Section** | `text-2xl sm:text-3xl font-semibold`| `leading-snug` | `tracking-[-0.02em]` or `tracking-tight` | Feature blocks & category headers |
+| **H3 Subsection** | `text-lg sm:text-xl font-semibold` | `leading-normal`| `tracking-normal` | Cards, modals, dialog titles |
+| **Body (Base)** | `text-sm sm:text-base font-normal` | `leading-relaxed` (`1.65`)| `tracking-normal` | Standard UI text, descriptions (max 75 chars) |
+| **Caption / Small**| `text-xs font-medium` | `leading-normal` | `tracking-normal` | Timestamps, helper text |
+| **Micro / Uppercase** | `text-[10px] sm:text-[11px] font-mono`| `leading-none` | `uppercase tracking-[0.12em]` | Status pills, category badges, kbd shortcuts |
+
+### 2.3 The 45–75 Character Measure Rule
+Always constrain paragraph width (`max-w-prose`, `max-w-xl`, or `max-w-2xl`) so lines never exceed 75 characters.
 
 ---
 

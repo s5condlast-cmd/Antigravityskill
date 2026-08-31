@@ -102,6 +102,7 @@ All reference manuals are organized inside the `references/` folder:
 | Document | What's Inside |
 | :--- | :--- |
 | **[references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md)** | Fast & safe Git delivery: pre-flight secrets audit, conventional commit standard, and atomic push commands. |
+| **[references/TYPOGRAPHY_AND_FONTS_GUIDE.md](references/TYPOGRAPHY_AND_FONTS_GUIDE.md)** | Inverse tracking and leading formulas, Geist/Inter font stacks, weight restraint, and 4-tier text contrast. |
 | **[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)** | 80/15/5 color restraint rule, 4 approved accent spots, containerless whitespace guidelines, and zero-overflow rules. |
 | **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)** | Production React + Tailwind components: Buttons, Inputs, Dropdowns, Modals, Tabs, Badges, Toasts, Skeletons. |
 | **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** | Semantic color tokens (HSL/OKLCH), typography scales, motion curves, and pixel-perfect spatial math ladders. |
@@ -125,6 +126,7 @@ Antigravityskill/
 │   └── PROJECT_PROFILE.md                 # Project facts, standards, and invariants
 ├── references/
 │   ├── PUSH_PROTOCOL.md                   # Fast & safe Git delivery protocol
+│   ├── TYPOGRAPHY_AND_FONTS_GUIDE.md      # Mathematical typography & font optics
 │   ├── COLOR_AND_CONTAINER_ENGINE.md      # Color restraint & container determination engine
 │   ├── COMPONENT_LIBRARY.md               # Accessible React + Tailwind application components
 │   ├── DESIGN_SYSTEM_GUIDELINES.md        # Design system tokens & spatial math
