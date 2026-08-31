@@ -1,7 +1,8 @@
 ## 🎯 Pull Request Overview
 
 ### 🏷️ Primary Skill & Change Classification
-- [ ] 🔬 **`/debug`**: Compiler red-line eradication, type safety fix, anti-hallucination refactor, or accessible landing page UI component.
+- [ ] 🔬 **`/debug`**: Compiler red-line eradication, type safety fix, anti-hallucination refactor, or logic debugging.
+- [ ] 🎨 **`/design`**: UI/UX design systems, component styling, accessible templates, responsive layouts, or theming.
 - [ ] 🛠️ **Cross-Cutting**: CI/CD quality gate workflow, project profile facts, documentation, or references.
 
 ---

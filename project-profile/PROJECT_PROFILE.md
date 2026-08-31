@@ -48,8 +48,8 @@ All agents operate within strict traffic-light safety boundaries to protect code
 | 🟡 **REQUIRES CONFIRMATION** | Installing brand-new third-party packages or changing package manifests | **Asks User First**: Verifies if standard library or existing package can solve it. |
 | 🟡 **REQUIRES CONFIRMATION** | Modifying database schemas, running destructive migrations, deleting files | **Asks User First**: Confirms data safety and backup state before execution. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Running compiler & test commands (`npx tsc`, `pytest`, `npm test`) | **Runs Automatically**: Scans for red lines, broken imports, type discrepancies. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Applying accessible landing page UI patterns | **Runs Automatically**: Leverages pre-tested patterns from `references/LANDING_PAGE_PATTERNS.md`. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Triggering `/learn` summaries on successful fixes | **Runs Automatically**: Persists architectural lessons into Antigravity long-term memory. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Applying design systems & accessible landing page UI patterns | **Runs Automatically**: Leverages pre-tested patterns from `references/DESIGN_SYSTEM_GUIDELINES.md` and `references/LANDING_PAGE_PATTERNS.md`. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Triggering `/learn` summaries on successful fixes or UI completions | **Runs Automatically**: Persists architectural lessons into Antigravity long-term memory. |
 
 ---
 

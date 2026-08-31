@@ -1,4 +1,4 @@
-# 🛠️ Antigravity Engineering Skill (`/debug`)
+# 🛠️ Antigravity AI Engineering & Design Skill (`/debug` & `/design`)
 
 [![CI Quality Gate](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml)
 [![Node.js](https://img.shields.io/badge/node-20%2B-blue.svg)](https://nodejs.org/)
@@ -8,19 +8,20 @@
 [![Rust](https://img.shields.io/badge/rust-2021%20edition-orange.svg)](https://www.rust-lang.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-A lightweight, production-grade **Antigravity Slash Skill** that equips AI agents with strict type-safety rules, systematic root-cause debugging workflows, accessible UI component templates, and anti-hallucination guardrails.
+A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI agents with strict type-safety rules, systematic root-cause debugging workflows (`/debug`), modern UI/UX design systems, accessible component templates (`/design`), and anti-hallucination guardrails.
 
 ---
 
 ## ✨ Features at a Glance
 
-| Feature | Description |
-| :--- | :--- |
-| 🎯 **Pristine Code Generation** | Enforces the 4 Laws: context ingestion first, boundary parsing, unrepresentable illegal states, and zero placeholder TODOs. |
-| 🔬 **5-Phase Systematic Debugging** | Diagnoses and isolates root causes instead of applying symptom-masking hacks (`@ts-ignore`, empty `catch`, dummy `setTimeout`). |
-| 🎨 **Accessible Landing Page UI** | Battle-tested React + Tailwind component patterns for Hero sections, Glassmorphic Navbars, Pricing matrices, and FAQ accordions. |
-| 🧠 **Continuous Learning (`/learn`)** | Automatically prompts you to persist architectural conventions and bug fixes into Antigravity project memory. |
-| 🚦 **Safety Guardrails** | Strict traffic-light boundaries preventing accidental secrets leaks, destructive resets, or out-of-scope edits. |
+| Feature | Slash Command | Description |
+| :--- | :--- | :--- |
+| 🔬 **Systematic Debugging** | `/debug` | 5-Phase diagnostic workflow that eliminates compiler red lines across TS, Python, Go, and Rust without lazy hacks (`@ts-ignore`, empty catches). |
+| 🎯 **Pristine Code Invariants** | `/debug` | The 4 Laws: context ingestion first, boundary parsing, unrepresentable illegal states, and zero placeholder TODOs. |
+| 🎨 **Design System & Tokens** | `/design` | Semantic color token architecture (light/dark mode with HSL/OKLCH), fluid typography hierarchy, and spacing tokens. |
+| 🧩 **Accessible Component Library**| `/design` | Production-ready React + Tailwind components (Hero banners, Navbars, Pricing matrices, Metric cards, FAQs) meeting **WCAG 2.1 AA** standards. |
+| 🧠 **Continuous Learning** | `/learn` | Post-success reminder prompting you to persist discovered invariants or architectural conventions into project memory. |
+| 🚦 **Safety Guardrails** | Automatic | Strict traffic-light boundaries preventing secrets leaks, destructive resets, or out-of-scope edits. |
 
 ---
 
@@ -55,33 +56,50 @@ cp .gemini/skills/antigravityskill/project-profile/PROJECT_PROFILE.md project-pr
 
 ## 💡 How to Use
 
-Simply invoke `/debug` or ask Antigravity to build, debug, or refactor code:
+### 1. The `/debug` Command (Code Quality & Root-Cause Fixes)
+* **Fix compiler red lines**:
+  > *"/debug fix the TypeScript type mismatches in `src/components/Navbar.tsx`"*
+* **Investigate subtle runtime bugs**:
+  > *"/debug investigate why session tokens are prematurely expiring on page refresh"*
+* **Enforce clean code invariants**:
+  > *"/debug refactor this auth controller to use Discriminated Unions and safe boundary parsing"*
 
-* **Fix compiler errors**:
-  > *"/debug fix the TypeScript red lines in `src/components/Navbar.tsx`"*
-* **Build accessible landing page UI**:
-  > *"/debug build a modern Hero section with gradient text and CTA buttons"*
-* **Investigate a tricky bug**:
-  > *"/debug investigate why user session tokens expire prematurely"*
+### 2. The `/design` Command (UI/UX, Design Systems & Components)
+* **Build modern landing page sections**:
+  > *"/design create a modern Hero section with gradient text, CTA buttons, and social proof badges"*
+* **Generate design tokens & color palettes**:
+  > *"/design create a dark/light semantic color palette for a SaaS analytics dashboard"*
+* **Create accessible interactive components**:
+  > *"/design build an accessible Pricing comparison matrix with monthly/annual billing toggle"*
 
 ---
 
-## 🔬 The 4 Laws of Pristine Code
+## 🔬 The 4 Laws of Pristine Code (`/debug`)
 
-1. **Context Ingestion First**: Check existing types, schemas, and utils before writing code.
-2. **"Parse, Don't Validate"**: Convert external input into validated domain types at boundaries.
+1. **Context Ingestion First**: Inspect existing project types, schemas, and utils before writing code.
+2. **"Parse, Don't Validate"**: Convert external input into validated domain types at system boundaries.
 3. **Make Illegal States Unrepresentable**: Use Discriminated Unions / Tagged Variants instead of loose nullable flags.
 4. **No Placeholders or TODOs**: Always generate complete, fully implemented, type-checked logic.
 
 ---
 
+## 🎨 The 4 Pillars of Modern Design (`/design`)
+
+1. **Semantic Token Architecture**: Use themeable semantic tokens (`bg-background`, `text-foreground`, `bg-primary`, `border-border`) rather than hardcoded hex values.
+2. **Mobile-First Responsive Layouts**: Build for mobile viewports first, scaling up with Tailwind breakpoints (`sm:`, `md:`, `lg:`, `xl:`).
+3. **Accessible by Default (WCAG 2.1 AA)**: Contrast ratios $\ge 4.5:1$, visible focus rings (`focus-visible:ring-2`), semantic HTML, and `aria-*` tags.
+4. **Micro-Interactions & Polish**: Interactive hover/active scale states, loading spinners, glassmorphism, and smooth transitions.
+
+---
+
 ## 📚 Included Reference Guides
 
-All reference guides are organized inside the `references/` folder:
+All reference manuals are organized inside the `references/` folder:
 
 | Document | What's Inside |
 | :--- | :--- |
-| **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** | Production-ready React + Tailwind templates for Hero, Navbar, Pricing, and FAQs. |
+| **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** | Semantic color tokens (HSL/OKLCH), typography scales, button states, metric cards, and WCAG 2.1 AA checklist. |
+| **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** | Production-ready React + Tailwind templates for Hero sections, Glassmorphic Navbars, Pricing matrices, and FAQs. |
 | **[references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)** | Type-safe `Result<T, E>` types, type guards, boundary parsers, and anti-hallucination helpers. |
 | **[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)** | Catalog of top 10 recurring AI anti-patterns and surgical fixes. |
 | **[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md)** | Fast terminal cheat sheet for `tsc`, `mypy`, `pytest`, `go vet`, and `cargo check`. |
@@ -98,12 +116,13 @@ Antigravityskill/
 ├── project-profile/
 │   └── PROJECT_PROFILE.md                 # Project facts, standards, and invariants
 ├── references/
-│   ├── LANDING_PAGE_PATTERNS.md           # Accessible UI patterns
+│   ├── DESIGN_SYSTEM_GUIDELINES.md        # Design system tokens & WCAG accessibility
+│   ├── LANDING_PAGE_PATTERNS.md           # Accessible UI landing page patterns
 │   ├── DEBUG_UTILITIES.md                 # Type guards & Result types
 │   ├── COMMON_BUG_PATTERNS.md             # Common AI bug patterns & fixes
 │   └── CLI_CHEAT_SHEET.md                 # Diagnostic CLI cheat sheet
-├── SKILL.md                               # Master /debug skill definition
-├── README.md                              # This documentation
+├── SKILL.md                               # Master /debug & /design skill definition
+├── README.md                              # Comprehensive documentation
 ├── LICENSE                                # MIT License
 └── .gitignore                             # Ignored files (.env, node_modules)
 ```

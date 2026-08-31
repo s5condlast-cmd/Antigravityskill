@@ -1,21 +1,22 @@
 ---
 name: antigravity-engineering-framework
-description: "Universal Staff-Engineer framework for /debug: zero-defect pristine code generation, 5-phase systematic root-cause diagnostics, accessible landing page UI patterns, and anti-hallucination guardrails."
+description: "Universal Staff-Engineer framework for /debug (zero-defect pristine code generation, 5-phase systematic root-cause diagnostics) and /design (UI/UX design systems, accessible Tailwind/React component architecture, responsive layouts)."
 ---
 
-# Universal Staff-Engineering Protocols: `/debug` & Code Generation
+# Universal Staff-Engineering Protocols: `/debug` & `/design`
 
 ## 🧭 Master Command Routing & Intent Trigger Matrix
 
-| User Trigger / Intent | Active Pillar | Primary Protocol & Workflow | Reference Manual |
+| User Trigger / Intent | Active Protocol | Primary Workflow & Standards | Reference Manual |
 | :--- | :--- | :--- | :--- |
-| `/debug`, compiler red lines, type errors, bug reports, feature implementation, UI component creation, refactoring | **`/debug`** | 5-Phase Diagnostic Workflow, 4 Laws of Pristine Code Generation, Landing Page UI Patterns | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
+| `/debug`, compiler red lines, type errors, bug reports, logic defects, memory leaks, performance bottlenecks | **`/debug`** | 5-Phase Diagnostic Workflow, 4 Laws of Pristine Code Generation, Surgical Root-Cause Isolation | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
+| `/design`, UI components, landing pages, design systems, color palettes, responsive layouts, dark mode | **`/design`** | 4 Pillars of Modern Design, Semantic Token Mapping, WCAG 2.1 AA Accessibility, Component States | [references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md) |
 
 ---
 
 ## 🚦 Traffic Light Safety Restrictions
 
-To protect codebases from accidental damage and prevent compiler errors:
+To protect codebases from accidental damage and prevent broken builds:
 
 | Status | Action | Agent Behavior |
 | :--- | :--- | :--- |
@@ -26,8 +27,8 @@ To protect codebases from accidental damage and prevent compiler errors:
 | 🟡 **REQUIRES CONFIRMATION** | Installing brand-new third-party packages or modifying package manifests | **Asks User First**: Verifies if an existing dependency or zero-dependency utility already solves it. |
 | 🟡 **REQUIRES CONFIRMATION** | Modifying database schemas, running destructive migrations, or deleting files | **Asks User First**: Confirms data safety and backup state before destructive operations. |
 | 🟢 **AUTOMATICALLY ALLOWED** | Running diagnostic compiler & test commands (`tsc`, `mypy`, `npm test`, `cargo check`) | **Runs Automatically**: Scans for red lines, broken imports, and type discrepancies. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing page components | **Runs Automatically**: Applies pre-tested patterns from `references/LANDING_PAGE_PATTERNS.md`. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries upon successful bug resolution | **Runs Automatically**: Persists lessons learned into Antigravity project memory. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing pages & design system components | **Runs Automatically**: Applies pre-tested patterns from `references/DESIGN_SYSTEM_GUIDELINES.md` and `references/LANDING_PAGE_PATTERNS.md`. |
+| 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries upon successful bug resolution or UI completion | **Runs Automatically**: Persists lessons learned into Antigravity project memory. |
 
 ---
 
@@ -43,7 +44,7 @@ When conflicting constraints or instructions arise, resolve them using this stri
 
 ---
 
-# 🛠️ The `/debug` & Pristine Code Generation Protocol
+# 🛠️ SECTION 1: The `/debug` Protocol
 
 ### 🏗️ The 4 Laws of Pristine Code Generation
 
@@ -51,10 +52,6 @@ When conflicting constraints or instructions arise, resolve them using this stri
 2. **"Parse, Don't Validate" (Boundary Hardening)**: Parse external inputs into validated domain types at system boundaries.
 3. **Make Illegal States Unrepresentable**: Use Discriminated Unions / Tagged Variants instead of loose boolean/nullable bags.
 4. **No Placeholders or TODO Stubs**: Implement complete, functional, type-safe logic from the start.
-
-### 🎨 Pre-Existing Landing Page & UI Patterns
-
-When building landing pages or web interfaces, use the accessible, mobile-first component patterns in **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** (Hero, Glassmorphic Navbar, Pricing Matrix, FAQ Accordion).
 
 ### 🛑 The Iron Law of Debugging
 
@@ -73,11 +70,26 @@ When building landing pages or web interfaces, use the accessible, mobile-first 
 
 ---
 
+# 🎨 SECTION 2: The `/design` Protocol
+
+When designing user interfaces, creating component libraries, or styling landing pages:
+
+### 🏛️ The 4 Pillars of Modern Design
+
+1. **Semantic Token Architecture**: Use themeable semantic tokens (`bg-background`, `text-foreground`, `bg-primary`, `border-border`) rather than hardcoded hex values or arbitrary colors.
+2. **Mobile-First Responsive Layouts**: Build for mobile viewport first (`w-full flex-col`), then scale up using Tailwind breakpoints (`sm:`, `md:`, `lg:`, `xl:`).
+3. **Accessible by Default (WCAG 2.1 AA)**: Ensure color contrast $\ge 4.5:1$, visible focus rings (`focus-visible:ring-2`), semantic HTML tags, and screen-reader `aria-*` labels.
+4. **Micro-Interactions & Polish**: Implement interactive state feedback (hover, active scale, focus, disabled, loading) and subtle glassmorphism / smooth transitions.
+
+*(Detailed token maps and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
+
+---
+
 ## 💡 Post-Success `/learn` Reminder
 
 > [!IMPORTANT]
 > **RULE FOR THE AGENT:**
-> Every time you successfully resolve a bug, clear compiler errors, or establish an architectural pattern, you **MUST** end your response with an actionable reminder prompting the user to execute `/learn`.
+> Every time you successfully resolve a bug, clear compiler errors, or implement a UI design pattern, you **MUST** end your response with an actionable reminder prompting the user to execute `/learn`.
 
 ### Required Output Format:
 
