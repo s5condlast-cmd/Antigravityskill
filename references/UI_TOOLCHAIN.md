@@ -6,11 +6,18 @@ This reference provides complete, copy-pasteable integration code, layout wrappe
 
 ## 🛠️ Toolchain Overview
 
-| Tool | Purpose | Installation | Key Role in Code |
+| Tool | Type | Installation | How It Works |
 | :--- | :--- | :--- | :--- |
-| **`agentation`** | Visual DOM inspection & agent UI feedback toolbar | `npm install agentation` | Mount `<Agentation />` in dev layout for live visual telemetry |
-| **`taste-skill`** | Refined typography, micro-interactions & high-taste tokens | `npx skills add Leonxlnx/taste-skill` | Enforces subtle borders, glassmorphism, and balanced spacing |
-| **`impeccable`** | Design token engine & design system configuration | `npx impeccable install` | Generates consistent design tokens (`design.config.json`) |
+| **`agentation`** | **Code Package (NPM)** | `npm install agentation` | Exports the `<Agentation />` React component for in-browser visual DOM inspection during development. |
+| **`taste-skill`** | **AI Prompt Skill** | `npx skills add Leonxlnx/taste-skill` | Injects "anti-slop" aesthetic rules (micro-interactions, subtle borders, high-taste density dials) into the AI's coding behavior. |
+| **`impeccable`** | **AI Prompt Skill** | `npx -y impeccable install` | Injects 23+ design commands (`/polish`, `/audit`, `/typeset`) and ~60 design anti-pattern rules for consistent UI layouts. |
+
+---
+
+> [!NOTE]
+> **Key Architecture Distinction**:
+> * **`agentation`** is an actual code library with imports (`import { Agentation } from 'agentation'`).
+> * **`taste-skill`** and **`impeccable`** do *not* export JS code; they are **AI Skills** that guide the AI on *how* to write beautiful, polished frontend code (Tailwind, CSS, React, Vue).
 
 ---
 
@@ -200,11 +207,17 @@ export function Card({
 
 ---
 
-## 3. 🎯 Impeccable Design Token Integration
+## 3. 🎯 Impeccable Design Commands & Token Presets
 
-`impeccable` standardizes design systems by generating theme tokens and spacing invariants.
+`impeccable` provides the AI with structured design vocabulary and deterministic design anti-pattern checks (avoiding cramped padding, clashing colors, overused fonts):
 
-### Configuration (`design.config.json` / `impeccable.config.json`)
+### Impeccable AI Design Commands
+* **`/polish`**: Audits and elevates an existing component's spacing, alignment, and typography.
+* **`/typeset`**: Refines typography hierarchy, line lengths, and font pairings.
+* **`/quieter`**: Softens harsh colors, reduces visual noise, and increases whitespace.
+* **`/delight`**: Adds subtle micro-animations, hover effects, and polish.
+
+### Design Token Foundation (`design.config.json` / `impeccable.config.json`)
 
 ```json
 {
