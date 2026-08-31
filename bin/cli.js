@@ -6,7 +6,7 @@ const os = require('os');
 const { execSync } = require('child_process');
 
 const args = process.argv.slice(2);
-const command = args[0] || 'init';
+const rawCommand = (args[0] || 'init').toLowerCase();
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 
@@ -16,43 +16,64 @@ function printBanner() {
 }
 
 function copyRecursive(src, dest) {
-  const exists = fs.existsSync(src);
-  const stats = exists && fs.statSync(src);
-  if (stats && stats.isDirectory()) {
+  if (!fs.existsSync(src)) return;
+  const stats = fs.statSync(src);
+  if (stats.isDirectory()) {
     if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
     fs.readdirSync(src).forEach((child) => {
       copyRecursive(path.join(src, child), path.join(dest, child));
     });
-  } else if (exists) {
+  } else {
+    const parentDir = path.dirname(dest);
+    if (!fs.existsSync(parentDir)) fs.mkdirSync(parentDir, { recursive: true });
     fs.copyFileSync(src, dest);
   }
 }
 
-function installSkill(targetDir) {
+function installSkill(targetDir, isGlobal = false) {
   console.log('\x1b[33m📦 Installing Antigravity Skill into: ' + targetDir + '...\x1b[0m');
-  if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-  const items = ['SKILL.md', 'README.md', 'GEMINI.md', 'AGENTS.md', 'LICENSE', 'commands', 'project-profile', 'references'];
-  items.forEach((item) => {
-    const src = path.join(ROOT_DIR, item);
-    if (fs.existsSync(src)) copyRecursive(src, path.join(targetDir, item));
-  });
-  console.log('\x1b[32m✔ Skill successfully installed!\x1b[0m\n');
-  console.log('\x1b[34m💡 You can now use /debug, /push, and /design in your AI coding assistant.\x1b[0m\n');
+  
+  try {
+    if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+    
+    const items = ['SKILL.md', 'README.md', 'GEMINI.md', 'AGENTS.md', 'LICENSE', 'commands', 'project-profile', 'references'];
+    items.forEach((item) => {
+      const src = path.join(ROOT_DIR, item);
+      if (fs.existsSync(src)) copyRecursive(src, path.join(targetDir, item));
+    });
+
+    // Also install command shortcuts into workspace commands folder
+    if (!isGlobal) {
+      const workspaceCommandsDir = path.join(process.cwd(), '.gemini', 'commands');
+      const srcCommandsDir = path.join(ROOT_DIR, 'commands');
+      if (fs.existsSync(srcCommandsDir)) {
+        copyRecursive(srcCommandsDir, workspaceCommandsDir);
+      }
+    }
+
+    console.log('\x1b[32m✔ Skill successfully installed with 0 errors!\x1b[0m');
+    console.log('\x1b[34m💡 You can now use /debug, /push, and /design in your AI coding assistant.\x1b[0m\n');
+  } catch (err) {
+    console.error('\x1b[31m❌ Installation failed: ' + err.message + '\x1b[0m\n');
+    process.exit(1);
+  }
 }
 
 function runDesign() {
   console.log('\x1b[35m🎨 Installing Dedicated UI / UX Design Suite...\x1b[0m\n');
   const cmds = [
-    'npx -y impeccable install',
-    'npx -y skills add Leonxlnx/taste-skill',
-    'npm install agentation'
+    { name: 'Impeccable Design Engine', cmd: 'npx -y impeccable install' },
+    { name: 'Taste Skill Extension', cmd: 'npx -y skills add Leonxlnx/taste-skill' },
+    { name: 'Agentation Component Toolchain', cmd: 'npm install agentation' }
   ];
-  cmds.forEach((cmd) => {
-    console.log('▶ Running: ' + cmd);
+
+  cmds.forEach((c) => {
+    console.log('▶ Running: ' + c.name + ' (' + c.cmd + ')...');
     try {
-      execSync(cmd, { stdio: 'inherit', shell: true });
+      execSync(c.cmd, { stdio: 'inherit', shell: true });
+      console.log('\x1b[32m✔ ' + c.name + ' ready.\x1b[0m\n');
     } catch (e) {
-      console.warn('⚠ Notice: ' + e.message);
+      console.warn('\x1b[33m⚠ Notice for ' + c.name + ': ' + e.message + '\x1b[0m\n');
     }
   });
   console.log('\x1b[32m✔ UI/UX Design toolchain ready for /design component prompts!\x1b[0m\n');
@@ -60,26 +81,41 @@ function runDesign() {
 
 function printHelp() {
   printBanner();
-  console.log('Usage: npx antigravityskill [command]\n\nCommands:\n  init          Install skill into current project (.gemini/skills/antigravityskill) [default]\n  global        Install skill globally (~/.gemini/antigravity/skills/antigravityskill)\n  design        Install external UI design suite (impeccable, taste-skill, agentation)\n  help, --help  Display this help message\n');
+  console.log(`Usage: npx antigravityskill [command]
+
+Commands:
+  init, install, add   Install skill into current workspace (.gemini/skills/antigravityskill) [default]
+  global, g            Install skill globally (~/.gemini/antigravity/skills/antigravityskill)
+  design, ui           Install external UI design suite (impeccable, taste-skill, agentation)
+  help, --help, -h     Display this help message
+`);
 }
 
-switch (command) {
+switch (rawCommand) {
   case 'init':
+  case 'install':
+  case 'add':
+  case 'i':
     printBanner();
-    installSkill(path.join(process.cwd(), '.gemini', 'skills', 'antigravityskill'));
+    installSkill(path.join(process.cwd(), '.gemini', 'skills', 'antigravityskill'), false);
     break;
   case 'global':
+  case 'g':
     printBanner();
-    installSkill(path.join(os.homedir(), '.gemini', 'antigravity', 'skills', 'antigravityskill'));
+    installSkill(path.join(os.homedir(), '.gemini', 'antigravity', 'skills', 'antigravityskill'), true);
     break;
   case 'design':
+  case 'ui':
     printBanner();
     runDesign();
     break;
   case 'help':
   case '--help':
   case '-h':
+  case '-v':
+  case '--version':
   default:
     printHelp();
     break;
 }
+
