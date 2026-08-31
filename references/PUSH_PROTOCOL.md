@@ -34,7 +34,7 @@ $$\text{Format: } \langle\text{type}\rangle(\langle\text{scope}\rangle): \langle
 
 | Type | Purpose | Example |
 | :--- | :--- | :--- |
-| `feat` | New user-facing feature or UI component | `feat(design): add asymmetric bento grid feature showcase` |
+| `feat` | New user-facing feature or module | `feat(auth): add rate limiting middleware` |
 | `fix` | Bug fix or compiler error resolution | `fix(auth): handle null token in refresh interceptor` |
 | `refactor` | Code change that neither fixes a bug nor adds a feature | `refactor(utils): simplify date formatting helper` |
 | `docs` | Documentation updates | `docs(readme): add /push quick start guide` |

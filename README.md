@@ -1,4 +1,4 @@
-# 🛠️ Antigravity AI Engineering & Design Skill (`/debug`, `/design` & `/push`)
+# 🛠️ Antigravity AI Engineering Skill (`/debug` & `/push`)
 
 [![CI Quality Gate](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/s5condlast-cmd/Antigravityskill/actions/workflows/quality-gate.yml)
 [![Node.js](https://img.shields.io/badge/node-20%2B-blue.svg)](https://nodejs.org/)
@@ -6,9 +6,10 @@
 [![Python](https://img.shields.io/badge/python-3.12%2B-blue.svg)](https://www.python.org/)
 [![Go](https://img.shields.io/badge/go-1.22%2B-blue.svg)](https://go.dev/)
 [![Rust](https://img.shields.io/badge/rust-2021%20edition-orange.svg)](https://www.rust-lang.org/)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-blue.svg)](https://www.php.net/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI agents with strict type-safety rules, systematic root-cause debugging workflows (`/debug`), modern UI/UX design systems (`/design`), fast and safe Git delivery (`/push`), and anti-hallucination guardrails.
+A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI agents with strict type-safety rules, systematic root-cause debugging workflows (`/debug`), fast and safe Git delivery (`/push`), and anti-hallucination guardrails.
 
 ---
 
@@ -16,12 +17,10 @@ A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI
 
 | Feature | Slash Command | Description |
 | :--- | :--- | :--- |
-| 🔬 **Systematic Debugging** | `/debug` | 5-Phase diagnostic workflow that eliminates compiler red lines across TS, Python, Go, and Rust without lazy hacks (`@ts-ignore`, empty catches). |
+| 🔬 **Systematic Debugging** | `/debug` | 5-Phase diagnostic workflow that eliminates compiler red lines across TS, Python, Go, Rust, and PHP without lazy hacks (`@ts-ignore`, empty catches). |
 | 🎯 **Pristine Code Invariants** | `/debug` | The 4 Laws: context ingestion first, boundary parsing, unrepresentable illegal states, and zero placeholder TODOs. |
-| 🎨 **Design System & Tokens** | `/design` | Semantic color token architecture (light/dark mode with HSL/OKLCH), fluid typography hierarchy, and spacing tokens. |
-| 🔄 **Adaptive Brand Ingestion** | `/design` | Ingests and respects existing logos, brand colors, custom SVGs, and fonts; enhances missing contrast and dark mode with 0 breaking changes. |
-| 🧩 **Accessible Component Library**| `/design` | Production-ready React + Tailwind components (Hero banners, Navbars, Pricing matrices, Metric cards, FAQs) meeting **WCAG 2.1 AA** standards. |
 | 🚀 **Safe Git Delivery** | `/push` | Streamlined 3-step Git staging, secret prevention audit, conventional commit formatting, and atomic remote syncing. |
+| 🎨 **UI / UX Design Suite** | `/design` | On-demand installation of dedicated design packages (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke UI components. |
 | 🧠 **Continuous Learning** | `/learn` | Post-success reminder prompting you to persist discovered invariants or architectural conventions into project memory. |
 | 🚦 **Safety Guardrails** | Automatic | Strict traffic-light boundaries preventing secrets leaks, destructive resets, or out-of-scope edits. |
 
@@ -29,18 +28,35 @@ A lightweight, production-grade **Antigravity Slash Skill Suite** that equips AI
 
 ## 🚀 Quick Start & Installation
 
-### Option 1: Global Install (Works in All Projects)
+### Option 1: Instant `npx` Installation (Recommended)
+
+Run directly in your project root to initialize the skill:
+
+```bash
+npx antigravityskill
+```
+
+Or install globally for all projects:
+
+```bash
+npx antigravityskill global
+```
+
+### Option 2: Global Git Clone
 
 * **Windows (PowerShell)**:
+
   ```powershell
   git clone https://github.com/s5condlast-cmd/Antigravityskill.git "$env:USERPROFILE\.gemini\antigravity\skills\antigravityskill"
   ```
+
 * **macOS / Linux**:
+
   ```bash
   git clone https://github.com/s5condlast-cmd/Antigravityskill.git ~/.gemini/antigravity/skills/antigravityskill
   ```
 
-### Option 2: Project-Level Install (For Team Repositories)
+### Option 3: Project-Level Workspace Install
 
 ```bash
 # Clone skill into your project's workspace
@@ -53,6 +69,7 @@ git clone https://github.com/s5condlast-cmd/Antigravityskill.git .gemini/skills/
 ## 💡 How to Use
 
 ### 1. The `/debug` Command (Code Quality & Root-Cause Fixes)
+
 * **Fix compiler red lines**:
   > *"/debug fix the TypeScript type mismatches in `src/components/Navbar.tsx`"*
 * **Investigate subtle runtime bugs**:
@@ -60,19 +77,24 @@ git clone https://github.com/s5condlast-cmd/Antigravityskill.git .gemini/skills/
 * **Enforce clean code invariants**:
   > *"/debug refactor this auth controller to use Discriminated Unions and safe boundary parsing"*
 
-### 2. The `/design` Command (UI/UX, Design Systems & Components)
-* **Build modern landing page sections**:
-  > *"/design create a modern Hero section with gradient text, CTA buttons, and social proof badges"*
-* **Generate design tokens & color palettes**:
-  > *"/design create a dark/light semantic color palette for a SaaS analytics dashboard"*
-* **Create accessible interactive components**:
-  > *"/design build an accessible Pricing comparison matrix with monthly/annual billing toggle"*
+### 2. The `/push` Command (Safe & Fast Git Delivery)
 
-### 3. The `/push` Command (Safe & Fast Git Delivery)
 * **Stage, commit, and push**:
   > *"/push sync my verified changes to GitHub with a conventional commit message"*
 * **Push feature branches safely**:
-  > *"/push push this new bento grid component to origin"*
+  > *"/push push this new auth module to origin"*
+
+### 3. The `/design` Command (Dedicated UI Toolchain)
+
+* When you enter `/design` or ask for UI/UX component generation, Antigravity triggers the installation of the specialized external design suite:
+
+  ```bash
+  npx impeccable install
+  npx skills add Leonxlnx/taste-skill
+  npm install agentation
+  ```
+
+* Once installed, Antigravity leverages taste-driven components and modern design tokens for your frontend.
 
 ---
 
@@ -85,16 +107,6 @@ git clone https://github.com/s5condlast-cmd/Antigravityskill.git .gemini/skills/
 
 ---
 
-## 🎨 The 5 Pillars of Impeccable Design (`/design`)
-
-1. **Minimalism & Visual Restraint**: Zero visual clutter. Use clean whitespace, subtle borders (`border-border/60`), and soft ambient lighting instead of heavy ornaments.
-2. **Smooth Motion & Staggered Cascades**: Fluid spring physics (`cubic-bezier(0.16, 1, 0.3, 1)`) and cascading entry delays (`delay-75`, `delay-150`, `delay-200`) for buttery 60fps transitions.
-3. **Scannable Icons & Effortless Navigation**: High-contrast, recognizable Lucide icons with optical touch padding ($\ge 44\text{px}$) and predictable placement.
-4. **Pixel-Perfect Spatial Math**: Strict adherence to the 8-point grid, height ladders (`h-9`, `h-11`, `h-13`), and balanced padding ratios (`px-3 py-1.5` to `px-7 py-3.5`).
-5. **Accessible by Default (WCAG 2.1 AA)**: Contrast ratios $\ge 4.5:1$, visible focus rings (`focus-visible:ring-2`), semantic HTML, and screen-reader ARIA roles.
-
----
-
 ## 📚 Included Reference Guides
 
 All reference manuals are organized inside the `references/` folder:
@@ -102,16 +114,9 @@ All reference manuals are organized inside the `references/` folder:
 | Document | What's Inside |
 | :--- | :--- |
 | **[references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md)** | Fast & safe Git delivery: pre-flight secrets audit, conventional commit standard, and atomic push commands. |
-| **[references/TYPOGRAPHY_AND_FONTS_GUIDE.md](references/TYPOGRAPHY_AND_FONTS_GUIDE.md)** | Inverse tracking and leading formulas, Geist/Inter font stacks, weight restraint, and 4-tier text contrast. |
-| **[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)** | 80/15/5 color restraint rule, 4 approved accent spots, containerless whitespace guidelines, and zero-overflow rules. |
-| **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)** | Production React + Tailwind components: Buttons, Inputs, Dropdowns, Modals, Tabs, Badges, Toasts, Skeletons. |
-| **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)** | Semantic color tokens (HSL/OKLCH), typography scales, motion curves, and pixel-perfect spatial math ladders. |
-| **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)** | Complete landing page patterns: Hero banners, Navbars, Bento grids, Pricing matrices, Testimonials, FAQs, Footers. |
-| **[references/UX_PSYCHOLOGY_AND_HEURISTICS.md](references/UX_PSYCHOLOGY_AND_HEURISTICS.md)** | The 7 core Laws of UX (Fitts, Hick, Jakob, Miller, Doherty, Gestalt, Peak-End) with practical formulas. |
-| **[references/ACCESSIBILITY_WCAG_GUIDE.md](references/ACCESSIBILITY_WCAG_GUIDE.md)** | Complete WCAG 2.1 & 2.2 AA/AAA guide: Contrast formulas, keyboard navigation matrix, focus traps, and ARIA roles. |
 | **[references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)** | Type-safe `Result<T, E>` types, type guards, boundary parsers, and anti-hallucination helpers. |
 | **[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)** | Catalog of top 10 recurring AI anti-patterns and surgical fixes. |
-| **[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md)** | Fast terminal cheat sheet for `tsc`, `mypy`, `pytest`, `go vet`, and `cargo check`. |
+| **[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md)** | Fast terminal cheat sheet for `tsc`, `mypy`, `pytest`, `go vet`, `cargo check`, `phpstan`, and `pest`/`phpunit`. |
 
 ---
 
@@ -124,34 +129,12 @@ Antigravityskill/
 │   └── pull_request_template.md           # Pull request quality template
 ├── project-profile/
 │   └── PROJECT_PROFILE.md                 # Project facts, standards, and invariants
-├── templates/                             # Handcrafted, production-ready React+Tailwind templates
-│   ├── HeaderFull.tsx & HeaderCentered.tsx
-│   ├── HeroCentered.tsx & HeroSplit.tsx
-│   ├── FeatureBento.tsx & FeatureCentered.tsx
-│   ├── BlogGrid.tsx & BlogList.tsx
-│   ├── PricingCards.tsx & PricingTable.tsx
-│   ├── ContactSplit.tsx & ContactCentered.tsx
-│   ├── CtaCentered.tsx & CtaSplit.tsx
-│   ├── FaqAccordion.tsx
-│   ├── FooterMultiColumn.tsx & FooterCentered.tsx
-│   ├── CommandPalette.tsx
-│   ├── ActivityTable.tsx
-│   ├── TerminalPreview.tsx
-│   ├── StatsRow.tsx
-│   └── index.ts
 ├── references/
 │   ├── PUSH_PROTOCOL.md                   # Fast & safe Git delivery protocol
-│   ├── TYPOGRAPHY_AND_FONTS_GUIDE.md      # Mathematical typography & font optics
-│   ├── COLOR_AND_CONTAINER_ENGINE.md      # Color restraint & container determination engine
-│   ├── COMPONENT_LIBRARY.md               # Accessible React + Tailwind application components
-│   ├── DESIGN_SYSTEM_GUIDELINES.md        # Design system tokens & spatial math
-│   ├── LANDING_PAGE_PATTERNS.md           # Accessible UI landing page patterns (Hero, Bento, Footer)
-│   ├── UX_PSYCHOLOGY_AND_HEURISTICS.md    # Cognitive psychology laws & friction reduction
-│   ├── ACCESSIBILITY_WCAG_GUIDE.md        # WCAG 2.1/2.2 AA & AAA compliance checklist
 │   ├── DEBUG_UTILITIES.md                 # Type guards & Result types
 │   ├── COMMON_BUG_PATTERNS.md             # Common AI bug patterns & fixes
 │   └── CLI_CHEAT_SHEET.md                 # Diagnostic CLI cheat sheet
-├── SKILL.md                               # Master /debug, /design & /push skill definition
+├── SKILL.md                               # Master /debug & /push skill definition
 ├── GEMINI.md                              # Always-on Antigravity workspace rules bridge
 ├── AGENTS.md                              # Multi-agent standard instructions bridge
 ├── README.md                              # Comprehensive documentation
@@ -171,14 +154,15 @@ Antigravityskill/
 | 🟡 **ASK FIRST** | Refactoring outside requested task scope | Pauses and asks for user confirmation. |
 | 🟡 **ASK FIRST** | Installing new third-party packages | Checks if standard library / existing tools suffice. |
 | 🟢 **AUTOMATIC** | Running compiler & test commands (`tsc`, `npm test`) | Runs static checks automatically. |
-| 🟢 **AUTOMATIC** | Using accessible landing page UI patterns | Implements clean, responsive UI automatically. |
+| 🟢 **AUTOMATIC** | Safe Git staging, conventional commits, and atomic pushes | Executes the 3-step push protocol automatically. |
 
 ---
 
 ## 🧠 Continuous Learning (`/learn`) & Circuit Breaker
 
-### 💡 Post-Success Reminder (`/learn`)
-Whenever Antigravity **successfully resolves a bug, clears compiler errors, or implements a feature**, it automatically includes a short reminder at the end of its response. This allows you to persist the architectural lesson or invariant into Antigravity's long-term project memory with a single slash command:
+### 💡 Post-Success Reminder (`/learn`, Health Check & `/design`)
+
+Whenever Antigravity **successfully resolves a bug, clears compiler errors, or implements a feature**, it automatically includes a short reminder at the end of its response. This allows you to persist the architectural lesson into project memory, verify VS Code workspace health, and optionally upgrade UI styling with `/design`:
 
 ```markdown
 ---
@@ -189,10 +173,24 @@ To ensure Antigravity remembers this invariant and avoids this issue in future s
 
 > **/learn**
 > *Lesson*: [1-2 sentences summarizing the specific invariant, pattern, or gotcha discovered]
+
+---
+
+### 🔍 Workspace Health Check
+
+> 💡 **Tip**: Press `Ctrl + Shift + M` (or `Cmd + Shift + M` on macOS) to check the **Problems** tab in VS Code and confirm 0 errors and 0 warnings remain.
+
+---
+
+### 🎨 Enhance Visuals & UI Components (`/design`)
+
+> 💡 **Tip**: Run `/design` (or allow Antigravity to run it automatically) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
 ```
 
 ### ⚡ The "Rule of Three" Circuit Breaker & `/debug` Reminder
+
 If **3 consecutive edit attempts fail** or if the agent is stuck / having a hard time:
+
 1. **STOP modifying code immediately.**
 2. Acknowledge that current assumptions about the codebase are flawed.
 3. Re-examine interface contracts, verify environment configuration, and formulate a new hypothesis.

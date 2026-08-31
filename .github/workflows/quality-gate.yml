@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: 🔍 Validate SKILL.md Frontmatter & 3-Pillar Protocols
+      - name: 🔍 Validate SKILL.md Frontmatter & 2-Pillar Protocols
         run: |
           node -e '
             const fs = require("fs");
@@ -41,13 +41,13 @@ jobs:
             if (!content.includes("name:") || !content.includes("description:")) {
               throw new Error("SKILL.md frontmatter must contain name and description fields");
             }
-            const requiredPillars = ["/debug", "/design", "/push"];
+            const requiredPillars = ["/debug", "/push"];
             for (const pillar of requiredPillars) {
               if (!content.includes(pillar)) {
                 throw new Error("SKILL.md missing required pillar protocol: " + pillar);
               }
             }
-            console.log("✔ SKILL.md frontmatter and /debug, /design & /push protocol definitions successfully validated.");
+            console.log("✔ SKILL.md frontmatter and /debug & /push protocol definitions successfully validated.");
           '
 
       - name: 🔗 Validate Reference Documents & Project Profile
@@ -60,49 +60,31 @@ jobs:
               "GEMINI.md",
               "AGENTS.md",
               "project-profile/PROJECT_PROFILE.md",
-              "templates/index.ts",
-              "templates/HeaderFull.tsx",
-              "templates/HeaderCentered.tsx",
-              "templates/HeroCentered.tsx",
-              "templates/HeroSplit.tsx",
-              "templates/FeatureBento.tsx",
-              "templates/FeatureCentered.tsx",
-              "templates/BlogGrid.tsx",
-              "templates/BlogList.tsx",
-              "templates/PricingCards.tsx",
-              "templates/PricingTable.tsx",
-              "templates/ContactSplit.tsx",
-              "templates/ContactCentered.tsx",
-              "templates/CtaCentered.tsx",
-              "templates/CtaSplit.tsx",
-              "templates/FaqAccordion.tsx",
-              "templates/FooterMultiColumn.tsx",
-              "templates/FooterCentered.tsx",
-              "templates/CommandPalette.tsx",
-              "templates/ActivityTable.tsx",
-              "templates/TerminalPreview.tsx",
-              "templates/StatsRow.tsx",
               "references/PUSH_PROTOCOL.md",
-              "references/TYPOGRAPHY_AND_FONTS_GUIDE.md",
-              "references/COLOR_AND_CONTAINER_ENGINE.md",
-              "references/DESIGN_SYSTEM_GUIDELINES.md",
-              "references/COMPONENT_LIBRARY.md",
-              "references/LANDING_PAGE_PATTERNS.md",
-              "references/UX_PSYCHOLOGY_AND_HEURISTICS.md",
-              "references/ACCESSIBILITY_WCAG_GUIDE.md",
               "references/DEBUG_UTILITIES.md",
               "references/COMMON_BUG_PATTERNS.md",
               "references/CLI_CHEAT_SHEET.md",
+              "commands/debug.md",
+              "commands/push.md",
+              "commands/design.md",
               ".github/pull_request_template.md",
-              "LICENSE"
+              "LICENSE",
+              "package.json",
+              "bin/cli.js"
             ];
             for (const f of requiredFiles) {
               if (!fs.existsSync(f)) {
                 throw new Error("Required repository asset is missing: " + f);
               }
             }
-            console.log("✔ All " + requiredFiles.length + " core documentation & template assets verified present.");
+            console.log("✔ All " + requiredFiles.length + " core documentation and package assets verified present.");
           '
+
+      - name: 📦 Validate NPM Package & Executable CLI
+        run: |
+          node bin/cli.js --help
+          npm pack --dry-run
+
 
   # -------------------------------------------------------------
   # 3. Node.js / TypeScript Workspace Gate
@@ -283,3 +265,54 @@ jobs:
       - name: 🧪 Rust Test Suite (cargo test)
         if: steps.check_rust.outputs.has_rust == 'true'
         run: cargo test
+
+  # -------------------------------------------------------------
+  # 7. PHP Workspace Gate
+  # -------------------------------------------------------------
+  php-gate:
+    name: 🐘 PHP Quality Gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🔍 Check for PHP Composer Manifest
+        id: check_php
+        run: |
+          if [ -f "composer.json" ]; then
+            echo "has_php=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_php=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: ⚙️ Setup PHP
+        if: steps.check_php.outputs.has_php == 'true'
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer:v2, phpstan, phpunit
+
+      - name: 📦 Install Composer Dependencies
+        if: steps.check_php.outputs.has_php == 'true'
+        run: composer install --prefer-dist --no-progress
+
+      - name: 🔬 PHP Syntax Check (php -l)
+        if: steps.check_php.outputs.has_php == 'true'
+        run: find . -name "*.php" -not -path "./vendor/*" -exec php -l {} +
+
+      - name: 🔬 PHP Static Analysis (PHPStan)
+        if: steps.check_php.outputs.has_php == 'true'
+        run: |
+          if [ -f "phpstan.neon" ] || [ -f "phpstan.neon.dist" ]; then
+            vendor/bin/phpstan analyse
+          fi
+
+      - name: 🧪 PHP Test Suite (Pest / PHPUnit)
+        if: steps.check_php.outputs.has_php == 'true'
+        run: |
+          if [ -f "vendor/bin/pest" ]; then
+            vendor/bin/pest
+          elif [ -f "phpunit.xml" ] || [ -f "phpunit.xml.dist" ]; then
+            vendor/bin/phpunit
+          fi
+

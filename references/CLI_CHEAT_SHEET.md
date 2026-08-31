@@ -7,6 +7,7 @@ Fast, copy-pasteable terminal commands for diagnosing port conflicts, killing st
 ## 1. 🔌 Port & Process Triage (Find & Kill Blocked Ports)
 
 ### Windows (PowerShell)
+
 ```powershell
 # 1. Find process ID (PID) using port 3000 (or 5173, 8080)
 Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Select-Object LocalAddress, LocalPort, OwningProcess, State
@@ -22,6 +23,7 @@ taskkill /PID <PID> /F
 ```
 
 ### macOS / Linux (Bash / Zsh)
+
 ```bash
 # 1. Find process using port 3000
 lsof -i :3000
@@ -106,4 +108,32 @@ docker exec -it <container_name> curl -Iv http://host.docker.internal:3000
 
 # View real-time container CPU / Memory usage
 docker stats
+```
+
+---
+
+## 6. 🐘 PHP Diagnostic & Tooling Commands
+
+```bash
+# 1. Fast PHP syntax linting across codebase
+php -l path/to/file.php
+find . -name "*.php" -not -path "./vendor/*" -exec php -l {} +
+
+# 2. Strict static analysis (PHPStan / Psalm)
+./vendor/bin/phpstan analyse --level=8 src/
+# Or using Psalm:
+./vendor/bin/psalm --show-info=true
+
+# 3. Running unit and integration tests (Pest / PHPUnit)
+./vendor/bin/pest
+# Or using standard PHPUnit:
+./vendor/bin/phpunit --testdox
+
+# 4. Composer dependency & platform health check
+composer validate --strict
+composer check-platform-reqs
+composer dump-autoload -o
+
+# 5. Quick local PHP built-in server with routing
+php -S localhost:8000 -t public/
 ```

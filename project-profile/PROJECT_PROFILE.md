@@ -1,63 +1,61 @@
-# 🎯 Universal Project Profile (Codebase Facts, Standards & Invariants)
+# 🎯 Universal Project Profile (Codebase Facts & Rules)
 
-> 💡 **Purpose**: This document is the authoritative single source of truth for repository facts, tool permissions, coding standards, and verification invariants that generic skill instructions intentionally leave open. All AI agents operating within this repository must adhere to the rules defined herein.
+> 💡 **Purpose**: This document contains the single source of truth for repository facts, tools, coding standards, and safety rules for AI agents.
 
 ---
 
-## 1. 🛠️ Tech Stack & Version Pinning
+## 1. 🛠️ Tech Stack & Language Versions
 
-Explicit version pinning prevents the AI from proposing deprecated APIs, unsupported language features, or incompatible library signatures:
+Use these versions to ensure compatibility:
 
-* **Primary Languages & Runtimes**:
-  * **TypeScript**: `5.5+` (Strict mode enabled, `noImplicitAny: true`, `strictNullChecks: true`)
-  * **Node.js**: `20 LTS+` (ESM and CommonJS interop, Node native test runner / Jest / Vitest)
-  * **Python**: `3.12+` (Type hints enabled, standard library + `mypy`, `pytest`, `ruff`, `flake8`)
-  * **Go**: `1.22+` (Standard toolchain, `go vet`, `go test`)
-  * **Rust**: `2021 Edition / 1.78+` (`cargo check`, `cargo test`, `clippy`)
+* **Languages & Runtimes**:
+  * **TypeScript**: `5.5+` (Strict mode enabled, `strictNullChecks: true`)
+  * **Node.js**: `20 LTS+`
+  * **Python**: `3.12+` (`mypy`, `pytest`, `ruff`)
+  * **Go**: `1.22+` (`go vet`, `go test`)
+  * **Rust**: `2021 Edition / 1.78+` (`cargo check`, `cargo test`)
+  * **PHP**: `8.2+` / `8.3+` (Strict types `declare(strict_types=1);`, `phpstan`, `pest`, `phpunit`)
 * **Package Managers**:
-  * Node.js: `npm`, `pnpm` (lockfile enforcement `npm ci` / `pnpm install --frozen-lockfile`)
-  * Python: `uv`, `pip`, `pipenv` (isolated virtual environments `.venv`)
-  * Rust: `cargo` (`Cargo.lock` checked in)
-  * Go: `go mod` (`go.mod` and `go.sum` pinned)
+  * Node.js: `npm`, `pnpm`
+  * Python: `uv`, `pip`
+  * Rust: `cargo`
+  * Go: `go mod`
+  * PHP: `composer` (`composer.json`, `composer.lock`)
 * **Core Frameworks & UI**:
-  * Web / SSR: Next.js `15` (App Router architecture) / React `19`
-  * Styling: Tailwind CSS `v3.4+` / `v4`
-  * UI Component Primitives: Radix UI / Shadcn UI (accessible, headless, mobile-first)
-  * Icons: Lucide Icons (`lucide-react`)
-* **Database & ORM**:
-  * Database: PostgreSQL `16+` / SQLite (in-memory or local test fixtures)
-  * ORM / Query Builders: Prisma `5.x+` / Drizzle ORM `0.30+`
-* **State Management & Data Fetching**:
-  * Client State: Zustand `4.5+` / React Context
-  * Server State & Caching: TanStack Query (React Query) `v5+`
+  * Next.js `15` / React `19`
+  * Tailwind CSS `v3.4+` / `v4`
+  * Radix UI / Lucide Icons (`lucide-react`)
+* **Databases & State**:
+  * PostgreSQL `16+` / SQLite
+  * Prisma / Drizzle ORM
+  * Zustand / TanStack Query
+* **Dedicated UI Design Toolchain (`/design`)**:
+  * `npx impeccable install`
+  * `npx skills add Leonxlnx/taste-skill`
+  * `npm install agentation`
 
 ---
 
-## 2. 🚦 Tool Permissions & Safety Guardrails
+## 2. 🚦 Tool Safety Rules (Traffic Lights)
 
-All agents operate within strict traffic-light safety boundaries to protect code integrity, branch safety, and user secrets:
-
-### 2.1 Traffic-Light Boundary Table
-
-| Category | Action / Tool Command | Enforcement Behavior |
+| Category | Action | AI Behavior |
 | :--- | :--- | :--- |
-| 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets, tokens, credentials, or private keys | **Hard Blocked**: Enforces `.gitignore`, keeps secrets uncommitted. |
-| 🔴 **STRICTLY PROHIBITED** | Force pushing (`git push --force`) or destructive resets (`git reset --hard`) | **Hard Blocked**: Never destroys remote history or discards unstaged user work. |
-| 🔴 **STRICTLY PROHIBITED** | Suppressing compiler red lines with `@ts-ignore`, `any`, empty catches, or dummy delays | **Hard Blocked**: Must identify and resolve root-cause type and runtime defects. |
-| 🟡 **REQUIRES CONFIRMATION** | Refactoring code outside requested task scope | **Asks User First**: *"I noticed X could be cleaned up. Would you like me to do that?"* |
-| 🟡 **REQUIRES CONFIRMATION** | Installing brand-new third-party packages or changing package manifests | **Asks User First**: Verifies if standard library or existing package can solve it. |
-| 🟡 **REQUIRES CONFIRMATION** | Modifying database schemas, running destructive migrations, deleting files | **Asks User First**: Confirms data safety and backup state before execution. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Running compiler & test commands (`npx tsc`, `pytest`, `npm test`) | **Runs Automatically**: Scans for red lines, broken imports, type discrepancies. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Applying design systems & accessible UI patterns | **Runs Automatically**: Leverages pre-tested patterns from `references/DESIGN_SYSTEM_GUIDELINES.md`, `references/TYPOGRAPHY_AND_FONTS_GUIDE.md`, `references/COLOR_AND_CONTAINER_ENGINE.md`, `references/COMPONENT_LIBRARY.md`, `references/LANDING_PAGE_PATTERNS.md`, and `references/ACCESSIBILITY_WCAG_GUIDE.md`. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Safe Git staging, conventional commits, and atomic pushes | **Runs Automatically**: Executes the 3-step workflow from `references/PUSH_PROTOCOL.md` on active branch. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Triggering `/learn` summaries on successful fixes or UI completions | **Runs Automatically**: Persists architectural lessons into Antigravity long-term memory. |
+| 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Committing `.env` secrets, API keys, tokens, or private keys | **Hard Stop**: Stop immediately. Check `.gitignore`. Never commit secrets. |
+| 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Force pushing (`git push --force`) or destructive resets (`git reset --hard`) | **Hard Stop**: Never overwrite remote history or delete user work. |
+| 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Suppressing errors with `@ts-ignore`, `as any`, empty catches, or fake delays | **Hard Stop**: Identify and fix the real root-cause bug. |
+| 🟡 **ASK USER FIRST** | Changing code outside the requested task | **Ask First**: Ask: *"I noticed X could be cleaned up. Would you like me to do that?"* |
+| 🟡 **ASK USER FIRST** | Installing new packages or changing `package.json` | **Ask First**: Check if an existing package already solves the problem. |
+| 🟡 **ASK USER FIRST** | Modifying database schemas, running destructive migrations, or deleting files | **Ask First**: Confirm data safety and backup before making destructive changes. |
+| 🟢 **DO AUTOMATICALLY** | Running compilers and tests (`tsc`, `pytest`, `phpstan`, `composer test`, `npm test`) | **Auto Run**: Check for syntax errors, red lines, and broken tests. |
+| 🟢 **DO AUTOMATICALLY** | Staging, committing, and pushing safe Git changes | **Auto Run**: Follow the 4-step push protocol. |
+| 🟢 **DO AUTOMATICALLY** | Adding `/learn` reminders after successful fixes | **Auto Run**: Remind the user to save the lesson into Antigravity memory. |
 
 ---
 
-## 3. 🏗️ Code Quality & Pristine Code Invariants
+## 3. 🏗️ Core Anti-Hallucination & Quality Rules
 
-1. **Context Ingestion Before Generation**: Always inspect existing types, schemas, and utilities before generating new code.
-2. **"Parse, Don't Validate"**: Validate and sanitize external input (API payloads, query parameters, file reads) directly into typed domain models.
-3. **Make Illegal States Unrepresentable**: Leverage Discriminated Unions and Tagged Types instead of optional null fields that permit contradictory combinations.
-4. **No Placeholders or TODOs**: Every generated function, component, and test must be fully implemented, syntactically complete, and type-checked.
-5. **Autonomous Full-Stack Delivery on Vague Prompts**: When requests are brief (e.g. `"/design"`, `"make a landing page"`), synthesize and deliver a complete, multi-section, craft-grade layout with zero placeholders.
+1. **Read Files First**: Always inspect existing types, schemas, and utils before writing code. Never guess.
+2. **Validate at Boundaries**: Convert unknown external inputs into validated TypeScript types immediately.
+3. **Use Discriminated Unions**: Use tagged variants (`status: 'success' | 'error'`) instead of loose optional fields.
+4. **Zero Placeholders**: Every generated function, component, and test must be 100% complete and working.
+5. **No Hallucinated Packages**: Verify `package.json` before importing libraries.

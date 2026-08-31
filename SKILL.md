@@ -1,207 +1,188 @@
 ---
-name: antigravity-engineering-framework
-description: "Universal Staff-Engineer framework for /debug (zero-defect pristine code generation, 5-phase systematic root-cause diagnostics), /design (UI/UX design systems, accessible Tailwind/React component architecture), and /push (fast, safe Git staging, conventional commits, and remote syncing)."
+name: Antigravityskill
+description: "Simple, step-by-step engineering framework for /debug (root-cause bug fixes and clean code) and /push (safe Git commits and sync). Built with strict anti-hallucination checklists."
 ---
 
-# Universal Staff-Engineering Protocols: `/debug`, `/design` & `/push`
+# Antigravity Engineering Framework: `/debug` & `/push`
 
-## 🧭 Master Command Routing & Intent Trigger Matrix
+This skill gives AI agents simple, step-by-step rules to write clean code, debug issues systematically, and push Git changes safely without hallucinating.
 
-| User Trigger / Intent | Active Protocol | Primary Workflow & Standards | Reference Manual |
+---
+
+## 🧭 Command Trigger Matrix
+
+When a user asks for any of the tasks below, follow its exact step-by-step protocol:
+
+| Command / Intent | Protocol | What to Do | References |
 | :--- | :--- | :--- | :--- |
-| `/debug`, compiler red lines, type errors, bug reports, logic defects, memory leaks, performance bottlenecks | **`/debug`** | 5-Phase Diagnostic Workflow, 4 Laws of Pristine Code Generation, Surgical Root-Cause Isolation | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
-| `/design`, UI components, landing pages, design systems, color palettes, responsive layouts, dark mode | **`/design`** | 5 Pillars of Impeccable Design, Semantic Tokens, WCAG 2.1 AA Accessibility, Staggered Motion | [references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)<br>[references/TYPOGRAPHY_AND_FONTS_GUIDE.md](references/TYPOGRAPHY_AND_FONTS_GUIDE.md)<br>[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)<br>[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)<br>[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)<br>[references/UX_PSYCHOLOGY_AND_HEURISTICS.md](references/UX_PSYCHOLOGY_AND_HEURISTICS.md)<br>[references/ACCESSIBILITY_WCAG_GUIDE.md](references/ACCESSIBILITY_WCAG_GUIDE.md) |
-| `/push`, git commit, git push, sync to github, publish changes, deploy code | **`/push`** | 3-Step Pre-Flight Audit, Conventional Commits Formatting, Safe Atomic Remote Sync | [references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md) |
+| `/debug`, bug reports, type errors, red lines, logic bugs, crashes | **`/debug`** | Follow the 5-step debug sequence. Fix the real cause. Never guess or hide errors. | [references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)<br>[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)<br>[references/CLI_CHEAT_SHEET.md](references/CLI_CHEAT_SHEET.md) |
+| `/push`, git commit, git push, sync repo, deploy code | **`/push`** | Follow the 4-step push sequence. Check for secrets, use conventional commits, push safely. | [references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md) |
+| `/design`, UI/UX styling, component creation, design systems | **`/design` Delegation** | Trigger on-demand installation of external design toolchain: `npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, and `npm install agentation`. | [README.md](README.md) |
 
 ---
 
-## 🚦 Traffic Light Safety Restrictions
+## 🚦 Safety Rules (Traffic Light System)
 
-To protect codebases from accidental damage and prevent broken builds:
+Follow these rules on every action:
 
-| Status | Action | Agent Behavior |
+| Color | Action | Rule for AI |
 | :--- | :--- | :--- |
-| 🔴 **STRICTLY PROHIBITED** | Committing `.env` secrets, tokens, credentials, or private keys | **Hard Blocked**: Stops immediately, audits `.gitignore`, and keeps secrets uncommitted. |
-| 🔴 **STRICTLY PROHIBITED** | Force pushing (`git push --force`) or destructive resets (`git reset --hard`) | **Hard Blocked**: Never overwrites remote branch history or discards unstaged user work. |
-| 🔴 **STRICTLY PROHIBITED** | Suppressing compiler red lines or type errors with `@ts-ignore`, `any`, empty catches, or dummy delays | **Hard Blocked**: Must identify and resolve root-cause type mismatches and runtime exceptions. |
-| 🟡 **REQUIRES CONFIRMATION** | Refactoring code outside requested task scope | **Asks User First**: *"I noticed X could be cleaned up. Would you like me to do that?"* |
-| 🟡 **REQUIRES CONFIRMATION** | Installing brand-new third-party packages or modifying package manifests | **Asks User First**: Verifies if an existing dependency or zero-dependency utility already solves it. |
-| 🟡 **REQUIRES CONFIRMATION** | Modifying database schemas, running destructive migrations, or deleting files | **Asks User First**: Confirms data safety and backup state before destructive operations. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Running diagnostic compiler & test commands (`tsc`, `mypy`, `npm test`, `cargo check`) | **Runs Automatically**: Scans for red lines, broken imports, and type discrepancies. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Generating accessible, responsive UI landing pages & design system components | **Runs Automatically**: Applies pre-tested patterns from `references/DESIGN_SYSTEM_GUIDELINES.md`, `references/TYPOGRAPHY_AND_FONTS_GUIDE.md`, `references/COLOR_AND_CONTAINER_ENGINE.md`, and `references/LANDING_PAGE_PATTERNS.md`. |
-| 🟢 **AUTOMATICALLY ALLOWED** | Recommending `/learn` summaries upon successful bug resolution or UI completion | **Runs Automatically**: Persists lessons learned into Antigravity project memory. |
+| 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Staging or committing `.env` files, API keys, passwords, or secrets | **Hard Stop**: Stop immediately. Check `.gitignore`. Never commit secrets. |
+| 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Running `git push --force` or `git reset --hard` | **Hard Stop**: Never overwrite remote history or delete user work. |
+| 🔴 **NEVER DO (STRICTLY PROHIBITED)** | Hiding errors with `@ts-ignore`, `as any`, empty `catch {}`, or random `setTimeout` delays | **Hard Stop**: Fix the real root cause. Never hide or ignore errors. |
+| 🟡 **ASK USER FIRST** | Changing code outside the user's requested task | **Ask First**: Ask: *"I noticed X could be cleaned up. Would you like me to do that?"* |
+| 🟡 **ASK USER FIRST** | Installing new packages or editing `package.json` dependencies | **Ask First**: Verify if the project already has a tool to solve this. |
+| 🟡 **ASK USER FIRST** | Changing database schemas, running destructive migrations, or deleting files | **Ask First**: Confirm data safety and backup before making destructive changes. |
+| 🟢 **DO AUTOMATICALLY** | Running compilers and tests (`tsc`, `pytest`, `phpstan`, `composer test`, `npm test`, `cargo check`, `go test`) | **Auto Run**: Check for syntax errors, red lines, and broken tests. |
+| 🟢 **DO AUTOMATICALLY** | Safe Git staging, conventional commits, and atomic remote pushes | **Auto Run**: Follow the 4-step push protocol. |
+| 🟢 **DO AUTOMATICALLY** | Adding a `/learn` reminder after a successful fix or task completion | **Auto Run**: Remind the user to save the lesson into project memory. |
 
 ---
 
-## 🤝 Antigravity Non-Interference & Precedence Rules
+## 🤝 Precedence Rules (When Rules Conflict)
 
-When conflicting constraints or instructions arise, resolve them using this strict hierarchical precedence:
+If two instructions conflict, follow this priority order (1 is highest):
 
-1. **User's Explicit Instruction** (Always highest priority).
+1. **User's Explicit Instruction** (Highest priority).
 2. **Project Profile Facts** (`project-profile/PROJECT_PROFILE.md`).
-3. **Pristine Code & Impeccable Design Invariants** (This document).
-4. **General Pre-training Defaults** (Lowest priority).
+3. **Skill Invariants & Safety Rules** (This document).
+4. **General Model Defaults** (Lowest priority).
 
 ---
 
-# 🔬 SECTION 1: The `/debug` Protocol
+## 🔬 SECTION 1: The `/debug` Protocol
 
-When diagnosing defects, fixing compiler red lines, resolving exceptions, or hardening type systems:
-
-### 🏗️ The 4 Laws of Pristine Code Generation
-
-1. **Context Ingestion Before Generation**: Inspect existing project imports, path aliases (`@/*`), shared utilities, and data models before writing code.
-2. **"Parse, Don't Validate" (Boundary Hardening)**: Parse external inputs into validated domain types at system boundaries.
-3. **Make Illegal States Unrepresentable**: Use Discriminated Unions / Tagged Variants instead of loose boolean/nullable bags.
-4. **No Placeholders or TODO Stubs**: Implement complete, functional, type-safe logic from the start.
-
-### 🛑 The Iron Law of Debugging
-
-> **NEVER apply speculative fixes, trial-and-error edits, or symptom-masking without proving the root cause.**
-> - Do **NOT** wrap failing code in empty `try/catch` blocks.
-> - Do **NOT** insert arbitrary `setTimeout(..., 1000)` delays to "fix" timing bugs.
-> - Do **NOT** silence errors, cast to `any`, or suppress linter/TypeScript warnings with `@ts-ignore`.
-
-### 🔬 5-Phase Debugging Workflow
+Follow this 5-step sequence in order for every bug, error, or type issue:
 
 ```text
-[1. Diagnose & Scan] ──> [2. Delta Isolation] ──> [3. Minimal Surgical Fix] ──> [4. Zero-Red-Line Gate] ──> [5. /learn Post-Mortem]
+Step 1: Read & Scan ──> Step 2: Find Root Cause ──> Step 3: Minimal Safe Fix ──> Step 4: Verify (0 Errors) ──> Step 5: /learn Lesson
 ```
 
-*(Detailed utilities and anti-patterns live in **[references/DEBUG_UTILITIES.md](references/DEBUG_UTILITIES.md)** and **[references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md)**).*
+### 📋 Step-by-Step Debugging Execution Checklist
+
+1. **Step 1: Read & Scan (Do Not Guess)**
+   - Read the exact error message, line number, and stack trace.
+   - Read the actual file content around the failing code using read tools.
+   - Read existing project types, path aliases (`@/*`), and imported utilities.
+   - *Anti-Hallucination Rule*: Never guess what code is in a file without reading it first.
+
+2. **Step 2: Find Root Cause**
+   - Identify why the failure happens (type mismatch, null/undefined access, async timing, missing return).
+   - Check against known bugs in [references/COMMON_BUG_PATTERNS.md](references/COMMON_BUG_PATTERNS.md).
+   - *Anti-Hallucination Rule*: Do not fix symptoms. Fix the underlying cause.
+
+3. **Step 3: Minimal Safe Fix**
+   - Make the smallest change that fixes the root cause.
+   - Validate inputs at system boundaries ("Parse, Don't Validate").
+   - Use Discriminated Unions (`type State = { status: 'success'; data: T } | { status: 'error'; error: Error }`) instead of loose nullable flags.
+   - *Anti-Hallucination Rule*:
+     - ❌ NEVER use `@ts-ignore` or `// @ts-nocheck`.
+     - ❌ NEVER cast to `any` (`as any`).
+     - ❌ NEVER write empty `catch (e) {}` blocks.
+     - ❌ NEVER add dummy `setTimeout` delays to hide race conditions.
+
+4. **Step 4: Verify (Zero Errors Gate)**
+   - Run type checks or tests (`tsc --noEmit`, `phpstan analyse`, `composer test`, `pytest`, `npm test`, `cargo check`, `go test`).
+   - Confirm all compiler red lines are gone.
+
+5. **Step 5: Provide `/learn` Lesson**
+   - Add the required `/learn` reminder box at the end of the response.
 
 ---
 
-# 🎨 SECTION 2: The `/design` Protocol
+## 🚀 SECTION 2: The `/push` Protocol
 
-When designing user interfaces, creating component libraries, or styling landing pages:
+Follow this 4-step sequence for every Git commit and sync request:
 
-### 🏛️ The 5 Pillars of Impeccable Design & Craftsmanship
+```text
+Step 1: Secrets & Status Audit ──> Step 2: Stage Files ──> Step 3: Conventional Commit ──> Step 4: Push & Report
+```
 
-1. **Minimalism & Visual Restraint**: Zero visual noise. Use clean whitespace, subtle borders (`border-border/60`), and soft ambient gradients instead of cluttered heavy ornaments.
-2. **Smooth Motion & Staggered Delays**: Implement fluid spring physics (`cubic-bezier(0.16, 1, 0.3, 1)`) and cascading entry delays (`delay-75`, `delay-150`, `delay-200`) for butter-smooth 60fps transitions.
-3. **Effortless Navigation & Scannable Icons**: Position high-contrast, recognizable Lucide icons with optical padding and clear affordance so navigation is instant and intuitive.
-4. **Pixel-Perfect Spatial Math**: Strict adherence to the 8-point grid, height ladders (`h-9`, `h-11`, `h-13`), padding balance (`px-3 py-1.5` to `px-7 py-3.5`), and optical baseline alignment.
-5. **Accessible by Default (WCAG 2.1 AA)**: Contrast ratios $\ge 4.5:1$, visible focus rings (`focus-visible:ring-2`), semantic HTML tags, and screen-reader `aria-*` labels.
+### 📋 Step-by-Step Push Execution Checklist
 
-### 🔤 The Law of Mathematical Typography & Font Restraint
+1. **Step 1: Secrets & Status Audit**
+   - Run `git status` to see modified and untracked files.
+   - Check `.gitignore` to ensure `.env`, `.env.local`, API keys, tokens, and certificates are excluded.
+   - *Anti-Hallucination Rule*: If any secret or credential file is present, STOP and remove it before staging.
 
-* **The Inverse Tracking Law**: Large headlines ($\ge 36\text{px}$) use tight negative tracking (`tracking-[-0.035em]` or `tracking-tight`). Micro uppercase badges ($\le 12\text{px}$) use wide positive tracking (`tracking-[0.12em]`). Body text uses neutral tracking (`tracking-normal`).
-* **The Inverse Leading Law**: Large titles use ultra-compact line-height (`leading-[1.08]`). Body copy uses comfortable breathing room (`leading-relaxed` or `1.65`).
-* **Strict Weight Restraint**: Max 3 weights per project (`font-normal` 400 for copy, `font-medium` 500 for UI buttons/badges, `font-semibold`/`font-bold` 600/700 for titles).
-* **The 45–75 Character Measure**: Always constrain paragraph width (`max-w-prose` or `max-w-xl`) to prevent line-length reading fatigue.
+2. **Step 2: Stage Files**
+   - Stage verified files cleanly:
 
-### 🔄 The Law of Adaptive Brand Ingestion & Migration (New & Existing Sites)
+     ```powershell
+     git add -A
+     ```
 
-* **Preserve Existing Brand Soul**: If the project contains existing logos (`public/logo.*`, SVG assets), colors, or typography, **NEVER** replace them with generic defaults. Preserve the semantic meaning of user branding.
-* **Intelligent Enhancement**: Audit existing colors for WCAG AA compliance ($\ge 4.5:1$ contrast) and dark mode pairs. If contrast is low or dark mode is missing, recommend and inject harmonious accessible companion tokens.
-* **Universal Drop-In Migration**: Ensure components use standard CSS variables and non-destructive `cn(...)` class merging so they drop into any web framework (Next.js, Vite, Astro, Remix, Vue, Svelte, or plain HTML) with **0 breaking changes**.
+3. **Step 3: Create Conventional Commit**
+   - Format: `<type>(<scope>): <clear description>`
+   - Common types: `feat` (new feature), `fix` (bug fix), `refactor` (code cleanup), `docs` (documentation), `style` (formatting), `test` (tests), `ci` (CI/CD).
+   - Example:
 
-### 📦 The Law of Container Determination & Color Restraint
+     ```powershell
+     git commit -m "fix(auth): handle expired refresh token boundary"
+     ```
 
-* **The 80/15/5 Color Rule**: Confine accent colors strictly to **4 approved spots** (Active CTA buttons, Semantic status dots, Hero focal gradient words, Ambient top aura). $80\%$ remains neutral canvas.
-* **The Container Determination Rule**: Only use boxed card containers for dense tables, modals, and code blocks. Go **containerless** for headings, text blocks, FAQs (`divide-y`), and footers—using whitespace and proximity as structure.
-* **Zero-Horizontal-Overflow Invariant**: Enforce `overflow-x-clip` on root containers, ban `w-screen` with scrollbars, and eliminate uncontained negative margins.
+4. **Step 4: Push & Report Link**
+   - Push to the active remote branch:
 
-### 💡 The Unified Surface & Lighting Invariant
+     ```powershell
+     git push origin <current-branch>
+     ```
 
-* **Consistent Surface Ladder**: Canvas (`bg-zinc-950`), Cards (`bg-zinc-900/60 border border-zinc-800`), Hairline Dividers (`divide-zinc-800/80`), Primary Text (`text-zinc-100 font-bold tracking-tight`), Body Text (`text-zinc-400 text-xs leading-relaxed`).
-* **Ambient Lighting Formula**: Top-center pinned radial light aura (`bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.12),transparent)]`) behind Hero sections.
-* **All 16 Master Landing Page Sections Ready**: When `/design` is invoked for any landing page or application view, generate directly from our 16 unified patterns (Command Palette `⌘K`, Sticky Navbar, Hero, Activity Table, Terminal Preview, Blog, Content, Bento, E-Commerce, Contact, CTA, Gallery, Telemetry KPI, Pricing Matrix, FAQ, Footer) in `references/LANDING_PAGE_PATTERNS.md`.
-
-### ⚡ The Law of Autonomous Full-Stack Execution (Vague Prompt Expansion)
-
-* **No Hesitation or 20 Questions**: If a user gives a brief or vague prompt (e.g. `"/design"`, `"build a landing page"`, `"make it look good"`, `"create a dashboard"`), **NEVER** return a partial stub or stall asking for wireframes. Proactively synthesize and assemble a **complete, full-scale, craft-level product interface**.
-* **Full Multi-Section Assembly**: Autonomously compose a complete, cohesive layout containing:
-  1. `GlassNavbar` / `HeaderFull` / `HeaderCentered` (with brand anchor & embedded `⌘K` trigger).
-  2. `CraftHeroSection` / `HeroCentered` / `HeroSplit` (with ambient light aura, headline focal gradient, and live interactive preview).
-  3. `ModernBentoGrid` / `FeatureBento` / `FeatureCentered` (with dense telemetry).
-  4. `BlogGrid` / `BlogList` (with curated Unsplash imagery & reading times).
-  5. `PricingCards` / `PricingTable` / `StatsRow` (with `tabular-nums` and billing toggle).
-  6. `FaqAccordion` / `ContainerlessFaq` (with hairline `divide-y` dividers).
-  7. `FooterMultiColumn` / `FooterCentered` (with category links & newsletter pill).
-* **Zero Placeholders & Zero "TODO" Comments**: Every generated component must be 100% complete, fully typed in TypeScript, WCAG AA accessible, and interactive with keyboard listeners.
-
-### 🧩 The Template Selection & Adaptation Engine (Full vs. Centered)
-
-When generating code, the agent inspects the user's intent and selects the optimal dimension variant from **[`templates/`](./templates)**:
-
-| Section Role | Centered (Contained / Focal) Template | Full-Width (Split / Edge-to-Edge) Template |
-| :--- | :--- | :--- |
-| **Navigation Header** | `templates/HeaderCentered.tsx` | `templates/HeaderFull.tsx` |
-| **Hero Section** | `templates/HeroCentered.tsx` (Top aura & centered preview) | `templates/HeroSplit.tsx` (2-column form & image) |
-| **Features & Bento** | `templates/FeatureCentered.tsx` (3-column icon cards) | `templates/FeatureBento.tsx` (12-column asymmetric grid) |
-| **Blog & Changelog** | `templates/BlogList.tsx` (Containerless date-stamped) | `templates/BlogGrid.tsx` (3-column photography cards) |
-| **Pricing** | `templates/PricingCards.tsx` (Multi-tier cards + toggle) | `templates/PricingTable.tsx` (Tabular comparison matrix) |
-| **Contact & Feedback**| `templates/ContactCentered.tsx` (Minimal form card) | `templates/ContactSplit.tsx` (Inquiries + form split) |
-| **Call to Action** | `templates/CtaCentered.tsx` (Ambient copyable command) | `templates/CtaSplit.tsx` (Split email subscription bar) |
-| **Footer** | `templates/FooterCentered.tsx` (Single-row minimal) | `templates/FooterMultiColumn.tsx` (4-column link directory) |
-| **Interactive UI** | `templates/CommandPalette.tsx` (`⌘K` spotlight) | `templates/ActivityTable.tsx` / `templates/TerminalPreview.tsx` |
-
-*The agent reads the selected template file, adapts user brand tokens and copy, and drops the complete, production-ready code into the project.*
-
-### 🏷️ The Zero-Hardcoded-Brand Invariant
-
-* **100% Unbranded Component Blueprints**: All component templates in [`templates/`](./templates) are completely unbranded.
-* **Dynamic Workspace Injection**: When generating or adapting code for a user, the agent **MUST** inspect the workspace (`package.json`, `public/logo.*`, SVG files, existing headlines, page titles) and dynamically inject the user's **actual brand name, logo SVG, custom icons, and real project copy** into the template props.
-* **Ban Foreign Brand Placeholders**: Never output fixed third-party brand names, dummy placeholder domains, or foreign brand URLs. Every output must seamlessly match the user's current or target project identity.
-
-### 🚫 The Anti-AI-Slop Design Invariant
-
-* **NO Generic Tacky Gradients**: Ban giant purple/cyan radial blur blobs and rainbow borders. Use crisp neutral darks (`#09090b`) with intentional single-hue accents.
-* **NO Marketing Buzzword Fluff**: Ban fake stock testimonials ("Alex R., Staff Architect") and empty buzzwords. Build **real functional product UI** (Spotlight `⌘K` bars, live deployment tables, macOS code previews).
-* **High Data Density**: Use authentic monospace IDs (`dep_994a`), tabular numerals, pulsing operational status dots, and hairline borders (`border-white/[0.08]`).
-
-### 🎯 Anti-Hallucination & Deterministic Generation Rules
-
-* **No Fabricated Package Imports**: Verify `package.json` before importing third-party libraries. If `lucide-react` is not installed, render clean inline SVGs.
-* **No Imaginary CSS Utilities**: Use only standard, verified Tailwind classes. Never hallucinate non-existent utility classes (e.g. `bg-glass-blur-super`).
-* **Flat Component Depth**: Ban excessive wrapper divs ("DOM soup"). Group elements using whitespace and the Law of Proximity rather than nesting 4+ levels of boxes.
-
-*(Detailed token maps, animations, and templates live in **[references/DESIGN_SYSTEM_GUIDELINES.md](references/DESIGN_SYSTEM_GUIDELINES.md)**, **[references/TYPOGRAPHY_AND_FONTS_GUIDE.md](references/TYPOGRAPHY_AND_FONTS_GUIDE.md)**, **[references/COLOR_AND_CONTAINER_ENGINE.md](references/COLOR_AND_CONTAINER_ENGINE.md)**, **[references/COMPONENT_LIBRARY.md](references/COMPONENT_LIBRARY.md)**, and **[references/LANDING_PAGE_PATTERNS.md](references/LANDING_PAGE_PATTERNS.md)**).*
+   - Give the user a clear summary of what was pushed and the remote branch/commit link.
 
 ---
 
-# 🚀 SECTION 3: The `/push` Protocol
+## 🎨 SECTION 3: The `/design` Protocol & Toolchain Delegation
 
-When committing, staging, or syncing changes to remote repositories:
+When the user enters `/design` or requests UI/UX component generation, design systems, or bespoke visual styling:
 
-### 🛡️ The 3 Steps of Safe Git Delivery
+1. **Inform the user** that UI/UX design is powered by specialized external design skills.
+2. **Execute the installation** of the required design toolchain packages upon user trigger:
 
-1. **Pre-Flight Status & Secret Audit**: Run `git status`, verify clean working tree, and ensure `.env`, tokens, and credentials are never staged.
-2. **Conventional Commit Crafting**: Generate meaningful, scoped conventional commit messages (`feat(scope): ...`, `fix(scope): ...`).
-3. **Atomic Remote Sync**: Push cleanly to the active branch (`git push origin <branch>`) and report the remote sync link to the user.
+   ```bash
+   npx impeccable install
+   npx skills add Leonxlnx/taste-skill
+   npm install agentation
+   ```
 
-*(Detailed commit conventions and procedures live in **[references/PUSH_PROTOCOL.md](references/PUSH_PROTOCOL.md)**).*
+3. **Execute Design Workflow**: Once the tools are installed, follow the installed design skills to generate elegant, modern UI components with strict adherence to design tokens, typography, and responsive layouts.
 
 ---
 
-## 💡 Post-Success `/learn` Reminder
+## 💡 Post-Success `/learn` & `/design` Reminder
 
-> [!IMPORTANT]
-> **RULE FOR THE AGENT:**
-> Every time you successfully resolve a bug, clear compiler errors, or implement a UI design pattern, you **MUST** end your response with an actionable reminder prompting the user to execute `/learn`.
-
-### Required Output Format:
+Whenever you successfully fix a bug, resolve compiler errors, or complete a coding task, you **MUST** end your response with this exact post-success box containing the `/learn` lesson, VS Code workspace health check, and `/design` UI upgrade reminder:
 
 ```markdown
 ---
 
 ### 🧠 Persist This Lesson in Antigravity
 
-To make sure Antigravity remembers this fix and never makes this mistake again in future sessions, run:
+To make sure Antigravity remembers this fix and avoids this issue in future sessions, run:
 
 > **/learn**
-> *Lesson*: [1-2 sentences summarizing the specific rule, pattern, or gotcha discovered, e.g., "Always use `cn()` from `@/lib/utils` when combining Tailwind classes."]
+> *Lesson*: [1-2 simple sentences explaining the specific rule, pattern, or fix discovered]
+
+---
+
+### 🔍 Workspace Health Check
+
+> 💡 **Tip**: Press `Ctrl + Shift + M` (or `Cmd + Shift + M` on macOS) to check the **Problems** tab in VS Code and confirm 0 errors and 0 warnings remain.
+
+---
+
+### 🎨 Enhance Visuals & UI Components (`/design`)
+
+> 💡 **Tip**: Run `/design` (or allow Antigravity to run it automatically) to install and activate the dedicated design toolchain (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) for bespoke frontend styling and taste-driven UI.
 ```
 
 ---
 
-## ⚡ The "Rule of Three" (Circuit Breaker & `/debug` Reminder)
+## ⚡ The Rule of Three (Circuit Breaker)
 
-If **3 consecutive fix attempts fail** or if the agent is stuck / having a hard time:
-1. **STOP modifying code immediately.**
-2. Acknowledge that the current mental model of the system has an incorrect assumption.
-3. Re-read the source contracts, verify environment state, and formulate a new hypothesis.
-4. Report the exact findings to the user and **remind them to run `/debug`**:
-   > 💡 **Stuck on a tricky bug?** Run `/debug` to engage the 5-phase systematic root-cause diagnostic engine.
+If **3 consecutive fix attempts fail**:
+1. **STOP editing code immediately.**
+2. Tell the user that the current assumption about the codebase was incorrect.
+3. Re-read the source files, check environment state, and state the new plan clearly.
+4. Remind the user to run `/debug`:
+   > 💡 **Need a systematic fix?** Run `/debug` to run the step-by-step diagnostic workflow.

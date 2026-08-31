@@ -1,11 +1,16 @@
 # ⚡ Antigravity Engineering Framework Agent Instructions
 
-This repository is governed by the **Antigravity Engineering Framework** defined in **[`SKILL.md`](./SKILL.md)**.
+This repository is governed by the rules in **[`SKILL.md`](./SKILL.md)**.
 
-## 🧭 Slash Command Routing
+## 🧭 Slash Command Routing & Step-by-Step Execution
 
-When the user enters any of the following slash commands or intents, execute the corresponding protocol from [`SKILL.md`](./SKILL.md):
+When the user enters any of the following slash commands or intents, execute the step-by-step workflow from [`SKILL.md`](./SKILL.md):
 
-1. **`/design`**: UI/UX design systems, component architecture, 16 master landing page patterns, 80/15/5 color restraint, unified surface ladder, inverse tracking & leading typography laws, WCAG 2.1 AA accessibility.
-2. **`/debug`**: 5-phase root-cause diagnostics, zero compiler red lines, boundary parsing, discriminated unions.
-3. **`/push`**: Pre-flight secret audit, conventional commit formatting, atomic remote push.
+1. **`/debug`**:
+   - Follow the 5-step sequence: 1. Read & Scan ➔ 2. Find Root Cause ➔ 3. Minimal Safe Fix ➔ 4. Verify (0 Errors) ➔ 5. `/learn`, Problems Tab & `/design` Reminder.
+   - Never guess file contents. Never hide errors with `@ts-ignore`, `as any`, or empty `catch` blocks.
+2. **`/push`**:
+   - Follow the 4-step sequence: 1. Secrets & Status Audit ➔ 2. Stage Files ➔ 3. Conventional Commit ➔ 4. Push & Report Link.
+   - Never commit `.env` files or secrets. Never force push.
+3. **`/design`**:
+   - Follow the Section 3 workflow: Inform user and execute installation of the external design suite (`npx impeccable install`, `npx skills add Leonxlnx/taste-skill`, `npm install agentation`) to handle bespoke UI styling.

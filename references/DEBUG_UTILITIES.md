@@ -7,6 +7,7 @@ Zero-dependency, production-grade utility functions that can be dropped into **a
 ## 1. 🛡️ TypeScript / JavaScript Implementations
 
 ### `assertNever` (Exhaustive Pattern Matching)
+
 ```typescript
 /**
  * Enforces exhaustive pattern matching at compile time.
@@ -33,6 +34,7 @@ function handleStatus(status: Status) {
 ```
 
 ### `safeAsync` (Result Tuple Pattern)
+
 ```typescript
 export type Result<T, E = Error> = [data: T, error: null] | [data: null, error: E];
 
@@ -48,6 +50,7 @@ export async function safeAsync<T, E = Error>(promise: Promise<T>): Promise<Resu
 ```
 
 ### `withTimeout` (AbortSignal Guard)
+
 ```typescript
 export async function withTimeout<T>(
   fn: (signal: AbortSignal) => Promise<T>,
@@ -70,6 +73,7 @@ export async function withTimeout<T>(
 ```
 
 ### `withRetry` (Exponential Backoff + Full Jitter)
+
 ```typescript
 export async function withRetry<T>(
   operation: () => Promise<T>,
@@ -137,37 +141,37 @@ async def with_retry(
 package utils
 
 import (
-	"context"
-	"fmt"
-	"math/rand"
-	"time"
+    "context"
+    "fmt"
+    "math/rand"
+    "time"
 )
 
 // WithRetry executes a function with exponential backoff and randomized jitter
 func WithRetry(ctx context.Context, maxRetries int, baseDelay time.Duration, maxDelay time.Duration, op func() error) error {
-	var err error
-	for attempt := 0; attempt <= maxRetries; attempt++ {
-		err = op()
-		if err == nil {
-			return nil
-		}
-		if attempt == maxRetries {
-			break
-		}
+    var err error
+    for attempt := 0; attempt <= maxRetries; attempt++ {
+        err = op()
+        if err == nil {
+            return nil
+        }
+        if attempt == maxRetries {
+            break
+        }
 
-		backoff := time.Duration(float64(baseDelay) * float64(int(1)<<attempt))
-		if backoff > maxDelay {
-			backoff = maxDelay
-		}
-		jitter := time.Duration(float64(backoff) * (0.5 + rand.Float64()*0.5))
+        backoff := time.Duration(float64(baseDelay) * float64(int(1)<<attempt))
+        if backoff > maxDelay {
+            backoff = maxDelay
+        }
+        jitter := time.Duration(float64(backoff) * (0.5 + rand.Float64()*0.5))
 
-		select {
-		case <-time.After(jitter):
-		case <-ctx.Done():
-			return ctx.Err()
-		}
-	}
-	return fmt.Errorf("operation failed after %d retries: %w", maxRetries, err)
+        select {
+        case <-time.After(jitter):
+        case <-ctx.Done():
+            return ctx.Err()
+        }
+    }
+    return fmt.Errorf("operation failed after %d retries: %w", maxRetries, err)
 }
 ```
 
@@ -206,5 +210,88 @@ where
             }
         }
     }
+}
+```
+
+---
+
+## 5. 🐘 PHP Implementations (PHP 8.2+)
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Utils;
+
+use Throwable;
+use LogicException;
+use BackedEnum;
+
+/**
+ * Enforces exhaustive match branches for enums or union states.
+ */
+function assertNever(mixed $value, ?string $message = null): never
+{
+    $formatted = is_object($value) && $value instanceof BackedEnum
+        ? (string) $value->value
+        : (string) json_encode($value);
+
+    throw new LogicException(
+        $message ?? "[Zero-Bug Invariant] Unhandled variant encountered: {$formatted}"
+    );
+}
+
+/**
+ * Safe Result tuple pattern for PHP: returns [$data, $error].
+ *
+ * @template T
+ * @param callable(): T $callable
+ * @return array{0: T|null, 1: Throwable|null}
+ */
+function safeCall(callable $callable): array
+{
+    try {
+        return [$callable(), null];
+    } catch (Throwable $e) {
+        return [null, $e];
+    }
+}
+
+/**
+ * Exponential backoff with jitter for PHP operations.
+ *
+ * @template T
+ * @param callable(): T $operation
+ * @param int $maxRetries
+ * @param int $baseDelayMs
+ * @param int $maxDelayMs
+ * @return T
+ * @throws Throwable
+ */
+function withRetry(
+    callable $operation,
+    int $maxRetries = 3,
+    int $baseDelayMs = 300,
+    int $maxDelayMs = 5000
+): mixed {
+    $lastError = null;
+
+    for ($attempt = 0; $attempt <= $maxRetries; $attempt++) {
+        try {
+            return $operation();
+        } catch (Throwable $e) {
+            $lastError = $e;
+            if ($attempt === $maxRetries) {
+                break;
+            }
+
+            $expDelay = min($maxDelayMs, $baseDelayMs * (2 ** $attempt));
+            $jitter = (int) ($expDelay * (0.5 + (mt_rand(0, 1000) / 1000.0) * 0.5));
+            usleep($jitter * 1000);
+        }
+    }
+
+    throw $lastError;
 }
 ```
