@@ -239,10 +239,13 @@ export function Card({
 
 ---
 
-## 4. ⚡ Post-Installation Checklist
+## 4. ⚡ How the Toolchain Works in Your Project
 
-After running `/install`:
+* **What `/install` Installs**:
+  - `agentation`: The npm package providing `<Agentation />` for interactive visual DOM debugging in your browser.
+  - `taste-skill`: The AI prompt rules that instruct the assistant to write subtle borders, glassmorphism, and balanced typography.
+  - `impeccable`: The design token and design system generator.
+* **What the Code Recipes Provide**:
+  - The component code in this guide (`<Button />`, `<Card />`, and `globals.css` tokens) are the **production-ready patterns** Antigravity generates whenever you ask it to build UI components for your app.
+  - You can ask Antigravity to *"create a button component using the taste-skill glass variant"* or *"add the Agentation inspector to my root layout"*, and it will generate the exact code from this guide.
 
-1. **Verify Agentation Visibility**: Start local dev server (`npm run dev`) and verify the Agentation inspector toolbar renders in the bottom corner of your browser.
-2. **Apply Design Tokens**: Import the `globals.css` variables into your root layout.
-3. **Use Tasteful Components**: Use the `<Button variant="glass" />` and `<Card />` recipes for clean, modern interfaces.
