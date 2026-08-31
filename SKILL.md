@@ -113,14 +113,32 @@ When designing user interfaces, creating component libraries, or styling landing
 
 * **No Hesitation or 20 Questions**: If a user gives a brief or vague prompt (e.g. `"/design"`, `"build a landing page"`, `"make it look good"`, `"create a dashboard"`), **NEVER** return a partial stub or stall asking for wireframes. Proactively synthesize and assemble a **complete, full-scale, craft-level product interface**.
 * **Full Multi-Section Assembly**: Autonomously compose a complete, cohesive layout containing:
-  1. `GlassNavbar` (with brand anchor & embedded `⌘K` trigger).
-  2. `CraftHeroSection` (with ambient light aura, headline focal gradient, and live interactive preview).
-  3. `ModernBentoGrid` / `ArchitecturalContentGrid` (with dense telemetry).
-  4. `BlogCardGrid` / `CuratedMediaGrid` (with curated Unsplash imagery).
-  5. `PricingMatrix` / `KpiTelemetryRow` (with `tabular-nums` and billing toggle).
-  6. `ContainerlessFaq` (with hairline `divide-y` dividers).
-  7. `ModernFooter` (with category links & newsletter pill).
+  1. `GlassNavbar` / `HeaderFull` / `HeaderCentered` (with brand anchor & embedded `⌘K` trigger).
+  2. `CraftHeroSection` / `HeroCentered` / `HeroSplit` (with ambient light aura, headline focal gradient, and live interactive preview).
+  3. `ModernBentoGrid` / `FeatureBento` / `FeatureCentered` (with dense telemetry).
+  4. `BlogGrid` / `BlogList` (with curated Unsplash imagery & reading times).
+  5. `PricingCards` / `PricingTable` / `StatsRow` (with `tabular-nums` and billing toggle).
+  6. `FaqAccordion` / `ContainerlessFaq` (with hairline `divide-y` dividers).
+  7. `FooterMultiColumn` / `FooterCentered` (with category links & newsletter pill).
 * **Zero Placeholders & Zero "TODO" Comments**: Every generated component must be 100% complete, fully typed in TypeScript, WCAG AA accessible, and interactive with keyboard listeners.
+
+### 🧩 The Template Selection & Adaptation Engine (Full vs. Centered)
+
+When generating code, the agent inspects the user's intent and selects the optimal dimension variant from **[`templates/`](./templates)**:
+
+| Section Role | Centered (Contained / Focal) Template | Full-Width (Split / Edge-to-Edge) Template |
+| :--- | :--- | :--- |
+| **Navigation Header** | `templates/HeaderCentered.tsx` | `templates/HeaderFull.tsx` |
+| **Hero Section** | `templates/HeroCentered.tsx` (Top aura & centered preview) | `templates/HeroSplit.tsx` (2-column form & image) |
+| **Features & Bento** | `templates/FeatureCentered.tsx` (3-column icon cards) | `templates/FeatureBento.tsx` (12-column asymmetric grid) |
+| **Blog & Changelog** | `templates/BlogList.tsx` (Containerless date-stamped) | `templates/BlogGrid.tsx` (3-column photography cards) |
+| **Pricing** | `templates/PricingCards.tsx` (Multi-tier cards + toggle) | `templates/PricingTable.tsx` (Tabular comparison matrix) |
+| **Contact & Feedback**| `templates/ContactCentered.tsx` (Minimal form card) | `templates/ContactSplit.tsx` (Inquiries + form split) |
+| **Call to Action** | `templates/CtaCentered.tsx` (Ambient copyable command) | `templates/CtaSplit.tsx` (Split email subscription bar) |
+| **Footer** | `templates/FooterCentered.tsx` (Single-row minimal) | `templates/FooterMultiColumn.tsx` (4-column link directory) |
+| **Interactive UI** | `templates/CommandPalette.tsx` (`⌘K` spotlight) | `templates/ActivityTable.tsx` / `templates/TerminalPreview.tsx` |
+
+*The agent reads the selected template file, adapts user brand tokens and copy, and drops the complete, production-ready code into the project.*
 
 ### 🚫 The Anti-AI-Slop Design Invariant
 

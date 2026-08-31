@@ -60,6 +60,28 @@ jobs:
               "GEMINI.md",
               "AGENTS.md",
               "project-profile/PROJECT_PROFILE.md",
+              "templates/index.ts",
+              "templates/HeaderFull.tsx",
+              "templates/HeaderCentered.tsx",
+              "templates/HeroCentered.tsx",
+              "templates/HeroSplit.tsx",
+              "templates/FeatureBento.tsx",
+              "templates/FeatureCentered.tsx",
+              "templates/BlogGrid.tsx",
+              "templates/BlogList.tsx",
+              "templates/PricingCards.tsx",
+              "templates/PricingTable.tsx",
+              "templates/ContactSplit.tsx",
+              "templates/ContactCentered.tsx",
+              "templates/CtaCentered.tsx",
+              "templates/CtaSplit.tsx",
+              "templates/FaqAccordion.tsx",
+              "templates/FooterMultiColumn.tsx",
+              "templates/FooterCentered.tsx",
+              "templates/CommandPalette.tsx",
+              "templates/ActivityTable.tsx",
+              "templates/TerminalPreview.tsx",
+              "templates/StatsRow.tsx",
               "references/PUSH_PROTOCOL.md",
               "references/TYPOGRAPHY_AND_FONTS_GUIDE.md",
               "references/COLOR_AND_CONTAINER_ENGINE.md",
@@ -76,10 +98,10 @@ jobs:
             ];
             for (const f of requiredFiles) {
               if (!fs.existsSync(f)) {
-                throw new Error("Required repository documentation file is missing: " + f);
+                throw new Error("Required repository asset is missing: " + f);
               }
             }
-            console.log("✔ All " + requiredFiles.length + " core documentation assets verified present.");
+            console.log("✔ All " + requiredFiles.length + " core documentation & template assets verified present.");
           '
 
   # -------------------------------------------------------------

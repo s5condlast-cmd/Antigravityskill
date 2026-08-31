@@ -124,6 +124,21 @@ Antigravityskill/
 │   └── pull_request_template.md           # Pull request quality template
 ├── project-profile/
 │   └── PROJECT_PROFILE.md                 # Project facts, standards, and invariants
+├── templates/                             # Handcrafted, production-ready React+Tailwind templates
+│   ├── HeaderFull.tsx & HeaderCentered.tsx
+│   ├── HeroCentered.tsx & HeroSplit.tsx
+│   ├── FeatureBento.tsx & FeatureCentered.tsx
+│   ├── BlogGrid.tsx & BlogList.tsx
+│   ├── PricingCards.tsx & PricingTable.tsx
+│   ├── ContactSplit.tsx & ContactCentered.tsx
+│   ├── CtaCentered.tsx & CtaSplit.tsx
+│   ├── FaqAccordion.tsx
+│   ├── FooterMultiColumn.tsx & FooterCentered.tsx
+│   ├── CommandPalette.tsx
+│   ├── ActivityTable.tsx
+│   ├── TerminalPreview.tsx
+│   ├── StatsRow.tsx
+│   └── index.ts
 ├── references/
 │   ├── PUSH_PROTOCOL.md                   # Fast & safe Git delivery protocol
 │   ├── TYPOGRAPHY_AND_FONTS_GUIDE.md      # Mathematical typography & font optics
