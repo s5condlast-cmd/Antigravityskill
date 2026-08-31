@@ -73,6 +73,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 `Leonxlnx/taste-skill` contains **no JavaScript library code**. It is an AI skill that injects aesthetic rules into your AI assistant to eradicate generic "AI slop" interfaces (like cookie-cutter purple gradients, nested cards, and cramped typography).
 
 ### Core Aesthetic Dials
+
 When prompting your AI to build or restyle frontend interfaces, you can reference these dials:
 
 * **`DESIGN_VARIANCE` (0.0 to 1.0)**:
@@ -86,6 +87,7 @@ When prompting your AI to build or restyle frontend interfaces, you can referenc
   * `expressive` = Smooth staggered entrances and fluid spring animations.
 
 ### What Taste-Skill Teaches the AI to Avoid
+
 1. ❌ **No Generic Gradients**: Eliminates cliché purple-to-blue linear background washes.
 2. ❌ **No Nested Card Hell**: Stops wrapping cards inside cards with redundant borders.
 3. ❌ **No Low-Contrast Gray Text**: Enforces accessible, legible typography hierarchy.
